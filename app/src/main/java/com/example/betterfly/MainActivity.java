@@ -1,7 +1,6 @@
 package com.example.betterfly;
 
 
-import android.content.Context;
 import com.google.firebase.FirebaseApp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -106,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-      //  FirebaseApp.initializeApp(this);
         switch (view.getId()) {
             case R.id.textViewSignup:
                 finish();
