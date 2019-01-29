@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
+    android:backgroundTint="@color/bluesh"
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
