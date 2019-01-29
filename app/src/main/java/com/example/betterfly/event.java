@@ -9,14 +9,12 @@ public class event {
     protected Date date;
     protected double cHours;
     protected Location location;
-    protected organization org;
 
-    public event(String n, String des, Date d, double ch, Location l, organization o){
+    public event(String n, String des, Date d, double ch, Location l){
         name=n;
         descreption=des;
         cHours=ch;
         date=d;
         location=l;
-        org=o;
     }
 }
