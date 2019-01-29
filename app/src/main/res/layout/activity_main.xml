@@ -21,16 +21,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="18dp">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="364dp"
-            android:layout_height="108dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="58dp"
-            android:src="@drawable/logo" />
-
         <TextView
-            android:id="@+id/caption"
+            android:id="@+id/caption3"
             android:layout_width="299dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/logo"
@@ -39,13 +31,21 @@
             android:layout_marginStart="39dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="39dp"
-            android:fontFamily="casual"
+            android:fontFamily="cursive"
             android:text="We help you find volnteering apportunities"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="364dp"
+            android:layout_height="108dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="58dp"
+            android:src="@drawable/logo" />
 
     </RelativeLayout>
 
@@ -53,12 +53,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_weight="1"
         android:background="@color/trans"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/r"
-        tools:layout_editor_absoluteX="16dp">
+        tools:layout_editor_absoluteX="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,6 +83,7 @@
                 android:hint="  Email"
                 android:inputType="textEmailAddress"
                 android:paddingBottom="15dp"
+                android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary" />
 
             <EditText
@@ -94,7 +94,7 @@
                 android:hint="  Password"
                 android:inputType="textPassword"
                 android:paddingBottom="15dp"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary" />
 
 
@@ -104,39 +104,39 @@
                 android:layout_height="wrap_content"
                 android:padding="15dp"
                 android:text="Forget password?"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPrimaryDark" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:textColor="@color/important"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/buttonLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="184dp"
+                android:layout_height="32dp"
                 android:layout_gravity="center"
-                android:layout_margin="7dp"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="7dp"
-                android:layout_marginBottom="7dp"
-                android:background="@color/colorPrimaryDark"
-                android:text="Login"
+                android:background="@drawable/round_button"
+                android:text="Signin"
                 android:textAllCaps="false"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textViewSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:fontFamily="casual"
                 android:padding="15dp"
                 android:text="Don't have account? Sign Up"
                 android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 

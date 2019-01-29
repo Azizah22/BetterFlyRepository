@@ -6,9 +6,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
+    android:backgroundTint="@color/bluesh"
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     tools:context=".vsignUp">
+
+    <TextView
+        android:id="@+id/caption"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_alignStart="@+id/logo"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="cursive"
+        android:text="We help you find volnteering apportunities"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="34dp" />
 
     <EditText
         android:id="@+id/email_signup"
@@ -18,9 +36,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
         android:autofillHints=""
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/bluesh1"
         android:ems="10"
-        android:hint="          Email"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,19 +52,18 @@
         android:layout_width="289dp"
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
         android:autofillHints=""
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/bluesh1"
         android:ems="10"
-        android:hint="          Name"
+        android:hint="Name"
         android:inputType="textPersonName"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caption"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="253dp" />
 
     <EditText
         android:id="@+id/DoB"
@@ -56,9 +73,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
         android:autofillHints=""
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/bluesh1"
         android:ems="10"
-        android:hint="         Date Of Birth"
+        android:hint="Date Of Birth"
         android:inputType="date"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,9 +91,9 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/bluesh1"
         android:ems="10"
-        android:hint="          Password"
+        android:hint="Password"
         android:inputType="textPassword"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,9 +108,9 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/bluesh1"
         android:ems="10"
-        android:hint="          Repeat password"
+        android:hint="Repeat password"
         android:inputType="textPassword"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,53 +124,16 @@
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/round_button"
         android:text="Sign up"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.427"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="539dp" />
+        tools:layout_editor_absoluteY="582dp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:contentDescription="TODO"
-        android:src="@android:drawable/ic_lock_lock"
-        android:tint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/password_signup"
-        app:layout_constraintStart_toStartOf="@+id/password_signup"
-        app:layout_constraintTop_toTopOf="@+id/password_signup"
-        app:layout_constraintVertical_bias="0.411"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:contentDescription="TODO"
-        android:src="@android:drawable/ic_lock_lock"
-        android:tint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/repassword_signup"
-        app:layout_constraintStart_toStartOf="@+id/repassword_signup"
-        app:layout_constraintTop_toTopOf="@+id/repassword_signup"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="24dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:src="@android:drawable/ic_dialog_email"
-        android:tint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/email_signup"
-        app:layout_constraintStart_toStartOf="@+id/email_signup"
-        app:layout_constraintTop_toTopOf="@+id/email_signup" />
 
     <ImageView
         android:id="@+id/logo"
@@ -165,20 +145,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp" />
-
-    <TextView
-        android:id="@+id/caption"
-        android:layout_width="299dp"
-        android:layout_height="69dp"
-        android:fontFamily="casual"
-        android:text="We help you find volnteering apportunities"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="33dp" />
 
     <ImageView
         android:id="@+id/cale"

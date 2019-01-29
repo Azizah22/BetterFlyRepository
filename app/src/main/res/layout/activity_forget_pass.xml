@@ -21,16 +21,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="19dp">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="364dp"
-            android:layout_height="108dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="58dp"
-            android:src="@drawable/logo" />
-
         <TextView
-            android:id="@+id/caption"
+            android:id="@+id/caption5"
             android:layout_width="299dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/logo"
@@ -39,13 +31,21 @@
             android:layout_marginStart="39dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="39dp"
-            android:fontFamily="casual"
+            android:fontFamily="cursive"
             android:text="We help you find volnteering apportunities"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="364dp"
+            android:layout_height="108dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="58dp"
+            android:src="@drawable/logo" />
 
     </RelativeLayout>
 
@@ -83,7 +83,7 @@
                 android:fontFamily="sans-serif-condensed-light"
                 android:text="Forgot my password"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="30sp" />
 
             <EditText
@@ -98,7 +98,7 @@
 
             <Button
                 android:id="@+id/buttonSet"
-                android:layout_width="match_parent"
+                android:layout_width="231dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="7dp"
@@ -107,9 +107,11 @@
                 android:layout_marginEnd="7dp"
                 android:layout_marginBottom="7dp"
                 android:background="@color/colorPrimaryDark"
+                android:fontFamily="casual"
                 android:text="Set Password"
                 android:textAllCaps="false"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp" />
         </LinearLayout>
     </RelativeLayout>
 
