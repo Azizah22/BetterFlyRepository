@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
+    android:backgroundTint="@color/bluesh"
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
@@ -41,7 +42,7 @@
             android:fontFamily="casual"
             android:text="We help you find volnteering apportunities"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
@@ -105,7 +106,7 @@
                 android:text="Forget password?"
                 android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -135,7 +136,7 @@
                 android:text="Don't have account? Sign Up"
                 android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
 
