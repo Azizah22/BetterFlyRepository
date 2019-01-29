@@ -14,7 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class forgetPass extends AppCompatActivity {
+public class forgetPass extends AppCompatActivity implements View.OnClickListener {
 
 
     FirebaseAuth mAuth;
@@ -32,10 +32,10 @@ public class forgetPass extends AppCompatActivity {
 
         editTextEmail = findViewById(R.id.editTextEmail);
         set = findViewById(R.id.buttonSet);
+        findViewById(R.id.buttonSet).setOnClickListener(this);
+        findViewById(R.id.editTextEmail).setOnClickListener(this);
 
-
-        set.setOnClickListener(new View.OnClickListener() {
-
+    }
             @Override
             public void onClick(View view) {
                 String email = editTextEmail.getText().toString().trim();
@@ -53,11 +53,10 @@ public class forgetPass extends AppCompatActivity {
                             }else {
                                 Toast.makeText(forgetPass.this,"Error in sending password reset email!!", Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     });
                 }
-            }
-        });
+
     }
+
 }
