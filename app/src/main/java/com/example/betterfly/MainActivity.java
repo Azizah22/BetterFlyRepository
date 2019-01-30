@@ -20,8 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
-
     FirebaseAuth mAuth;
     EditText editTextEmail, editTextPassword;
     ProgressBar progressBar;

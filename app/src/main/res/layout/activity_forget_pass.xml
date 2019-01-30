@@ -44,8 +44,20 @@
             android:layout_width="364dp"
             android:layout_height="108dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="58dp"
+            android:layout_marginTop="0dp"
             android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:layout_marginTop="78dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Forgot my password"
+            android:textAlignment="center"
+            android:textColor="@color/important"
+            android:textSize="24sp" />
 
     </RelativeLayout>
 
@@ -75,16 +87,6 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp">
 
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed-light"
-                android:text="Forgot my password"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/editTextEmail"
