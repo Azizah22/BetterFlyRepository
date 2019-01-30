@@ -36,8 +36,8 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
         editTextIdApproval = (EditText) findViewById(R.id.Aproval_ID);
         editTextName = (EditText) findViewById(R.id.name);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        progressBar.setVisibility(View.GONE);
+  //      progressBar = (ProgressBar) findViewById(R.id.progressbar);
+//        progressBar.setVisibility(View.GONE);
 
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
@@ -116,7 +116,9 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
+
+
+       // progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -136,7 +138,7 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
 
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            progressBar.setVisibility(View.GONE);
+                       //     progressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 Toast.makeText(osignUp.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
                                 finish();

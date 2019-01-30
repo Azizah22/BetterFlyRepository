@@ -37,14 +37,15 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vsign_up);
+        findViewById(R.id.sign_up).setOnClickListener(this);
 
         editTextEmail = (EditText) findViewById(R.id.email_signup);
         editTextPassword = (EditText) findViewById(R.id.password_signup);
         editTextName = (EditText) findViewById(R.id.name);
         editTextDoB = (EditText) findViewById(R.id.DoB);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        progressBar.setVisibility(View.GONE);
+       // progressBar = (ProgressBar) findViewById(R.id.progressbar);
+//        progressBar.setVisibility(View.GONE);
 
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
@@ -124,7 +125,7 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
             editTextName.requestFocus();
             return;
         }
-        progressBar.setVisibility(View.VISIBLE);
+     //   progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -143,7 +144,7 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
 
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            progressBar.setVisibility(View.GONE);
+                      //      progressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 Toast.makeText(vsignUp.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
                                 finish();
