@@ -10,11 +10,30 @@
 
 
     <EditText
+        android:id="@+id/name"
+        android:layout_width="289dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="18dp"
+        android:autofillHints=""
+        android:background="@color/bluesh1"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caption4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
         android:id="@+id/email_signup"
         android:layout_width="289dp"
         android:layout_height="51dp"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
         android:background="@color/bluesh1"
         android:ems="10"
@@ -23,9 +42,9 @@
         android:textAlignment="viewStart"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.418"
+        app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caption4"
+        app:layout_constraintTop_toBottomOf="@+id/name"
         tools:ignore="MissingConstraints" />
 
 <EditText

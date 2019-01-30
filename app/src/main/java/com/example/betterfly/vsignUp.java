@@ -37,6 +37,7 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vsign_up);
+        findViewById(R.id.sign_up).setOnClickListener(this);
 
         editTextEmail = (EditText) findViewById(R.id.email_signup);
         editTextPassword = (EditText) findViewById(R.id.password_signup);
