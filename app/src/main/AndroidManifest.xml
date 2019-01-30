@@ -21,6 +21,9 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".vsignUp" />
         <activity android:name=".osignUp" />
+        <activity android:name=".OrgProcessActivity"/>
+
+
     </application>
 
 </manifest>

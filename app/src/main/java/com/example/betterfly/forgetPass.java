@@ -60,6 +60,10 @@ public class forgetPass extends AppCompatActivity implements View.OnClickListene
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(forgetPass.this, "We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
+                            finish();
+                            Intent intent = new Intent(forgetPass.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(forgetPass.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
                         }

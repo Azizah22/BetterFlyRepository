@@ -15,8 +15,13 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.text.DateFormat;
+import java.util.Locale;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,6 +35,7 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
     private ProgressBar progressBar;
     EditText editTextEmail, editTextPassword , editTextRepeatPassword , editTextName, editTextDoB;
     DatePickerDialog.OnDateSetListener datePickerDoB;
+    String date;
 
     private FirebaseAuth mAuth;
 
@@ -37,12 +43,13 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vsign_up);
-        findViewById(R.id.sign_up).setOnClickListener(this);
+
 
         editTextEmail = (EditText) findViewById(R.id.email_signup);
         editTextPassword = (EditText) findViewById(R.id.password_signup);
         editTextName = (EditText) findViewById(R.id.name);
         editTextDoB = (EditText) findViewById(R.id.DoB);
+        editTextRepeatPassword = (EditText) findViewById(R.id.repassword_signup);
 
        // progressBar = (ProgressBar) findViewById(R.id.progressbar);
 //        progressBar.setVisibility(View.GONE);
@@ -72,21 +79,25 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
                 month=month+1;
                 Log.d(TAG,"onDateSet: dd/mm/yyyy:"+ dayOfMonth+"/"+month+"/"+year);
 
-                String date=dayOfMonth+"/"+month+"/"+year;
+                 date=dayOfMonth+"/"+month+"/"+year;
                 editTextDoB.setText(date);
 
             }
         };
 
-
+        findViewById(R.id.sign_up).setOnClickListener(this);
     }
-    private void registerUser(){
+    private void registerUser() throws ParseException {
+        final String name = editTextName.getText().toString().trim();
         final String email = editTextEmail.getText().toString().trim();
 
         final String password = editTextPassword.getText().toString().trim();
         String repaetPassword = editTextRepeatPassword.getText().toString().trim();
-        final String name = editTextName.getText().toString().trim();
-        final Date DoB= (Date) datePickerDoB;
+
+       // final String DobString = editTextDoB.getText().toString().trim();
+     DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
+        final Date DoB= format.parse(date);
+
         if(email.isEmpty()){
             editTextEmail.setError("Email is required");
             editTextEmail.requestFocus();
@@ -94,7 +105,7 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
         }
 
 
-        if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             editTextEmail.setError("Please enter a valid email");
             editTextEmail.requestFocus();
             return;
@@ -113,9 +124,16 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
             return;
         }
 
-        if(name.isEmpty()){
-            editTextName.setError("Name is required");
-            editTextName.requestFocus();
+        if (repaetPassword.isEmpty()) {
+            editTextRepeatPassword.setError("Re-write your password");
+            editTextRepeatPassword.requestFocus();
+            return;
+        }
+
+        if (!password.equals(repaetPassword)) {
+            editTextPassword.setError("Your password does not match");
+            editTextPassword.setText("");
+            editTextRepeatPassword.setText("");
             return;
         }
 
@@ -148,13 +166,13 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
                             if (task.isSuccessful()) {
                                 Toast.makeText(vsignUp.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
                                 finish();
-                                Intent intent = new Intent(vsignUp.this, OrgProcessActivity.class);
+                                Intent intent = new Intent(vsignUp.this, vHome.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
 
                             } else {
                                 //display a failure message
-                                Toast.makeText(vsignUp.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
+                                Toast.makeText(vsignUp.this, getString(R.string.registration_fail), Toast.LENGTH_LONG).show();
                             }
 
 
@@ -174,7 +192,11 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View view){
         switch (view.getId()){
             case R.id.sign_up:
-                registerUser();
+                try {
+                    registerUser();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 break;
 
         }
