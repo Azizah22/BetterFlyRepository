@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FirebaseApp.initializeApp(this);
 
         setContentView(R.layout.activity_main);
-        int reem;
+        int nouraaaaa;
         mAuth = FirebaseAuth.getInstance();
 
         editTextEmail = findViewById(R.id.editTextEmail);
