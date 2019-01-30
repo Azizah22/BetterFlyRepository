@@ -6,7 +6,8 @@
     <string name="input_error_name">name required</string>
     <string name="input_error_email">email required</string>
     <string name="input_error_password">password required</string>
-    <string name="input_error_password_length">password should be atleast 6 characters long</string>
+    <string name="input_error_password_length">password should be at least 6 characters long</string>
     <string name="registration_success">Registered Successfully</string>
+    <string name="registration_fail">Registration Failed</string>
     <string name="input_error_email_invalid">enter a valid email</string>
 </resources>

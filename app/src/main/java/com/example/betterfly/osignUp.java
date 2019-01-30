@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class osignUp extends AppCompatActivity implements View.OnClickListener {
 
     private ProgressBar progressBar;
-    private EditText editTextEmail, editTextPassword, editTextRepeatPassword, editTextIdApproval;
+    private EditText editTextName, editTextEmail, editTextPassword, editTextRepeatPassword, editTextIdApproval;
 
     private FirebaseAuth mAuth;
 
@@ -34,6 +34,7 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
         editTextPassword = (EditText) findViewById(R.id.password_signup);
         editTextRepeatPassword = (EditText) findViewById(R.id.repassword_signup);
         editTextIdApproval = (EditText) findViewById(R.id.Aproval_ID);
+        editTextName = (EditText) findViewById(R.id.name);
 
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
         progressBar.setVisibility(View.GONE);
@@ -49,10 +50,18 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
         final String email = editTextEmail.getText().toString().trim();
 
         ///NAME OF THE ORG
-        final String name = null;
+        final String name = editTextName.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
         String repaetPassword = editTextRepeatPassword.getText().toString().trim();
         final String approvalId = editTextIdApproval.getText().toString().trim();
+
+
+
+        if (name.isEmpty()) {
+            editTextName.setError("Name is required");
+            editTextName.requestFocus();
+            return;
+        }
 
         if (email.isEmpty()) {
             editTextEmail.setError("Email is required");
@@ -61,7 +70,7 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
         }
 
 
-        if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             editTextEmail.setError("Please enter a valid email");
             editTextEmail.requestFocus();
             return;
@@ -137,7 +146,7 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
 
                             } else {
                                 //display a failure message
-                                Toast.makeText(osignUp.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
+                                Toast.makeText(osignUp.this, getString(R.string.registration_fail), Toast.LENGTH_LONG).show();
                             }
 
 
