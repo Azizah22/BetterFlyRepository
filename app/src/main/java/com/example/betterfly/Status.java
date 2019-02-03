@@ -1,5 +1,5 @@
 package com.example.betterfly;
 
 enum Status {
-    APPROVED , PROCESSING , REJECTED
+    APPROVED , PROCESSING
 }

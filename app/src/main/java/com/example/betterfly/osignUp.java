@@ -18,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class osignUp extends AppCompatActivity implements View.OnClickListener {
 
     private ProgressBar progressBar;
@@ -128,7 +130,9 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
                             name,
                             email,
                             approvalId,
-                            Status.PROCESSING
+                            Status.PROCESSING,
+                            null,
+                            null
 
                     );
 

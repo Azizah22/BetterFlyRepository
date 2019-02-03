@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".forgetPass"></activity>
+        <activity android:name=".ApproveOrg"></activity>
+        <activity android:name=".forgetPass" />
         <activity android:name=".vHome" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -21,9 +22,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".vsignUp" />
         <activity android:name=".osignUp" />
-        <activity android:name=".OrgProcessActivity"/>
-
-
+        <activity android:name=".OrgProcessActivity" />
     </application>
 
 </manifest>
