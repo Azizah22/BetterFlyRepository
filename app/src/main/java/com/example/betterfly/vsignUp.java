@@ -9,13 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -36,6 +36,7 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
     EditText editTextEmail, editTextPassword , editTextRepeatPassword , editTextName, editTextDoB;
     DatePickerDialog.OnDateSetListener datePickerDoB;
     String date;
+    Date DoB;
 
     private FirebaseAuth mAuth;
 
@@ -44,10 +45,10 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vsign_up);
 
-
-        editTextEmail = (EditText) findViewById(R.id.email_signup);
-        editTextPassword = (EditText) findViewById(R.id.password_signup);
         editTextName = (EditText) findViewById(R.id.name);
+        editTextEmail = (EditText) findViewById(R.id.chours);
+        editTextPassword = (EditText) findViewById(R.id.password_signup);
+
         editTextDoB = (EditText) findViewById(R.id.DoB);
         editTextRepeatPassword = (EditText) findViewById(R.id.repassword_signup);
 
@@ -94,53 +95,67 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
         final String password = editTextPassword.getText().toString().trim();
         String repaetPassword = editTextRepeatPassword.getText().toString().trim();
 
+
        // final String DobString = editTextDoB.getText().toString().trim();
-     DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
-        final Date DoB= format.parse(date);
-
-        if(email.isEmpty()){
-            editTextEmail.setError("Email is required");
-            editTextEmail.requestFocus();
-            return;
+        if(date!=null) {
+            DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
+            DoB = format.parse(date);
         }
 
+        if(email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(email).matches()||password.isEmpty()|| password.length()<6||repaetPassword.isEmpty()|| !password.equals(repaetPassword)||name.isEmpty() ||DoB==null) {
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            editTextEmail.setError("Please enter a valid email");
-            editTextEmail.requestFocus();
-            return;
-        }
-
-
-        if(password.isEmpty()){
-            editTextPassword.setError("Password is required");
-            editTextPassword.requestFocus();
-            return;
-        }
-
-        if(password.length()<6){
-            editTextPassword.setError("Minimum length of password should be 6 characters");
-            editTextPassword.requestFocus();
-            return;
-        }
-
-        if (repaetPassword.isEmpty()) {
-            editTextRepeatPassword.setError("Re-write your password");
-            editTextRepeatPassword.requestFocus();
-            return;
-        }
-
-        if (!password.equals(repaetPassword)) {
-            editTextPassword.setError("Your password does not match");
-            editTextPassword.setText("");
-            editTextRepeatPassword.setText("");
-            return;
-        }
+            if (email.isEmpty()) {
+                editTextEmail.setError("Email is required");
+                editTextEmail.requestFocus();
+               // return;
+            }
 
 
-        if(name.isEmpty()){
-            editTextName.setError("Please enter your name");
-            editTextName.requestFocus();
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                editTextEmail.setError("Please enter a valid email");
+                editTextEmail.requestFocus();
+              //  return;
+            }
+
+
+            if (password.isEmpty()) {
+                editTextPassword.setError("Password is required");
+                editTextPassword.requestFocus();
+              //  return;
+            }
+
+            if (password.length() < 6) {
+                editTextPassword.setError("Minimum length of password should be 6 characters");
+                editTextPassword.requestFocus();
+               // return;
+            }
+
+            if (repaetPassword.isEmpty()) {
+                editTextRepeatPassword.setError("Re-write your password");
+                editTextRepeatPassword.requestFocus();
+              //  return;
+            }
+
+            if (!password.equals(repaetPassword)) {
+                editTextPassword.setError("Your password does not match");
+                editTextPassword.setText("");
+                editTextRepeatPassword.setText("");
+              //  return;
+            }
+
+
+            if (name.isEmpty()) {
+                editTextName.setError("Please enter your name");
+                editTextName.requestFocus();
+                //return;
+            }
+
+            if (DoB==null) {
+                editTextName.setError("Please enter your Date of Birth");
+                editTextName.requestFocus();
+                //return;
+            }
+
             return;
         }
      //   progressBar.setVisibility(View.VISIBLE);
@@ -200,6 +215,20 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
                 break;
 
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            return true;
+        }
+        return false;
     }
 
 }

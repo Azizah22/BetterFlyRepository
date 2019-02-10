@@ -32,7 +32,7 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="39dp"
             android:fontFamily="cursive"
-            android:text="We help you find volnteering apportunities"
+            android:text="We help you find volunteering abnormalities"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"

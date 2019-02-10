@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
-    android:backgroundTint="@color/bluesh"
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     tools:context=".vsignUp">
@@ -18,34 +17,19 @@
         android:layout_below="@+id/logo"
         android:layout_alignStart="@+id/logo"
         android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="cursive"
-        android:text="We help you find volnteering apportunities"
+        android:text="We help you find volunteering opportunities"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="34dp" />
-
-    <EditText
-        android:id="@+id/email_signup"
-        android:layout_width="289dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="18dp"
-        android:autofillHints=""
-        android:background="@color/bluesh1"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
         tools:ignore="MissingConstraints" />
+
 
     <EditText
         android:id="@+id/name"
@@ -65,6 +49,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/caption"
         tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/chours"
+        android:layout_width="289dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:autofillHints=""
+        android:background="@color/bluesh1"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:ignore="MissingConstraints" />
+
+
 
     <EditText
         android:id="@+id/DoB"
@@ -100,7 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_signup" />
+        app:layout_constraintTop_toBottomOf="@+id/chours" />
 
     <EditText
         android:id="@+id/repassword_signup"
@@ -143,7 +148,6 @@
         android:layout_height="108dp"
         android:layout_marginTop="68dp"
         android:src="@drawable/logo"
-        android:tint="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp" />

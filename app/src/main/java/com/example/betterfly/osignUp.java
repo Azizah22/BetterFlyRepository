@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Patterns;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -17,8 +18,6 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 public class osignUp extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,11 +31,12 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_osign_up);
 
-        editTextEmail = (EditText) findViewById(R.id.email_signup);
+        editTextName = (EditText) findViewById(R.id.name);
+        editTextEmail = (EditText) findViewById(R.id.chours);
         editTextPassword = (EditText) findViewById(R.id.password_signup);
         editTextRepeatPassword = (EditText) findViewById(R.id.repassword_signup);
         editTextIdApproval = (EditText) findViewById(R.id.Aproval_ID);
-        editTextName = (EditText) findViewById(R.id.name);
+
 
   //      progressBar = (ProgressBar) findViewById(R.id.progressbar);
 //        progressBar.setVisibility(View.GONE);
@@ -59,65 +59,68 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
 
 
 
-        if (name.isEmpty()) {
-            editTextName.setError("Name is required");
-            editTextName.requestFocus();
+        if(name.isEmpty()|| email.isEmpty()|| !Patterns.EMAIL_ADDRESS.matcher(email).matches()||password.isEmpty()||password.length() < 6|| repaetPassword.isEmpty()|| !password.equals(repaetPassword)|| approvalId.isEmpty()|| approvalId.length() < 4) {
+
+            if (name.isEmpty()) {
+                editTextName.setError("Name is required");
+                editTextName.requestFocus();
+               // return;
+            }
+
+            if (email.isEmpty()) {
+                editTextEmail.setError("Email is required");
+                editTextEmail.requestFocus();
+                //return;
+            }
+
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                editTextEmail.setError("Please enter a valid email");
+                editTextEmail.requestFocus();
+                //return;
+            }
+
+
+            if (password.isEmpty()) {
+                editTextPassword.setError("Password is required");
+                editTextPassword.requestFocus();
+                //return;
+            }
+
+            if (password.length() < 6) {
+                editTextPassword.setError("Minimum length of password should be 6 characters");
+                editTextPassword.requestFocus();
+                //return;
+            }
+
+            if (repaetPassword.isEmpty()) {
+                editTextRepeatPassword.setError("Re-write your password");
+                editTextRepeatPassword.requestFocus();
+                //return;
+            }
+
+            if (!password.equals(repaetPassword)) {
+                editTextPassword.setError("Your password does not match");
+                editTextPassword.setText("");
+                editTextRepeatPassword.setText("");
+                //return;
+            }
+
+
+            if (approvalId.isEmpty()) {
+                editTextIdApproval.setError("Approval ID is required");
+                editTextIdApproval.requestFocus();
+                //return;
+            }
+
+
+            if (approvalId.length() < 4) {
+                editTextIdApproval.setError("Minimum length of approval ID should be 4 characters");
+                editTextIdApproval.requestFocus();
+                //return;
+            }
             return;
         }
-
-        if (email.isEmpty()) {
-            editTextEmail.setError("Email is required");
-            editTextEmail.requestFocus();
-            return;
-        }
-
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editTextEmail.setError("Please enter a valid email");
-            editTextEmail.requestFocus();
-            return;
-        }
-
-
-        if (password.isEmpty()) {
-            editTextPassword.setError("Password is required");
-            editTextPassword.requestFocus();
-            return;
-        }
-
-        if (password.length() < 6) {
-            editTextPassword.setError("Minimum length of password should be 6 characters");
-            editTextPassword.requestFocus();
-            return;
-        }
-
-        if (repaetPassword.isEmpty()) {
-            editTextRepeatPassword.setError("Re-write your password");
-            editTextRepeatPassword.requestFocus();
-            return;
-        }
-
-        if (!password.equals(repaetPassword)) {
-            editTextPassword.setError("Your password does not match");
-            editTextPassword.setText("");
-            editTextRepeatPassword.setText("");
-            return;
-        }
-
-
-        if (approvalId.isEmpty()) {
-            editTextIdApproval.setError("Approval ID is required");
-            editTextIdApproval.requestFocus();
-            return;
-        }
-
-
-        if (approvalId.length() < 4) {
-            editTextIdApproval.setError("Minimum length of approval ID should be 4 characters");
-            editTextIdApproval.requestFocus();
-            return;
-        }
-
 
 
        // progressBar.setVisibility(View.VISIBLE);
@@ -177,5 +180,19 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
                 break;
 
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            return true;
+        }
+        return false;
     }
 }

@@ -29,7 +29,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/email_signup"
+        android:id="@+id/chours"
         android:layout_width="289dp"
         android:layout_height="51dp"
         android:layout_marginStart="18dp"
@@ -62,7 +62,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.406"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/email_signup" />
+    app:layout_constraintTop_toBottomOf="@+id/chours" />
 
 <EditText
     android:id="@+id/repassword_signup"
@@ -84,14 +84,14 @@
     <EditText
         android:id="@+id/Aproval_ID"
         android:layout_width="289dp"
-        android:layout_height="69dp"
+        android:layout_height="59dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
         android:background="@color/bluesh1"
         android:elegantTextHeight="false"
         android:ems="10"
-        android:hint="Write your ID"
+        android:hint="Write the organization's ID"
         android:inputType="textShortMessage"
         android:text=""
         android:textColor="@color/colorPrimary"
@@ -124,7 +124,6 @@
         android:layout_height="108dp"
         android:layout_marginTop="68dp"
         android:src="@drawable/logo"
-        android:tint="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp" />
@@ -138,7 +137,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="11dp"
         android:fontFamily="cursive"
-        android:text="We help you find volnteering apportunities"
+        android:text="We help you find volunteering opportunities"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
