@@ -1,8 +1,10 @@
 package com.example.betterfly;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -14,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class dataRetrieved extends AppCompatActivity {
+public class dataRetrieved extends AppCompatActivity implements View.OnClickListener {
 
     private ListView listView;
     DatabaseReference databaseReference;
@@ -30,6 +32,7 @@ public class dataRetrieved extends AppCompatActivity {
         databaseReference= FirebaseDatabase.getInstance().getReference("Organization");
 
         organizationList=new ArrayList<>();
+        findViewById(R.id.orgName).setOnClickListener(this);
     }
 
     @Override
@@ -55,5 +58,14 @@ public class dataRetrieved extends AppCompatActivity {
 
             }
         });
+    }
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.orgName:
+                finish();
+                startActivity(new Intent(this, ApproveOrg.class));
+                break;
+
+        }
     }
 }
