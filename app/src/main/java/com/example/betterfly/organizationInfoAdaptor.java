@@ -28,11 +28,15 @@ public class organizationInfoAdaptor extends ArrayAdapter<Organization> {
         View listView=inflater.inflate(R.layout.list, null, true);
 
         TextView organizationName=(TextView)listView.findViewById(R.id.orgName);
-       // TextView organizationStatus=(TextView)listView.findViewById(R.id.orgStatus);
+        TextView organizationStatus=(TextView)listView.findViewById(R.id.orgStatus);
 
         Organization organization= organizationList.get(position);
+        if(organization.getStatus().equals("PROCESSING"))
+            organizationStatus.setText("PROCESSING");
+        if(organization.getStatus().equals("APPROVED"))
+            organizationStatus.setText("APPROVED");
         organizationName.setText(organization.name);
-        organization.setStatus(Status.PROCESSING);
+
 
         return listView;
 
