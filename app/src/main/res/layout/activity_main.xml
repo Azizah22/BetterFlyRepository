@@ -16,10 +16,9 @@
         android:id="@+id/r"
         android:layout_width="match_parent"
         android:layout_height="259dp"
-        android:layout_marginTop="56dp"
         android:layout_weight="1"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="18dp">
+        tools:layout_editor_absoluteX="16dp">
 
         <TextView
             android:id="@+id/caption3"
@@ -44,7 +43,7 @@
             android:layout_width="364dp"
             android:layout_height="108dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="58dp"
+            android:layout_marginTop="95dp"
             android:src="@drawable/logo" />
 
     </RelativeLayout>
