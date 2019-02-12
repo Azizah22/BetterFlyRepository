@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/SignUpV"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    tools:context=".vsignUp">
+
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="289dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:autofillHints=""
+        android:background="@color/bluesh1"
+        android:ems="10"
+        android:hint="Event Name"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/chours"
+        android:layout_width="289dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="18dp"
+        android:autofillHints=""
+        android:background="@color/bluesh1"
+        android:ems="10"
+        android:hint="Credit hours"
+        android:inputType="numberDecimal"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:ignore="MissingConstraints" />
+
+
+    <EditText
+        android:id="@+id/loc"
+        android:layout_width="289dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:autofillHints=""
+        android:background="@color/bluesh1"
+        android:ems="10"
+        android:hint="Location"
+        android:inputType="textShortMessage"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chours"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/vnum"
+        android:layout_width="289dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:autofillHints=""
+        android:background="@color/bluesh1"
+        android:ems="10"
+        android:hint="Maximum number of volunteers"
+        android:inputType="numberDecimal"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loc"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/des"
+        android:layout_width="290dp"
+        android:layout_height="134dp"
+        android:layout_marginTop="60dp"
+        android:autofillHints=""
+        android:background="@color/bluesh1"
+        android:ems="10"
+        android:hint="Event Descreption"
+        android:inputType="textLongMessage"
+        android:textAlignment="viewStart"
+        app:layout_constraintTop_toBottomOf="@+id/vnum"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <Button
+        android:id="@+id/post"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/round_button"
+        android:text="Post"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="612dp" />
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="364dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ImageView
+        android:id="@+id/cale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="false"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vnum"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+    <TextView
+        android:id="@+id/DoB"
+        android:layout_width="198dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintStart_toEndOf="@+id/cale"
+        app:layout_constraintTop_toBottomOf="@+id/vnum"
+        tools:text="   Event Start Date" />
+
+
+</android.support.constraint.ConstraintLayout>
