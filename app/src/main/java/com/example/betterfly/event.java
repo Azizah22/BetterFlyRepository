@@ -5,14 +5,15 @@ import android.location.Location;
 import java.util.Date;
 
 public class event {
-    protected String name, descreption;
+    protected String ID, name, descreption,location;
     protected Date date;
-    protected double cHours;
-    protected String location;
-    protected  String [] emails ;
+    protected int cHours;
+    protected String [] emails ;
 
 
-    public event(String n, String des, Date d, double ch, String l, int num){
+
+    public event(String id,String n, String des, Date d, int ch, String l, int num){
+        ID=id;
         name=n;
         descreption=des;
         cHours=ch;
@@ -33,7 +34,7 @@ public class event {
         return date;
     }
 
-    public double getcHours() {
+    public int getcHours() {
         return cHours;
     }
 
@@ -57,7 +58,7 @@ public class event {
         this.date = date;
     }
 
-    public void setcHours(double cHours) {
+    public void setcHours(int cHours) {
         this.cHours = cHours;
     }
 

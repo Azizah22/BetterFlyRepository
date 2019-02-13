@@ -8,19 +8,31 @@
     android:background="@drawable/wallpaper"
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
+<<<<<<< HEAD
     tools:context=".vsignUp">
+=======
+    tools:context=".postEvent">
+>>>>>>> 0d62e776649a3b9027bbb2bd819abf1dca018e29
 
 
     <EditText
         android:id="@+id/name"
+<<<<<<< HEAD
         android:layout_width="289dp"
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
+=======
+        android:layout_width="282dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="56dp"
+>>>>>>> 0d62e776649a3b9027bbb2bd819abf1dca018e29
         android:layout_marginEnd="18dp"
         android:autofillHints=""
         android:background="@color/bluesh1"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="Event Name"
         android:inputType="textPersonName"
         android:textAlignment="viewStart"
@@ -36,10 +48,31 @@
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="12dp"
+=======
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        tools:ignore="MissingConstraints"
+        tools:text="Event name" />
+
+
+    <EditText
+        android:id="@+id/loc"
+        android:layout_width="282dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="7dp"
+>>>>>>> 0d62e776649a3b9027bbb2bd819abf1dca018e29
         android:layout_marginEnd="18dp"
         android:autofillHints=""
         android:background="@color/bluesh1"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="Credit hours"
         android:inputType="numberDecimal"
         android:textAlignment="viewStart"
@@ -56,10 +89,30 @@
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
+=======
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NoV"
+        tools:ignore="MissingConstraints"
+        tools:text="Event location" />
+
+    <EditText
+        android:id="@+id/desc"
+        android:layout_width="282dp"
+        android:layout_height="124dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="7dp"
+>>>>>>> 0d62e776649a3b9027bbb2bd819abf1dca018e29
         android:layout_marginEnd="18dp"
         android:autofillHints=""
         android:background="@color/bluesh1"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="Location"
         android:inputType="textShortMessage"
         android:textAlignment="viewStart"
@@ -73,12 +126,30 @@
         android:id="@+id/vnum"
         android:layout_width="289dp"
         android:layout_height="49dp"
+=======
+        android:hint="Description"
+        android:inputType="text"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loc"
+        tools:ignore="MissingConstraints"
+        tools:text="Event description" />
+
+    <EditText
+        android:id="@+id/NoV"
+        android:layout_width="283dp"
+        android:layout_height="37dp"
+>>>>>>> 0d62e776649a3b9027bbb2bd819abf1dca018e29
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
         android:autofillHints=""
         android:background="@color/bluesh1"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="Maximum number of volunteers"
         android:inputType="numberDecimal"
         android:textAlignment="viewStart"
@@ -102,27 +173,82 @@
         app:layout_constraintTop_toBottomOf="@+id/vnum"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="40dp" />
+=======
+        android:inputType="numberDecimal"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerHoures"
+        tools:ignore="MissingConstraints"
+        tools:text="Number of volunteer" />
+
+    <ImageView
+        android:id="@+id/cale"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="false"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintEnd_toStartOf="@+id/DoB"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+    <EditText
+        android:id="@+id/DoB"
+        android:layout_width="233dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="56dp"
+        android:autofillHints=""
+        android:background="@color/bluesh1"
+        android:ems="10"
+        android:hint="Event start date"
+        android:inputType="date"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cale"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:ignore="MissingConstraints" />
+>>>>>>> 0d62e776649a3b9027bbb2bd819abf1dca018e29
 
     <Button
         android:id="@+id/post"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
+<<<<<<< HEAD
         android:layout_marginEnd="8dp"
         android:background="@drawable/round_button"
         android:text="Post"
+=======
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/round_button"
+        android:text="post"
+>>>>>>> 0d62e776649a3b9027bbb2bd819abf1dca018e29
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="612dp" />
+=======
+        app:layout_constraintTop_toBottomOf="@+id/desc"
+        tools:ignore="MissingConstraints" />
+>>>>>>> 0d62e776649a3b9027bbb2bd819abf1dca018e29
 
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="364dp"
+<<<<<<< HEAD
         android:layout_height="108dp"
         android:layout_marginTop="36dp"
         android:src="@drawable/logo"
@@ -153,6 +279,26 @@
         app:layout_constraintStart_toEndOf="@+id/cale"
         app:layout_constraintTop_toBottomOf="@+id/vnum"
         tools:text="   Event Start Date" />
+=======
+        android:layout_height="98dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <Spinner
+        android:id="@+id/spinnerHoures"
+        android:layout_width="284dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:entries="@array/cHours"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DoB" />
+>>>>>>> 0d62e776649a3b9027bbb2bd819abf1dca018e29
 
 
 </android.support.constraint.ConstraintLayout>

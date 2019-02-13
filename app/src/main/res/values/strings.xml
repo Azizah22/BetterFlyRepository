@@ -10,4 +10,13 @@
     <string name="registration_success">Registered Successfully</string>
     <string name="registration_fail">Registration Failed</string>
     <string name="input_error_email_invalid">enter a valid email</string>
+    <array name="cHours">
+        <item>-- Event credit hours --</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </array>
 </resources>

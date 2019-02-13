@@ -3,7 +3,6 @@ package com.example.betterfly;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -29,7 +28,7 @@ public class OrgProcessActivity extends AppCompatActivity implements View.OnClic
 
             case R.id.buttonAdd:
                 finish();
-                startActivity(new Intent(this, osignUp.class));
+                startActivity(new Intent(this, postEvent.class));
                 break;
         }
     }
