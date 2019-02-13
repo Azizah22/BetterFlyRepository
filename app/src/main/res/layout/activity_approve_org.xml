@@ -73,10 +73,10 @@
         android:id="@+id/reject"
         android:layout_width="265dp"
         android:layout_height="55dp"
-        android:text="Reject"
-        android:textSize="22sp"
-        android:textColor="@color/important"
         android:background="@color/bluesh"
+        android:text="Reject"
+        android:textColor="@color/important"
+        android:textSize="22sp"
         tools:layout_editor_absoluteX="68dp"
         tools:layout_editor_absoluteY="323dp" />
 

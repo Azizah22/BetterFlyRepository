@@ -2,6 +2,8 @@ package com.example.betterfly;
 
 
 import com.google.firebase.FirebaseApp;
+
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
 
+
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         progressBar = findViewById(R.id.progressbar);
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.textViewSignup).setOnClickListener(this);
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewforget).setOnClickListener(this);
+        findViewById(R.id.button).setOnClickListener(this);
 
     }
 
@@ -106,6 +110,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.textViewSignup:
                 finish();
                 startActivity(new Intent(this, SignUpActivity.class));
+                break;
+            case R.id.button:
+                finish();
+                startActivity(new Intent(this, dataRetrieved.class));
                 break;
 
             case R.id.textViewforget:
