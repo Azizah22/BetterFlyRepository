@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.betterfly">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -24,6 +25,7 @@
         <activity android:name=".vsignUp" />
         <activity android:name=".osignUp" />
         <activity android:name=".OrgProcessActivity" />
+        <activity android:name=".dataRetrieved" />
     </application>
 
 </manifest>

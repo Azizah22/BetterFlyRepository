@@ -24,13 +24,7 @@
         android:textSize="36sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/orgStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Status"
-        android:textSize="24sp"
-        android:textStyle="italic" />
+
 
 
 </LinearLayout>

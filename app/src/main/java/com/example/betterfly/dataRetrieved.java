@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class dataRetrieved extends AppCompatActivity implements View.OnClickListener {
+public class dataRetrieved extends AppCompatActivity {
 
     private ListView listView;
     DatabaseReference databaseReference;
@@ -29,10 +29,11 @@ public class dataRetrieved extends AppCompatActivity implements View.OnClickList
 
         listView=findViewById(R.id.list_view);
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("Organization");
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("Organization");
 
         organizationList=new ArrayList<>();
-        findViewById(R.id.orgName).setOnClickListener(this);
+
+      //  findViewById(R.id.orgName).setOnClickListener(this);
     }
 
     @Override
@@ -47,8 +48,8 @@ public class dataRetrieved extends AppCompatActivity implements View.OnClickList
                    organizationList.add(organization);
 
                }
-                organizationInfoAdaptor organizationInfoAdaptor=new organizationInfoAdaptor(dataRetrieved.this,organizationList);
-               listView.setAdapter(organizationInfoAdaptor);
+                organizationInfoAdaptor organizationinfoAdaptor=new organizationInfoAdaptor(dataRetrieved.this,organizationList);
+               listView.setAdapter(organizationinfoAdaptor);
 
             }
 
@@ -59,7 +60,7 @@ public class dataRetrieved extends AppCompatActivity implements View.OnClickList
             }
         });
     }
-    public void onClick(View view) {
+  /*  public void onClick(View view) {
         switch (view.getId()) {
             case R.id.orgName:
                 finish();
@@ -67,5 +68,5 @@ public class dataRetrieved extends AppCompatActivity implements View.OnClickList
                 break;
 
         }
-    }
+    }*/
 }
