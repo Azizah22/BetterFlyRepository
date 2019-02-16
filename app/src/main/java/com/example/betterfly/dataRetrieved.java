@@ -1,12 +1,17 @@
 package com.example.betterfly;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -16,16 +21,20 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class dataRetrieved extends AppCompatActivity {
+public class dataRetrieved extends AppCompatActivity implements View.OnClickListener {
 
     private ListView listView;
     DatabaseReference databaseReference;
     List<Organization>organizationList;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_retrieved);
+
 
         listView=findViewById(R.id.list_view);
 
@@ -33,8 +42,22 @@ public class dataRetrieved extends AppCompatActivity {
 
         organizationList=new ArrayList<>();
 
-      //  findViewById(R.id.orgName).setOnClickListener(this);
+        findViewById(R.id.signOut).setOnClickListener(this);
+
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.signOut:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+        }
+    }
+
+
 
     @Override
     protected void onStart() {
@@ -58,15 +81,10 @@ public class dataRetrieved extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
-    }
-  /*  public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.orgName:
-                finish();
-                startActivity(new Intent(this, ApproveOrg.class));
-                break;
 
-        }
-    }*/
+        });
+
+
+    }
+
 }

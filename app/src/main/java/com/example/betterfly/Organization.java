@@ -1,8 +1,9 @@
 package com.example.betterfly;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Organization {
+public class Organization implements Serializable {
     public String name , email , approvalId , discreption;
     public Status status;
     public ArrayList<event> eventList;

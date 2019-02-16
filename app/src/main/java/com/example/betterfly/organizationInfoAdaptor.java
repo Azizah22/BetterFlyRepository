@@ -1,19 +1,22 @@
 package com.example.betterfly;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
 
 public class organizationInfoAdaptor extends ArrayAdapter<Organization> {
-    private Activity context;
+    Activity context;
     private List<Organization> organizationList;
+   // Activity activity;
 
     public organizationInfoAdaptor( Activity context,List<Organization> organizationList){
         super(context,R.layout.list,organizationList);
@@ -21,25 +24,53 @@ public class organizationInfoAdaptor extends ArrayAdapter<Organization> {
         this.organizationList=organizationList;
     }
 
+
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater=context.getLayoutInflater();
         View listView=inflater.inflate(R.layout.list, null, true);
 
-        TextView organizationName=(TextView)listView.findViewById(R.id.orgName);
+
+       final TextView organizationName= listView.findViewById(R.id.orgName);
         //TextView organizationStatus=(TextView)listView.findViewById(R.id.orgStatus);
 
-        Organization organization= organizationList.get(position);
+    //    Organization organization= organizationList.get(position);
        /* if(organization.getStatus().equals("PROCESSING"))
             organizationStatus.setText("PROCESSING");
         if(organization.getStatus().equals("APPROVED"))
             organizationStatus.setText("APPROVED");*/
-        organizationName.setText(organization.getName());
 
+
+       // final TextView organizationName= listView.findViewById(R.id.orgName);
+        TextView organizationStatus= listView.findViewById(R.id.orgStatus);
+
+        final Organization organization= organizationList.get(position);
+        organizationName.setText(organization.name);
+        //organizationName.setText(organization.getName());
+            organizationStatus.setText(organization.status.name());
+
+
+            organizationName.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                        String orgName = organizationName.getText().toString();
+                        Intent intent = new Intent(context, ApproveOrg.class);
+                        intent.putExtra("name" ,orgName );
+                        intent.putExtra("email" , organization.email);
+                        intent.putExtra("ApprovalId", organization.approvalId);
+                        intent .putExtra("organization", organization);
+
+
+                        context.startActivity(intent);
+
+                }
+
+        });
 
         return listView;
 
 
     }
+
 }

@@ -18,7 +18,7 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
          myAuth =  FirebaseAuth.getInstance();
-        TextView signOut= findViewById(R.id.signOut);
+
         findViewById(R.id.signOut).setOnClickListener(this);
 
     }

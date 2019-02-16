@@ -3,13 +3,15 @@ package com.example.betterfly;
 import android.location.Location;
 
 import java.util.Date;
+import java.util.List;
 
 public class event {
     protected String ID, name, descreption,location;
     protected Date date;
     protected int cHours;
-    protected String [] emails ;
+    protected List<String> emails ;
 
+    int nov;
 
 
     public event(String id,String n, String des, Date d, int ch, String l, int num){
@@ -19,7 +21,8 @@ public class event {
         cHours=ch;
         date=d;
         location=l;
-        emails=new String [num];
+        nov=num;
+
     }
 
     public String getName() {
@@ -42,9 +45,6 @@ public class event {
         return location;
     }
 
-    public String[] getEmails() {
-        return emails;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -66,8 +66,5 @@ public class event {
         this.location = location;
     }
 
-    public void setEmails(String[] emails) {
-        this.emails = emails;
-    }
 
 }

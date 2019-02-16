@@ -31,9 +31,9 @@ public class forgetPass extends AppCompatActivity implements View.OnClickListene
 
         setContentView(R.layout.activity_forget_pass);
 
-        inputEmail = (EditText) findViewById(R.id.editTextEmail);
+        inputEmail = findViewById(R.id.editTextEmail);
 
-        btnReset = (Button) findViewById(R.id.buttonSet);
+        btnReset = findViewById(R.id.buttonSet);
 
 
 

@@ -4,15 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/listV"
+    android:clickable="true">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="206dp"
-        android:layout_height="81dp"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/logo"
-        tools:ignore="MissingConstraints" />
 
 
     <TextView
@@ -23,6 +18,16 @@
         android:textColor="@color/colorPrimary"
         android:textSize="36sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/orgStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textColor="@color/colorPrimary"
+        android:textSize="36sp"
+        android:textStyle="italic" />
+
 
 
 

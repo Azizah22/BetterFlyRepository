@@ -31,11 +31,11 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_osign_up);
 
-        editTextName = (EditText) findViewById(R.id.name);
-        editTextEmail = (EditText) findViewById(R.id.chours);
-        editTextPassword = (EditText) findViewById(R.id.password_signup);
-        editTextRepeatPassword = (EditText) findViewById(R.id.repassword_signup);
-        editTextIdApproval = (EditText) findViewById(R.id.Aproval_ID);
+        editTextName = findViewById(R.id.name);
+        editTextEmail = findViewById(R.id.chours);
+        editTextPassword = findViewById(R.id.password_signup);
+        editTextRepeatPassword = findViewById(R.id.repassword_signup);
+        editTextIdApproval = findViewById(R.id.Aproval_ID);
 
 
   //      progressBar = (ProgressBar) findViewById(R.id.progressbar);
@@ -140,7 +140,7 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
                     );
 
                     FirebaseDatabase.getInstance().getReference("Organization")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .child(approvalId)
                             .setValue(orgUser).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                         @Override
@@ -182,17 +182,5 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            return true;
-        }
-        return false;
-    }
+
 }

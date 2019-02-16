@@ -19,6 +19,8 @@ public class OrgProcessActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_org_process);
         add=findViewById(R.id.buttonAdd);
         findViewById(R.id.buttonAdd).setOnClickListener(this);
+        findViewById(R.id.signOut).setOnClickListener(this);
+
 
     }
 
@@ -29,6 +31,12 @@ public class OrgProcessActivity extends AppCompatActivity implements View.OnClic
             case R.id.buttonAdd:
                 finish();
                 startActivity(new Intent(this, postEvent.class));
+                break;
+
+            case R.id.signOut:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
                 break;
         }
     }

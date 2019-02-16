@@ -45,12 +45,12 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vsign_up);
 
-        editTextName = (EditText) findViewById(R.id.name);
-        editTextEmail = (EditText) findViewById(R.id.chours);
-        editTextPassword = (EditText) findViewById(R.id.password_signup);
+        editTextName = findViewById(R.id.name);
+        editTextEmail = findViewById(R.id.chours);
+        editTextPassword = findViewById(R.id.password_signup);
 
-        editTextDoB = (EditText) findViewById(R.id.DoB);
-        editTextRepeatPassword = (EditText) findViewById(R.id.repassword_signup);
+        editTextDoB = findViewById(R.id.DoB);
+        editTextRepeatPassword = findViewById(R.id.repassword_signup);
 
        // progressBar = (ProgressBar) findViewById(R.id.progressbar);
 //        progressBar.setVisibility(View.GONE);

@@ -16,7 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
+
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,7 +36,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
     DatePickerDialog.OnDateSetListener datePickerDoB;
     String date;
     Date DoE;
-    Spinner chours;
+
     FirebaseAuth mAuth;
     DatabaseReference databaseEvents;
 
@@ -45,11 +45,12 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_event);
 
-        editTextName = (EditText) findViewById(R.id.name);
-        editTextLoc =  (EditText) findViewById(R.id.loc);
-        editTextDisc = (EditText) findViewById(R.id.desc);
-        editTextnov = (EditText) findViewById(R.id.NoV);
-        editTextDoB=(EditText) findViewById(R.id.DoB);
+        editTextName = findViewById(R.id.name);
+        editTextLoc = findViewById(R.id.loc);
+        editTextDisc = findViewById(R.id.desc);
+        editTextnov = findViewById(R.id.NoV);
+        editTextDoB= findViewById(R.id.DoB);
+
         databaseEvents = FirebaseDatabase.getInstance().getReference("Events");
 
         findViewById(R.id.post).setOnClickListener(this);
@@ -102,8 +103,8 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         String name = editTextName.getText().toString().trim();
         String loc = editTextLoc.getText().toString().trim();
         String disc = editTextDisc.getText().toString().trim();
-        String chs=chours.getSelectedItem().toString();
-        int ch = Integer.parseInt(chs);
+
+        int ch = 3;
         String snov =editTextnov.getText().toString().trim();
         int nov = Integer.parseInt(snov);
 
@@ -112,7 +113,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             DoE = format.parse(date);
         }
 
-        if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(loc)&&!TextUtils.isEmpty(disc)&&!TextUtils.isEmpty(chs)&&!TextUtils.isEmpty(snov)) {
+        if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(loc)&&!TextUtils.isEmpty(disc)&&!TextUtils.isEmpty(snov)) {
             String id = databaseEvents.push().getKey();
             event e=new event (id,name,disc,DoE,ch,loc,nov);
             databaseEvents.child(id).setValue(e);
