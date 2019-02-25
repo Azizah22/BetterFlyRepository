@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#E6151516</color>
-    <color name="colorPrimaryDark">#E8458651</color>
+    <color name="colorPrimaryDark">#E8151515</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="trans">#00FFFFFF</color>
     <color name="bluesh">#C8E5E8F1</color>
@@ -9,4 +9,8 @@
     <color name="important">#DEBF5E61</color>
     <color name="green">#CB6BAA6D</color>
     <color name="heding">#E87C7424</color>
+    <color name="slategray">#708090</color>
+    <color name="lightsteelblue">#B0C4DE</color>
+    <color name="lightslategray">#778899</color>
+
 </resources>

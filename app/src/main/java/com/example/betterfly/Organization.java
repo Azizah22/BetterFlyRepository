@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Organization implements Serializable {
-    public String name , email , approvalId , discreption;
+    public String name , email , approvalId , discreption , password;
     public Status status;
     public ArrayList<event> eventList;
 
@@ -14,11 +14,12 @@ public class Organization implements Serializable {
     }
 
 
-    public Organization(String name, String email, String approvalId, Status status ,String discription, ArrayList<event> eventList) {
+    public Organization(String name, String email, String password , String approvalId, Status status ,String discription, ArrayList<event> eventList) {
         this.name = name;
         this.email = email;
         this.approvalId = approvalId;
         this.status = status;
+        this.password = password;
         this.discreption = discription;
         this.eventList = new ArrayList<event>();
     }

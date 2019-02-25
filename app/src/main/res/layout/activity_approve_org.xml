@@ -18,7 +18,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/email"
-        app:layout_constraintEnd_toStartOf="@+id/nametext"
+        app:layout_constraintEnd_toStartOf="@+id/EvName"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +37,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/approvalID"
-        app:layout_constraintEnd_toStartOf="@+id/approvalIDtext3"
+        app:layout_constraintEnd_toStartOf="@+id/OrgName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
@@ -53,13 +53,13 @@
         android:textColor="#444444"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/accept"
-        app:layout_constraintEnd_toStartOf="@+id/emailText"
+        app:layout_constraintBottom_toTopOf="@+id/Request"
+        app:layout_constraintEnd_toStartOf="@+id/description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <Button
-        android:id="@+id/accept"
+        android:id="@+id/Request"
         android:layout_width="265dp"
         android:layout_height="55dp"
         android:layout_marginStart="68dp"
@@ -74,7 +74,7 @@
         app:layout_constraintBottom_toTopOf="@+id/reject"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+        app:layout_constraintTop_toBottomOf="@+id/description" />
 
     <Button
         android:id="@+id/reject"
@@ -96,11 +96,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accept" />
+        app:layout_constraintTop_toBottomOf="@+id/Request" />
 
 
     <TextView
-        android:id="@+id/nametext"
+        android:id="@+id/EvName"
         android:layout_width="208dp"
         android:layout_height="34dp"
         android:layout_marginStart="12dp"
@@ -110,13 +110,13 @@
         android:text="name"
         android:textColor="#666666"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/approvalIDtext3"
+        app:layout_constraintBottom_toTopOf="@+id/OrgName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/emailText"
+        android:id="@+id/description"
         android:layout_width="166dp"
         android:layout_height="26dp"
         android:layout_marginStart="8dp"
@@ -126,14 +126,14 @@
         android:text="appID"
         android:textColor="#666666"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/accept"
+        app:layout_constraintBottom_toTopOf="@+id/Request"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/approvalID"
-        app:layout_constraintTop_toBottomOf="@+id/approvalIDtext3"
+        app:layout_constraintTop_toBottomOf="@+id/OrgName"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/approvalIDtext3"
+        android:id="@+id/OrgName"
         android:layout_width="168dp"
         android:layout_height="22dp"
         android:layout_marginStart="13dp"
@@ -143,11 +143,11 @@
         android:text="email"
         android:textColor="#666666"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/emailText"
+        app:layout_constraintBottom_toTopOf="@+id/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/nametext"
+        app:layout_constraintTop_toBottomOf="@+id/EvName"
         tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

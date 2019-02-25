@@ -30,6 +30,24 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonaorg" />
 
     <Button
+        android:id="@+id/browse"
+        android:layout_width="184dp"
+        android:layout_height="31dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/round_button"
+        android:text="Browse"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonv" />
+
+    <Button
         android:id="@+id/buttonaorg"
         android:layout_width="184dp"
         android:layout_height="31dp"
