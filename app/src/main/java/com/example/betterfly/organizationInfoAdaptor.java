@@ -58,6 +58,7 @@ public class organizationInfoAdaptor extends ArrayAdapter<Organization> {
                         Intent intent = new Intent(context, ApproveOrg.class);
                         intent.putExtra("name" ,orgName );
                         intent.putExtra("email" , organization.email);
+                        intent.putExtra("password",organization.password);
                         intent.putExtra("ApprovalId", organization.approvalId);
                         intent .putExtra("organization", organization);
 

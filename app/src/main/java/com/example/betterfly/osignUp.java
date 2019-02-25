@@ -132,6 +132,7 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
                     Organization orgUser = new Organization(
                             name,
                             email,
+                            password,
                             approvalId,
                             Status.PROCESSING,
                             null,

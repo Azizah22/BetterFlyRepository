@@ -2,17 +2,24 @@ package com.example.betterfly;
 
 import android.location.Location;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
-public class event {
-    protected String ID, name, descreption,location;
-    protected Date date;
-    protected int cHours;
-    protected List<String> emails ;
+public class event implements Serializable {
+    public String ID, name, descreption,location;
+    public Date date;
+    public int cHours;
+    public List<String> emails ;
 
     int nov;
+    int counter=0;
 
+
+    public event(){
+
+    }
 
     public event(String id,String n, String des, Date d, int ch, String l, int num){
         ID=id;
@@ -22,6 +29,7 @@ public class event {
         date=d;
         location=l;
         nov=num;
+        emails = new LinkedList<String>() ;
 
     }
 
@@ -64,6 +72,16 @@ public class event {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public int addEmail(String email){
+        if(counter<nov){
+            emails.add(email);
+            counter++;
+            return 1;
+        }
+         return  -1;
+
     }
 
 

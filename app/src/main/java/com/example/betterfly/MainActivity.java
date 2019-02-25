@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.buttonaorg).setOnClickListener(this);
         findViewById(R.id.buttonv).setOnClickListener(this);
         findViewById(R.id.buttonadmin).setOnClickListener(this);
+        findViewById(R.id.browse).setOnClickListener(this);
 
     }
 
@@ -59,6 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 startActivity(new Intent(this, adminLogin.class));
                 break;
+
+            case R.id.browse:
+                 finish();
+                 startActivity(new Intent(this, eventRetrievd.class));
+                 break;
         }
     }
 }
