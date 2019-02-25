@@ -41,6 +41,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.textViewSignup:
+                finish();
+                startActivity(new Intent(this, SignUpActivity.class));
+                break;
+
             case R.id.buttonv:
                 finish();
                 startActivity(new Intent(this, vLogin.class));

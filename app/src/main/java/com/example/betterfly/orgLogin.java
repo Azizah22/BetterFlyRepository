@@ -31,7 +31,7 @@ public class orgLogin extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(this);
 
-        setContentView(R.layout.activity_org_login);
+        setContentView(R.layout.activity_admin_login);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -39,7 +39,6 @@ public class orgLogin extends AppCompatActivity implements View.OnClickListener 
         editTextPassword = findViewById(R.id.editTextPassword);
         progressBar = findViewById(R.id.progressbar);
 
-        findViewById(R.id.textViewSignup).setOnClickListener(this);
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewforget).setOnClickListener(this);
 
@@ -92,25 +91,11 @@ public class orgLogin extends AppCompatActivity implements View.OnClickListener 
         });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-
-        if (mAuth.getCurrentUser() != null) {
-
-            finish();
-            startActivity(new Intent(this, vHome.class));
-        }
-    }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.textViewSignup:
-                finish();
-                startActivity(new Intent(this, SignUpActivity.class));
-                break;
 
             case R.id.textViewforget:
                 finish();

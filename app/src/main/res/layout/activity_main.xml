@@ -5,89 +5,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
-    android:backgroundTint="@color/bluesh"
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     tools:context=".MainActivity">
 
 
-    <Button
-        android:id="@+id/buttonv"
-        android:layout_width="184dp"
-        android:layout_height="31dp"
-        android:layout_gravity="center"
+    <TextView
+        android:id="@+id/textViewSignup"
+        android:layout_width="303dp"
+        android:layout_height="30dp"
+        android:layout_margin="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/round_button"
-        android:text="Volunteer"
-        android:textAllCaps="false"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        android:background="@drawable/dha"
+        android:fontFamily="casual"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonaorg" />
 
     <Button
-        android:id="@+id/buttonaorg"
-        android:layout_width="184dp"
-        android:layout_height="31dp"
+        android:id="@+id/buttonv"
+        android:layout_width="160dp"
+        android:layout_height="122dp"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/round_button"
-        android:text="Orgnaization"
+        android:background="@drawable/volunteer"
         android:textAllCaps="false"
-        android:textColor="@color/colorAccent"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonadmin" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
-        android:id="@+id/buttonadmin"
-        android:layout_width="184dp"
-        android:layout_height="32dp"
+        android:id="@+id/buttonaorg"
+        android:layout_width="160dp"
+        android:layout_height="118dp"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/round_button"
-        android:text="Admin"
+        android:background="@drawable/org"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonv" />
+
+    <Button
+        android:id="@+id/buttonadmin"
+        android:layout_width="143dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/admin"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSignup" />
 
     <RelativeLayout
         android:id="@+id/r"
         android:layout_width="match_parent"
-        android:layout_height="259dp"
+        android:layout_height="222dp"
         android:layout_weight="1"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="16dp">
-
-        <TextView
-            android:id="@+id/caption3"
-            android:layout_width="299dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/logo"
-            android:layout_alignStart="@+id/logo"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="39dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="39dp"
-            android:fontFamily="cursive"
-            android:text="We help you find volunteering abnormalities"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/logo"
@@ -101,6 +97,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -120,13 +117,13 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="169dp"
+        android:layout_width="144dp"
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="Login As"
         android:textSize="24sp"
+        android:background="@drawable/Sign_in_as"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
