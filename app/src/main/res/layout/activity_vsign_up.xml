@@ -10,45 +10,24 @@
     android:paddingRight="18dp"
     tools:context=".vsignUp">
 
-    <TextView
-        android:id="@+id/caption"
-        android:layout_width="299dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/logo"
-        android:layout_alignStart="@+id/logo"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="cursive"
-        android:text="We help you find volunteering opportunities"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        tools:ignore="MissingConstraints" />
-
 
     <EditText
         android:id="@+id/name"
         android:layout_width="289dp"
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="18dp"
-        android:autofillHints=""
-        android:background="@color/bluesh1"
+        android:background="@drawable/name"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
+        android:paddingLeft="48dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caption"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="273dp" />
 
     <EditText
         android:id="@+id/chours"
@@ -57,8 +36,8 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:autofillHints=""
-        android:background="@color/bluesh1"
+        android:paddingLeft="48dp"
+        android:background="@drawable/email"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -78,8 +57,8 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:autofillHints=""
-        android:background="@color/bluesh1"
+        android:paddingLeft="48dp"
+        android:background="@drawable/DoB"
         android:ems="10"
         android:hint="Date Of Birth"
         android:inputType="date"
@@ -97,7 +76,8 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:background="@color/bluesh1"
+        android:paddingLeft="48dp"
+        android:background="@drawable/password"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -114,7 +94,8 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:background="@color/bluesh1"
+        android:paddingLeft="48dp"
+        android:background="@drawable/password"
         android:ems="10"
         android:hint="Repeat password"
         android:inputType="textPassword"
@@ -126,20 +107,17 @@
 
     <Button
         android:id="@+id/sign_up"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_width="297dp"
+        android:layout_height="70dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/round_button"
-        android:text="Sign up"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:background="@drawable/sign_up1"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DoB"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/DoB" />
 
 
     <ImageView
@@ -156,13 +134,14 @@
         android:id="@+id/cale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="false"
         android:tint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="@+id/DoB"
         app:layout_constraintStart_toStartOf="@+id/DoB"
         app:layout_constraintTop_toTopOf="@+id/DoB"
+        app:layout_constraintVertical_bias="0.777"
         app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
 

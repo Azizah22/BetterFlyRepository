@@ -43,7 +43,7 @@ public class vLogin extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(this);
 
-        setContentView(R.layout.activity_v_login);
+        setContentView(R.layout.activity_admin_login);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -51,7 +51,6 @@ public class vLogin extends AppCompatActivity implements View.OnClickListener {
         editTextPassword = findViewById(R.id.editTextPassword);
         progressBar = findViewById(R.id.progressbar);
 
-        findViewById(R.id.textViewSignup).setOnClickListener(this);
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewforget).setOnClickListener(this);
         VdatabaseReference= FirebaseDatabase.getInstance().getReference().child("Volunteer");
@@ -110,31 +109,31 @@ public class vLogin extends AppCompatActivity implements View.OnClickListener {
     private void userLogin() {
         final String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+if(email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(email).matches()|| password.isEmpty()|| password.length() < 6) {
+    if (email.isEmpty()) {
+        editTextEmail.setError("Email is required");
+        editTextEmail.requestFocus();
+        return;
+    }
 
-        if (email.isEmpty()) {
-            editTextEmail.setError("Email is required");
-            editTextEmail.requestFocus();
-            return;
-        }
+    if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        editTextEmail.setError("Please enter a valid email");
+        editTextEmail.requestFocus();
+        return;
+    }
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editTextEmail.setError("Please enter a valid email");
-            editTextEmail.requestFocus();
-            return;
-        }
+    if (password.isEmpty()) {
+        editTextPassword.setError("Password is required");
+        editTextPassword.requestFocus();
+        return;
+    }
 
-        if (password.isEmpty()) {
-            editTextPassword.setError("Password is required");
-            editTextPassword.requestFocus();
-            return;
-        }
-
-        if (password.length() < 6) {
-            editTextPassword.setError("Minimum lenght of password should be 6");
-            editTextPassword.requestFocus();
-            return;
-        }
-
+    if (password.length() < 6) {
+        editTextPassword.setError("Minimum lenght of password should be 6");
+        editTextPassword.requestFocus();
+        return;
+    }
+}
         progressBar.setVisibility(View.VISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -187,25 +186,11 @@ public class vLogin extends AppCompatActivity implements View.OnClickListener {
         });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-
-        if (mAuth.getCurrentUser() != null) {
-
-            finish();
-            startActivity(new Intent(this, vHome.class));
-        }
-    }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.textViewSignup:
-                finish();
-                startActivity(new Intent(this, SignUpActivity.class));
-                break;
 
             case R.id.textViewforget:
                 finish();

@@ -5,29 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
-    android:backgroundTint="@color/bluesh"
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
     tools:context=".MainActivity">
 
 
-    <Button
-        android:id="@+id/buttonv"
-        android:layout_width="184dp"
-        android:layout_height="31dp"
-        android:layout_gravity="center"
+    <TextView
+        android:id="@+id/textViewSignup"
+        android:layout_width="303dp"
+        android:layout_height="34dp"
+        android:layout_margin="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/round_button"
-        android:text="Volunteer"
-        android:textAllCaps="false"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        android:background="@drawable/dha"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="casual"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonaorg" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewforget" />
 
     <Button
         android:id="@+id/browse"
@@ -35,77 +35,62 @@
         android:layout_height="31dp"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/round_button"
         android:text="Browse"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonv" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/buttonaorg"
-        android:layout_width="184dp"
-        android:layout_height="31dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/round_button"
-        android:text="Orgnaization"
-        android:textAllCaps="false"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonadmin" />
 
-    <Button
-        android:id="@+id/buttonadmin"
-        android:layout_width="184dp"
-        android:layout_height="32dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/round_button"
-        android:text="Admin"
-        android:textAllCaps="false"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="289dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/password"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="48dp"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="289dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/email"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="48dp"
+        android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="324dp" />
 
     <RelativeLayout
         android:id="@+id/r"
         android:layout_width="match_parent"
-        android:layout_height="259dp"
+        android:layout_height="214dp"
+        android:layout_marginTop="40dp"
         android:layout_weight="1"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="16dp">
-
-        <TextView
-            android:id="@+id/caption3"
-            android:layout_width="299dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/logo"
-            android:layout_alignStart="@+id/logo"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="39dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="39dp"
-            android:fontFamily="cursive"
-            android:text="We help you find volunteering abnormalities"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/logo"
@@ -118,36 +103,41 @@
     </RelativeLayout>
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@color/trans"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/r"
-        tools:layout_editor_absoluteX="30dp">
-
         <ProgressBar
             android:id="@+id/progressbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:visibility="gone" />
-    </RelativeLayout>
+            android:layout_marginEnd="375dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="169dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="Login As"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/r" />
+        <TextView
+            android:id="@+id/textViewforget"
+            android:layout_width="166dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/Forget_Password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/sign_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
 </android.support.constraint.ConstraintLayout>

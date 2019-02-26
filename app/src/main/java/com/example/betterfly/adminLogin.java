@@ -39,7 +39,6 @@ public class adminLogin extends AppCompatActivity implements View.OnClickListene
         editTextPassword = findViewById(R.id.editTextPassword);
         progressBar = findViewById(R.id.progressbar);
 
-        findViewById(R.id.textViewSignup).setOnClickListener(this);
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewforget).setOnClickListener(this);
 
@@ -97,10 +96,6 @@ public class adminLogin extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.textViewSignup:
-                finish();
-                startActivity(new Intent(this, SignUpActivity.class));
-                break;
 
             case R.id.textViewforget:
                 finish();

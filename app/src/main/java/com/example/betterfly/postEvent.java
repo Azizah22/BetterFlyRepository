@@ -32,6 +32,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import android.app.DatePickerDialog;
 
 public class postEvent extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "postEvent";
@@ -71,6 +72,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
+
             }
         });
         datePickerDoB= new DatePickerDialog.OnDateSetListener() {
