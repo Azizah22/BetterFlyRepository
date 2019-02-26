@@ -7,22 +7,36 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+<<<<<<< Updated upstream
 public class event implements Serializable {
     public String ID, name, descreption,location;
     public Date date;
     public int cHours;
     public List<String> emails ;
+=======
+public class event {
+    protected String org, name, descreption,location;
+    protected Date date;
+    protected int cHours;
+    protected List<String> emails ;
+>>>>>>> Stashed changes
+
 
     int nov;
+<<<<<<< Updated upstream
     int counter=0;
+=======
+public event(){
+>>>>>>> Stashed changes
 
+    }
 
     public event(){
 
     }
 
     public event(String id,String n, String des, Date d, int ch, String l, int num){
-        ID=id;
+        org=id;
         name=n;
         descreption=des;
         cHours=ch;

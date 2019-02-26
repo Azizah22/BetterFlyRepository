@@ -20,9 +20,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.Annotation;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -114,9 +117,13 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         }
 
         if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(loc)&&!TextUtils.isEmpty(disc)&&!TextUtils.isEmpty(snov)) {
-            String id = databaseEvents.push().getKey();
+           // FirebaseUser user = mAuth.getCurrentUser();
+            String id =FirebaseAuth.getInstance().getCurrentUser().getUid();
             event e=new event (id,name,disc,DoE,ch,loc,nov);
-            databaseEvents.child(id).setValue(e);
+
+
+            databaseEvents.push().setValue(e);
+
             Toast.makeText(this, "Event posted", Toast.LENGTH_LONG).show();
             finish();
             startActivity(new Intent(this, OrgProcessActivity.class));
