@@ -109,31 +109,31 @@ public class vLogin extends AppCompatActivity implements View.OnClickListener {
     private void userLogin() {
         final String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+if(email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(email).matches()|| password.isEmpty()|| password.length() < 6) {
+    if (email.isEmpty()) {
+        editTextEmail.setError("Email is required");
+        editTextEmail.requestFocus();
+        return;
+    }
 
-        if (email.isEmpty()) {
-            editTextEmail.setError("Email is required");
-            editTextEmail.requestFocus();
-            return;
-        }
+    if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        editTextEmail.setError("Please enter a valid email");
+        editTextEmail.requestFocus();
+        return;
+    }
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editTextEmail.setError("Please enter a valid email");
-            editTextEmail.requestFocus();
-            return;
-        }
+    if (password.isEmpty()) {
+        editTextPassword.setError("Password is required");
+        editTextPassword.requestFocus();
+        return;
+    }
 
-        if (password.isEmpty()) {
-            editTextPassword.setError("Password is required");
-            editTextPassword.requestFocus();
-            return;
-        }
-
-        if (password.length() < 6) {
-            editTextPassword.setError("Minimum lenght of password should be 6");
-            editTextPassword.requestFocus();
-            return;
-        }
-
+    if (password.length() < 6) {
+        editTextPassword.setError("Minimum lenght of password should be 6");
+        editTextPassword.requestFocus();
+        return;
+    }
+}
         progressBar.setVisibility(View.VISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

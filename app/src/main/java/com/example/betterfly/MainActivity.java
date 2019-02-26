@@ -17,13 +17,25 @@ import com.google.android.gms.tasks.Task;
 
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     FirebaseAuth mAuth;
-
-
+    EditText editTextEmail, editTextPassword;
+    ProgressBar progressBar;
+    DatabaseReference VdatabaseReference;
+    DatabaseReference OdatabaseReference;
+    public List<Volunteer> vList;
+    public  List<Organization> organizationList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +43,145 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
 
-        findViewById(R.id.buttonaorg).setOnClickListener(this);
-        findViewById(R.id.buttonv).setOnClickListener(this);
-        findViewById(R.id.buttonadmin).setOnClickListener(this);
         findViewById(R.id.browse).setOnClickListener(this);
 
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        progressBar = findViewById(R.id.progressbar);
+
+        findViewById(R.id.buttonLogin).setOnClickListener(this);
+        findViewById(R.id.textViewforget).setOnClickListener(this);
+        VdatabaseReference= FirebaseDatabase.getInstance().getReference().child("Volunteer");
+        OdatabaseReference=FirebaseDatabase.getInstance().getReference().child("Organization");
+
+        vList=new ArrayList<Volunteer>();
+        organizationList = new ArrayList<Organization>();
+
+
+
+        VdatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot vSnapshot : dataSnapshot.getChildren()) {
+
+                    Volunteer volunteer= vSnapshot.getValue(Volunteer.class);
+                    if(!vList.contains(volunteer))
+                        vList.add(volunteer);
+
+
+
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        });
+
+
+        OdatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot oSnapshot : dataSnapshot.getChildren()) {
+
+                    Organization organization= oSnapshot.getValue(Organization.class);
+                    if(!organizationList.contains(organization))
+                        organizationList.add(organization);
+
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        });
+
+    }
+
+    private void userLogin() {
+        final String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+        if(email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(email).matches()|| password.isEmpty()|| password.length() < 6) {
+            if (email.isEmpty()) {
+                editTextEmail.setError("Email is required");
+                editTextEmail.requestFocus();
+                return;
+            }
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                editTextEmail.setError("Please enter a valid email");
+                editTextEmail.requestFocus();
+                return;
+            }
+
+            if (password.isEmpty()) {
+                editTextPassword.setError("Password is required");
+                editTextPassword.requestFocus();
+                return;
+            }
+
+            if (password.length() < 6) {
+                editTextPassword.setError("Minimum lenght of password should be 6");
+                editTextPassword.requestFocus();
+                return;
+            }
+        }
+        progressBar.setVisibility(View.VISIBLE);
+
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                progressBar.setVisibility(View.GONE);
+                if (task.isSuccessful()) {
+                    boolean volunteer = false ;
+                    boolean org  = false;
+                    for (int i =0 ; i< vList.size() ; i++) {
+                        if (email.equals(vList.get(i).email)) {
+                            finish();
+                            Intent intent = new Intent(MainActivity.this, vHome.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                            volunteer = true;
+                            break;
+                        }
+                    }
+
+                    for (int i =0 ; i< organizationList.size() ; i++) {
+                        if (email.equals(organizationList.get(i).email)) {
+                            if (organizationList.get(i).status.equals("APPROVED")) {
+                                finish();
+                                Intent intent = new Intent(MainActivity.this, OrgProcessActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                                org = true;
+                                break;
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Sorry we are still processing your request", Toast.LENGTH_SHORT).show();
+                                org=true;
+                                break;
+                            }
+
+                        }
+                    }
+
+                    if(volunteer==false && org==false){
+                        finish();
+                        Intent intent = new Intent(MainActivity.this, dataRetrieved.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+
+                } else {
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 
@@ -47,23 +193,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, SignUpActivity.class));
                 break;
 
-            case R.id.buttonv:
+            case R.id.textViewforget:
                 finish();
-                startActivity(new Intent(this, vLogin.class));
-                break;
-            case R.id.buttonaorg:
-                finish();
-                startActivity(new Intent(this, orgLogin.class));
+                startActivity(new Intent(this, forgetPass.class));
                 break;
 
-            case R.id.buttonadmin:
-                finish();
-                startActivity(new Intent(this, adminLogin.class));
+            case R.id.buttonLogin:
+                userLogin();
                 break;
 
             case R.id.browse:
                  finish();
-                 startActivity(new Intent(this, eventRetrievd.class));
+                 //startActivity(new Intent(this, eventRetrievd.class));
                  break;
         }
     }
