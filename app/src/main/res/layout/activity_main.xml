@@ -121,7 +121,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/Forget_Password"
+            android:background="@drawable/forget_password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"

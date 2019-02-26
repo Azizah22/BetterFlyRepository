@@ -94,7 +94,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:background="@drawable/DoB"
+        android:background="@drawable/dob"
         android:textSize="22dp"
         android:elegantTextHeight="false"
         android:ems="10"
