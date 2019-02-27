@@ -112,7 +112,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         String loc = editTextLoc.getText().toString().trim();
         String disc = editTextDisc.getText().toString().trim();
         int nov=0;
-        int ch= Integer.parseInt(EditTextch.getText().toString().trim());
+        String ch= EditTextch.getText().toString().trim();
         String snov =editTextnov.getText().toString().trim();
         if(!snov.isEmpty())
             nov = Integer.parseInt(snov);
@@ -121,14 +121,14 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
             DoE = format.parse(date);
         }
-        if(name.isEmpty()||loc.isEmpty()|| disc.isEmpty() ||date==null||snov==null||(ch<=6 && ch>=1)) {
+        if(name.isEmpty()||loc.isEmpty()|| disc.isEmpty() ||DoE==null||snov==null||ch.isEmpty()) {
 
             if (name.isEmpty()) {
                 editTextName.setError("Name is required");
                 editTextName.requestFocus();
 
             }
-            if (ch<=6 && ch>=1) {
+            if (ch.isEmpty()) {
                 EditTextch.setError("Hours should be between 1 and 6");
                 EditTextch.requestFocus();
 
@@ -155,7 +155,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
 
 
-            if (date==null) {
+            if (DoE==null) {
                 editTextDoB.setError("Please enter The Date of event");
                 editTextDoB.requestFocus();
 
@@ -166,7 +166,8 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(loc)&&!TextUtils.isEmpty(disc)&&!TextUtils.isEmpty(snov)) {
            // FirebaseUser user = mAuth.getCurrentUser();
             String id =FirebaseAuth.getInstance().getCurrentUser().getUid();
-            event e=new event (id,name,disc,DoE,ch,loc,nov);
+            int h=Integer.parseInt(ch);
+            event e=new event (id,name,disc,DoE,h,loc,nov);
 
 
             databaseEvents.push().setValue(e);

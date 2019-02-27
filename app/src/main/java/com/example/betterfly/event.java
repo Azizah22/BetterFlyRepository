@@ -25,7 +25,7 @@ import java.util.List;
 
         }
 
-        public event(String id, String n, String des, Date d, int ch, String l, int num) {
+        public event(String id, String n, String des, Date d ,int ch, String l, int num) {
             org = id;
             name = n;
             descreption = des;

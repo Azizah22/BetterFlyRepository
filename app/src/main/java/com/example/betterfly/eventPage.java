@@ -16,13 +16,20 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class eventPage extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textViewName , textViewDate, textViewNOV, textViewLocation,textViewDes;
 
     event event1;
     public String eventName;
-    public String date , nov,loc,des;
+    public String date ,loc,des;
+    int nov;
+    public Date DoE;
     DatabaseReference databaseReference;
 
 
@@ -47,15 +54,17 @@ public class eventPage extends AppCompatActivity implements View.OnClickListener
         event1= (event) intent.getSerializableExtra("event");
         if(bundle!=null){
             eventName = (String) bundle.get("name");
-             date =(String) bundle.get("date");
-            nov= (String) bundle.get("Number of Volunteers");
+            DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
+            date=format.format(bundle.get("date"));
+            // DoE=format.parse(date);
+            nov= (int) bundle.get("Number of Volunteers");
             loc =(String) bundle.get("location");
             des= (String) bundle.get("description");
 
-
+            String numOfVol= String.valueOf(nov);
             textViewName.setText(eventName);
             textViewDate.setText(date);
-            textViewNOV.setText(nov);
+            textViewNOV.setText(numOfVol);
             textViewLocation.setText(loc);
             textViewDes.setText(des);
 

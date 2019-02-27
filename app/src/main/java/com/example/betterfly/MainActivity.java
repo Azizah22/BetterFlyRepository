@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     for (int i =0 ; i< vList.size() ; i++) {
                         if (email.equals(vList.get(i).email)) {
                             finish();
-                            Intent intent = new Intent(MainActivity.this, vHome.class);
+                            Intent intent = new Intent(MainActivity.this, eventRetrievd.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             volunteer = true;
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.browse:
                  finish();
-                startActivity(new Intent(this, eventRetrievd.class));
+               startActivity(new Intent(this, eventRetrievd.class));
                  break;
         }
     }

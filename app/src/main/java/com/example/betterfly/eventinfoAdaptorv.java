@@ -13,11 +13,11 @@ import android.widget.TextView;
 import java.io.Serializable;
 import java.util.List;
 
-public class eventInfoAdaptor extends ArrayAdapter<event> {
+public class eventinfoAdaptorv extends ArrayAdapter<event>{
     Activity context;
     private List<event> eventList;
 
-    public eventInfoAdaptor( Activity context,List<event> eventList){
+    public eventinfoAdaptorv( Activity context,List<event> eventList){
         super(context,R.layout.eventslist,eventList);
         this.context=context;
         this.eventList=eventList;
@@ -33,10 +33,10 @@ public class eventInfoAdaptor extends ArrayAdapter<event> {
         final event event1= eventList.get(position);
         eventName.setText(event1.getName());
 
-                eventName.setOnClickListener(new View.OnClickListener() {
+        eventName.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String eveName = eventName.getText().toString();
-                Intent intent = new Intent(context, eventPage.class);
+                Intent intent = new Intent(context, RequestToVounteer.class);
                 intent.putExtra("name" ,eveName );
                 intent.putExtra("description" , event1.getDescreption());
                 intent.putExtra("location", event1.getLocation());

@@ -9,7 +9,10 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 
 public class RequestToVounteer extends AppCompatActivity  {
@@ -17,10 +20,10 @@ public class RequestToVounteer extends AppCompatActivity  {
     private TextView textViewEventName , textViewOrgName, textViewDiscreption , textViewLoc , textViewDate , textViewVolunteerNum;
 
     event event;
-    public String orgName , location ;
+    public String orgName , location ,des;
     public String eventName;
-    public Date date;
-    public int numberofVol;
+    public String date;
+    public int nov;
 
 
     DatabaseReference databaseReference;
@@ -45,20 +48,23 @@ public class RequestToVounteer extends AppCompatActivity  {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
-        event = (event) intent.getSerializableExtra("Events");
-        if (bundle != null) {
+
+        event= (event) intent.getSerializableExtra("event");
+        if(bundle!=null){
             eventName = (String) bundle.get("name");
-            String evDes = (String) bundle.get("descreption");
-            date = (Date) bundle.get("date");
-            numberofVol = (int) bundle.get("num");
-            location = (String) bundle.get("location");
+            DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
+            date=format.format(bundle.get("date"));
+            // DoE=format.parse(date);
+            nov= (int) bundle.get("Number of Volunteers");
+            location =(String) bundle.get("location");
+            des= (String) bundle.get("description");
 
 
             textViewEventName.setText(eventName);
-            textViewDiscreption.setText(evDes);
+            textViewDiscreption.setText(des);
             textViewLoc.setText(location);
-            textViewDate.setText(String.valueOf(date));
-            textViewVolunteerNum.setText(String.valueOf(numberofVol));
+            textViewDate.setText(date);
+            textViewVolunteerNum.setText(String.valueOf(nov));
 
         }
     }

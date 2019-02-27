@@ -20,15 +20,8 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity
-            android:name=".eventRetrievd"
-            android:label="@string/title_activity_event_retrievd">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
         <activity android:name=".orgLogin" />
         <activity android:name=".vLogin" />
         <activity android:name=".adminLogin" />
@@ -50,6 +43,7 @@
         <activity android:name=".dataRetrieved" />
         <activity android:name=".RequestToVounteer" />
         <activity android:name=".eventPage" />
+        <activity android:name=".eventRetrievd" />
     </application>
 
 </manifest>

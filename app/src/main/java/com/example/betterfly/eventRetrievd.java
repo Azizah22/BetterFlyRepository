@@ -70,13 +70,15 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
                 for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
 
                     event eventObj = eventSnapshot.getValue(event.class);
-                    if(!eventList.contains(eventObj))
+                    if(eventList.contains(eventObj))
+                        continue;
+                    else{
                         eventList.add(eventObj);
-                    eventsName.add(eventObj.name);
-
+                        eventsName.add(eventObj.name);
+                    }
 
                 }
-                eventInfoAdaptor eventinfoAdaptor = new eventInfoAdaptor(eventRetrievd.this, eventList);
+                eventinfoAdaptorv eventinfoAdaptor = new eventinfoAdaptorv(eventRetrievd.this, eventList);
                 listView.setAdapter(eventinfoAdaptor);
 
             }
@@ -91,7 +93,7 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
             @Override
             public void onSearchViewShown() {
 
-                eventInfoAdaptor eventinfoAdaptor = new eventInfoAdaptor(eventRetrievd.this, eventList);
+                eventinfoAdaptorv eventinfoAdaptor = new eventinfoAdaptorv(eventRetrievd.this, eventList);
                 listView.setAdapter(eventinfoAdaptor);
 
 
@@ -102,7 +104,7 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
             @Override
             public void onSearchViewClosed() {
 
-                eventInfoAdaptor eventinfoAdaptor = new eventInfoAdaptor(eventRetrievd.this, eventList);
+                eventinfoAdaptorv eventinfoAdaptor = new eventinfoAdaptorv(eventRetrievd.this, eventList);
                 listView.setAdapter(eventinfoAdaptor);
 
 
@@ -125,7 +127,7 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
                             list.add(eventList.get(i));
                     }
 
-                    eventInfoAdaptor eventinfoAdaptor = new eventInfoAdaptor(eventRetrievd.this, list);
+                    eventinfoAdaptorv eventinfoAdaptor = new eventinfoAdaptorv(eventRetrievd.this, list);
                     listView.setAdapter(eventinfoAdaptor);
 
 
