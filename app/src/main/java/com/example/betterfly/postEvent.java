@@ -123,7 +123,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             if (name.isEmpty()) {
                 editTextName.setError("Name is required");
                 editTextName.requestFocus();
-                 return;
+
             }
 
 
@@ -132,20 +132,20 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             if (loc.isEmpty()) {
                 editTextLoc.setError("Location is required");
                 editTextLoc.requestFocus();
-                 return;
+
             }
 
 
             if (disc.isEmpty()) {
                 editTextDisc.setError("Description is required");
                 editTextDisc.requestFocus();
-                 return;
+
             }
 
             if (snov.isEmpty()) {
                 editTextnov.setError("Numbeer of volunteers is required");
                 editTextnov.requestFocus();
-                  return;
+
             }
 
 
@@ -153,7 +153,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             if (date==null) {
                 editTextDoB.setError("Please enter The Date of event");
                 editTextDoB.requestFocus();
-                return;
+
             }
 
             return;
