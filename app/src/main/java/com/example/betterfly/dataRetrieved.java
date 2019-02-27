@@ -40,9 +40,35 @@ public class dataRetrieved extends AppCompatActivity implements View.OnClickList
 
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Organization");
 
-        organizationList=new ArrayList<>();
+        organizationList=new ArrayList<Organization>();
 
         findViewById(R.id.signOut).setOnClickListener(this);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot organizationSnapshot:dataSnapshot.getChildren()){
+
+                    Organization organization=organizationSnapshot.getValue(Organization.class);
+                    if(organizationList.contains(organization))
+                        continue;
+
+                    else
+                        organizationList.add(organization);
+
+                }
+                organizationInfoAdaptor organizationinfoAdaptor=new organizationInfoAdaptor(dataRetrieved.this,organizationList);
+                listView.setAdapter(organizationinfoAdaptor);
+
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        });
 
     }
 
@@ -59,32 +85,6 @@ public class dataRetrieved extends AppCompatActivity implements View.OnClickList
 
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               for(DataSnapshot organizationSnapshot:dataSnapshot.getChildren()){
-
-                   Organization organization=organizationSnapshot.getValue(Organization.class);
-                   organizationList.add(organization);
-
-               }
-                organizationInfoAdaptor organizationinfoAdaptor=new organizationInfoAdaptor(dataRetrieved.this,organizationList);
-               listView.setAdapter(organizationinfoAdaptor);
-
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-
-        });
-
-
-    }
+   
 
 }

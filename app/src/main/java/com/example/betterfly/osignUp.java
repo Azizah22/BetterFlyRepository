@@ -140,6 +140,8 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
 
                     );
 
+
+
                     FirebaseDatabase.getInstance().getReference("Organization")
                             .child(approvalId)
                             .setValue(orgUser).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -162,6 +164,8 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
 
                         }
                     });
+
+
                 }
                         else {
                         Toast.makeText(osignUp.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();

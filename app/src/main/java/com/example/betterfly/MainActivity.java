@@ -43,14 +43,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
 
-        findViewById(R.id.browse).setOnClickListener(this);
+        mAuth =FirebaseAuth.getInstance();
 
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         progressBar = findViewById(R.id.progressbar);
 
+        findViewById(R.id.textViewSignup).setOnClickListener(this);
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewforget).setOnClickListener(this);
+        findViewById(R.id.browse).setOnClickListener(this);
         VdatabaseReference= FirebaseDatabase.getInstance().getReference().child("Volunteer");
         OdatabaseReference=FirebaseDatabase.getInstance().getReference().child("Organization");
 
@@ -67,8 +69,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Volunteer volunteer= vSnapshot.getValue(Volunteer.class);
                     if(!vList.contains(volunteer))
                         vList.add(volunteer);
-
-
 
                 }
             }
@@ -111,26 +111,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (email.isEmpty()) {
                 editTextEmail.setError("Email is required");
                 editTextEmail.requestFocus();
-                return;
             }
 
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            if (!email.isEmpty()&&!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 editTextEmail.setError("Please enter a valid email");
                 editTextEmail.requestFocus();
-                return;
             }
 
             if (password.isEmpty()) {
                 editTextPassword.setError("Password is required");
                 editTextPassword.requestFocus();
-                return;
             }
 
-            if (password.length() < 6) {
+            if (!password.isEmpty() && password.length() < 6) {
                 editTextPassword.setError("Minimum lenght of password should be 6");
                 editTextPassword.requestFocus();
-                return;
             }
+            return;
+
         }
         progressBar.setVisibility(View.VISIBLE);
 
@@ -204,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.browse:
                  finish();
-                 //startActivity(new Intent(this, eventRetrievd.class));
+                // startActivity(new Intent(this, eventRetrievd.class));
                  break;
         }
     }

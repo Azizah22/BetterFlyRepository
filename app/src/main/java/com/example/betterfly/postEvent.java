@@ -37,7 +37,7 @@ import android.app.DatePickerDialog;
 
 public class postEvent extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "postEvent";
-    EditText editTextName, editTextLoc, editTextDisc, editTextnov, editTextDoB;
+    EditText editTextName, editTextLoc, editTextDisc, editTextnov, editTextDoB,EditTextch;
     DatePickerDialog.OnDateSetListener datePickerDoB;
     String date;
     Date DoE;
@@ -55,6 +55,8 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         editTextDisc = findViewById(R.id.desc);
         editTextnov = findViewById(R.id.NoV);
         editTextDoB= findViewById(R.id.DoB);
+        EditTextch= findViewById(R.id.ch);
+
 
         databaseEvents = FirebaseDatabase.getInstance().getReference("Events");
 
@@ -109,25 +111,28 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         String name = editTextName.getText().toString().trim();
         String loc = editTextLoc.getText().toString().trim();
         String disc = editTextDisc.getText().toString().trim();
-
-        int ch = 3;
+        int nov=0;
+        int ch= Integer.parseInt(EditTextch.getText().toString().trim());
         String snov =editTextnov.getText().toString().trim();
-        int nov = Integer.parseInt(snov);
+        if(!snov.isEmpty())
+            nov = Integer.parseInt(snov);
 
         if(date!=null) {
             DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
             DoE = format.parse(date);
         }
-        if(name.isEmpty()||loc.isEmpty()|| disc.isEmpty() ||date==null||snov==null) {
+        if(name.isEmpty()||loc.isEmpty()|| disc.isEmpty() ||date==null||snov==null||(ch<=6 && ch>=1)) {
 
             if (name.isEmpty()) {
                 editTextName.setError("Name is required");
                 editTextName.requestFocus();
 
             }
+            if (ch<=6 && ch>=1) {
+                EditTextch.setError("Hours should be between 1 and 6");
+                EditTextch.requestFocus();
 
-
-
+            }
 
             if (loc.isEmpty()) {
                 editTextLoc.setError("Location is required");

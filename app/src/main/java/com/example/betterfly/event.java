@@ -9,7 +9,7 @@ import java.util.List;
 
 
 
-    public class event {
+    public class event implements Serializable {
         protected String org, name, descreption, location;
         protected Date date;
         protected int cHours;

@@ -82,7 +82,6 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
 
                  date=dayOfMonth+"/"+month+"/"+year;
                 editTextDoB.setText(date);
-
             }
         };
 
@@ -102,13 +101,8 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
             DoB = format.parse(date);
         }
 
-        if(email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(email).matches()||password.isEmpty()|| password.length()<6||repaetPassword.isEmpty()|| !password.equals(repaetPassword)||name.isEmpty() ||date.isEmpty()) {
+        if(email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(email).matches()||password.isEmpty()|| password.length()<6||repaetPassword.isEmpty()|| !password.equals(repaetPassword)||name.isEmpty() ||DoB==null) {
 
-            if (name.isEmpty()) {
-                editTextName.setError("Please enter your name");
-                editTextName.requestFocus();
-                //return;
-            }
             if (email.isEmpty()) {
                 editTextEmail.setError("Email is required");
                 editTextEmail.requestFocus();
@@ -149,8 +143,13 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
             }
 
 
+            if (name.isEmpty()) {
+                editTextName.setError("Please enter your name");
+                editTextName.requestFocus();
+                //return;
+            }
 
-            if (date.isEmpty()) {
+            if (DoB==null) {
                 editTextDoB.setError("Please enter your Date of Birth");
                 editTextDoB.requestFocus();
                 //return;

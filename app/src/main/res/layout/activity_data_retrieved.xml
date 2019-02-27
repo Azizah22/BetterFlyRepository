@@ -18,7 +18,6 @@
         android:fontFamily="casual"
         android:text="sign out"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -40,9 +39,9 @@
         android:layout_height="634dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="97dp"
+        android:fastScrollAlwaysVisible="true"
         app:layout_constraintTop_toBottomOf="@+id/logo"
         tools:ignore="MissingConstraints"
-        android:fastScrollAlwaysVisible="true"
         tools:layout_editor_absoluteX="8dp" />
 
 

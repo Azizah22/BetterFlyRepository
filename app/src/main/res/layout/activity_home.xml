@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
     tools:context=".vHome">
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -16,7 +17,6 @@
         android:fontFamily="cursive"
         android:text="Volunteer Home Page"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -34,8 +34,6 @@
             android:layout_height="69dp"
             android:layout_gravity="bottom"
             app:menu="@menu/menu_vnavigation" />
-
-
 
     </android.support.design.widget.CoordinatorLayout>
 </RelativeLayout>

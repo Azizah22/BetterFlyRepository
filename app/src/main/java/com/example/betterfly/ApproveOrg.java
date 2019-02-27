@@ -49,7 +49,7 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
         findViewById(R.id.Request).setOnClickListener(this);
         findViewById(R.id.reject).setOnClickListener(this);
          textViewName = findViewById(R.id.EvName);
-         textViewEmail = findViewById(R.id.description);
+         textViewEmail = findViewById(R.id.aprove);
          textViewApprovalID = findViewById(R.id.OrgName);
 
         Intent intent = getIntent();
@@ -100,7 +100,7 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
 
                        // FirebaseAuth.getInstance().deleteUser(uid);
 
-                        // firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+//                        firebaseUser = FirebaseAuth.getInstance().getCurrentUs
                         AuthCredential authCredential = EmailAuthProvider.getCredential(organization.email, organization.password);
 
                         firebaseUser.reauthenticate(authCredential).addOnCompleteListener(new OnCompleteListener<Void>() {
