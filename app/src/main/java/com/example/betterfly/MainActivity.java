@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.browse:
                  finish();
-                // startActivity(new Intent(this, eventRetrievd.class));
+                startActivity(new Intent(this, eventRetrievd.class));
                  break;
         }
     }

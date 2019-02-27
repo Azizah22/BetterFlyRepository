@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-feature android:name="android.hardware" />
+    <uses-feature android:name="android.hardware.watch"
+        />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
