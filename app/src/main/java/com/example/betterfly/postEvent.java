@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -20,9 +21,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.Annotation;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -114,11 +118,54 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
             DoE = format.parse(date);
         }
+        if(name.isEmpty()||loc.isEmpty()|| disc.isEmpty() ||date==null||snov==null) {
 
+            if (name.isEmpty()) {
+                editTextName.setError("Name is required");
+                editTextName.requestFocus();
+
+            }
+
+
+
+
+            if (loc.isEmpty()) {
+                editTextLoc.setError("Location is required");
+                editTextLoc.requestFocus();
+
+            }
+
+
+            if (disc.isEmpty()) {
+                editTextDisc.setError("Description is required");
+                editTextDisc.requestFocus();
+
+            }
+
+            if (snov.isEmpty()) {
+                editTextnov.setError("Numbeer of volunteers is required");
+                editTextnov.requestFocus();
+
+            }
+
+
+
+            if (date==null) {
+                editTextDoB.setError("Please enter The Date of event");
+                editTextDoB.requestFocus();
+
+            }
+
+            return;
+        }
         if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(loc)&&!TextUtils.isEmpty(disc)&&!TextUtils.isEmpty(snov)) {
-            String id = databaseEvents.push().getKey();
+           // FirebaseUser user = mAuth.getCurrentUser();
+            String id =FirebaseAuth.getInstance().getCurrentUser().getUid();
             event e=new event (id,name,disc,DoE,ch,loc,nov);
-            databaseEvents.child(id).setValue(e);
+
+
+            databaseEvents.push().setValue(e);
+
             Toast.makeText(this, "Event posted", Toast.LENGTH_LONG).show();
             finish();
             startActivity(new Intent(this, OrgProcessActivity.class));
