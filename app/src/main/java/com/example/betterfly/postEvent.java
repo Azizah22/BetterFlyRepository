@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -117,7 +118,46 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
             DoE = format.parse(date);
         }
+        if(name.isEmpty()||loc.isEmpty()|| disc.isEmpty() ||date==null||snov==null) {
 
+            if (name.isEmpty()) {
+                editTextName.setError("Name is required");
+                editTextName.requestFocus();
+                 return;
+            }
+
+
+
+
+            if (loc.isEmpty()) {
+                editTextLoc.setError("Location is required");
+                editTextLoc.requestFocus();
+                 return;
+            }
+
+
+            if (disc.isEmpty()) {
+                editTextDisc.setError("Description is required");
+                editTextDisc.requestFocus();
+                 return;
+            }
+
+            if (snov.isEmpty()) {
+                editTextnov.setError("Numbeer of volunteers is required");
+                editTextnov.requestFocus();
+                  return;
+            }
+
+
+
+            if (date==null) {
+                editTextDoB.setError("Please enter The Date of event");
+                editTextDoB.requestFocus();
+                return;
+            }
+
+            return;
+        }
         if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(loc)&&!TextUtils.isEmpty(disc)&&!TextUtils.isEmpty(snov)) {
            // FirebaseUser user = mAuth.getCurrentUser();
             String id =FirebaseAuth.getInstance().getCurrentUser().getUid();

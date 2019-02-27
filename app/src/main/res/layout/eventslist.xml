@@ -12,9 +12,9 @@
         android:id="@+id/eventName"
         android:layout_width="match_parent"
         android:layout_height="68dp"
-        android:text="TextView"
+        android:text="Name"
         android:textColor="@color/colorPrimary"
         android:textSize="36sp"
-        android:textStyle="bold|italic"
-        tools:text="Name" />
+        android:textStyle="bold|italic" />
+
 </LinearLayout>

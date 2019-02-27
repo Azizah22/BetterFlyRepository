@@ -34,21 +34,10 @@ public class organizationInfoAdaptor extends ArrayAdapter<Organization> {
 
 
        final TextView organizationName= listView.findViewById(R.id.orgName);
-        //TextView organizationStatus=(TextView)listView.findViewById(R.id.orgStatus);
-
-    //    Organization organization= organizationList.get(position);
-       /* if(organization.getStatus().equals("PROCESSING"))
-            organizationStatus.setText("PROCESSING");
-        if(organization.getStatus().equals("APPROVED"))
-            organizationStatus.setText("APPROVED");*/
-
-
-       // final TextView organizationName= listView.findViewById(R.id.orgName);
 
         TextView organizationStatus= listView.findViewById(R.id.orgStatus);
         final Organization organization= organizationList.get(position);
         organizationName.setText(organization.name);
-        //organizationName.setText(organization.getName());
             organizationStatus.setText(organization.status.name());
 
 

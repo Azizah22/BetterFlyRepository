@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class eventInfoAdaptor extends ArrayAdapter<event> {
@@ -32,7 +33,7 @@ public class eventInfoAdaptor extends ArrayAdapter<event> {
         final event event1= eventList.get(position);
         eventName.setText(event1.getName());
 
-      /*  eventName.setOnClickListener(new View.OnClickListener() {
+                eventName.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String eveName = eventName.getText().toString();
                 Intent intent = new Intent(context, eventPage.class);
@@ -42,13 +43,14 @@ public class eventInfoAdaptor extends ArrayAdapter<event> {
                 intent .putExtra("date", event1.getDate());
                 intent .putExtra("Credit Hours", event1.getcHours());
                 intent .putExtra("Number of Volunteers", event1.nov);
+                intent .putExtra( "event", (Serializable) event1);
 
 
                 context.startActivity(intent);
 
             }
 
-        });*/
+        });
 
         return listView;
 
