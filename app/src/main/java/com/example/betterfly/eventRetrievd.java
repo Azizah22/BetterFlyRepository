@@ -80,8 +80,6 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
                 listView.setAdapter(eventinfoAdaptor);
 
             }
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
