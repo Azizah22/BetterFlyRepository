@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.textViewSignup).setOnClickListener(this);
         findViewById(R.id.buttonLogin).setOnClickListener(this);
         findViewById(R.id.textViewforget).setOnClickListener(this);
-        findViewById(R.id.browse).setOnClickListener(this);
+
         VdatabaseReference= FirebaseDatabase.getInstance().getReference().child("Volunteer");
         OdatabaseReference=FirebaseDatabase.getInstance().getReference().child("Organization");
 
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     for (int i =0 ; i< organizationList.size() ; i++) {
                         if (email.equals(organizationList.get(i).email)) {
-                            if (organizationList.get(i).status.equals("APPROVED")) {
+                            if (!organizationList.get(i).status.equals("PROCESSING")) {
                                 finish();
                                 Intent intent = new Intent(MainActivity.this, OrgProcessActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -200,10 +200,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 userLogin();
                 break;
 
-            case R.id.browse:
-                 finish();
-               startActivity(new Intent(this, eventRetrievd.class));
-                 break;
         }
     }
 }
