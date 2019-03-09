@@ -41,6 +41,7 @@ dependencies {
     implementation 'com.miguelcatalan:materialsearchview:1.0.0'
 
 
+    compileOnly 'com.google.android.wearable:wearable:2.4.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
