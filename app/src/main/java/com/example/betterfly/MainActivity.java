@@ -199,6 +199,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonLogin:
                 userLogin();
                 break;
+            case R.id.button2:
+                finish();
+                startActivity(new Intent(this, EditProfile.class));
+                break;
 
         }
     }
