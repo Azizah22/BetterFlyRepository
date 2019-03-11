@@ -135,8 +135,9 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
                         Emails = new LinkedList<>();
                         event.setEmails(Emails);
                         databaseReference.child(id + eventName).child("emails").setValue(Emails);
+                       // Toast.makeText(RequestToVounteer.this, "You are now added to this event as a volunteer", Toast.LENGTH_SHORT).show();
                     }
-                        //check = event.addEmail(userEmail);
+                        check = event.addEmail(userEmail);
                         if (check == 1)
                             Toast.makeText(RequestToVounteer.this, "You are now added to this event as a volunteer", Toast.LENGTH_SHORT).show();
                         else
