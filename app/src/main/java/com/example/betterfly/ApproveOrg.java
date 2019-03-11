@@ -116,10 +116,12 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
                                 });
                             }
                         });
-                        sendEmailReject();
+                     sendEmailReject();
+
 
                         finish();
                         startActivity(new Intent(this, dataRetrieved.class));
+                        break;
                     case R.id.backbtn:
                         finish();
                         startActivity(new Intent(this, dataRetrieved.class));
@@ -132,7 +134,10 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
 
 
     protected void sendEmailReject() {
-        Log.i("Send email", "");
+
+
+
+       Log.i("Send email", "");
 
         String[] TO = {organization.email};
         String[] CC = {"zezoazizah@gmail.com"};
@@ -155,6 +160,23 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
             Toast.makeText(ApproveOrg.this,
                     "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
+
+     /*   Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+
+        String[] recipients = new String[]{organization.email, "",};
+
+        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, recipients);
+
+        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "About your registration request");
+
+        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Sorry to inform you that your request has been rejected. If you have any complains please contact us with this email");
+
+        emailIntent.setType("text/plain");
+
+        startActivity(Intent.createChooser(emailIntent, "Send mail..."));*/
+
+
+
     }
 
     protected void sendEmailaccept() {
