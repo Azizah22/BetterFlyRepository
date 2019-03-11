@@ -46,6 +46,8 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browse);
 
+        findViewById(R.id.signOut).setOnClickListener(this);
+
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Search for events");

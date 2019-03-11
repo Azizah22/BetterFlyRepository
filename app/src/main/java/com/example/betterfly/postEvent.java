@@ -114,6 +114,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         int nov=0;
         String ch= EditTextch.getText().toString().trim();
         String snov =editTextnov.getText().toString().trim();
+        int h=Integer.parseInt(ch);
         if(!snov.isEmpty())
             nov = Integer.parseInt(snov);
 
@@ -121,7 +122,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
             DoE = format.parse(date);
         }
-        if(name.isEmpty()||loc.isEmpty()|| disc.isEmpty() ||DoE==null||snov==null||ch.isEmpty()) {
+        if(name.isEmpty()||loc.isEmpty()|| disc.isEmpty() ||DoE==null||snov==null||ch.isEmpty()||(h<1 && h>6)) {
 
             if (name.isEmpty()) {
                 editTextName.setError("Name is required");
@@ -129,10 +130,11 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
             }
             if (ch.isEmpty()) {
-                EditTextch.setError("Hours should be between 1 and 6");
+                EditTextch.setError("Hours are required");
                 EditTextch.requestFocus();
 
             }
+
 
             if (loc.isEmpty()) {
                 editTextLoc.setError("Location is required");
@@ -166,7 +168,6 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(loc)&&!TextUtils.isEmpty(disc)&&!TextUtils.isEmpty(snov)) {
            // FirebaseUser user = mAuth.getCurrentUser();
             String id =FirebaseAuth.getInstance().getCurrentUser().getUid();
-            int h=Integer.parseInt(ch);
             event e=new event (id,name,disc,DoE,h,loc,nov);
 
 

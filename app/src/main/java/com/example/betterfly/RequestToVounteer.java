@@ -11,11 +11,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 
-public class RequestToVounteer extends AppCompatActivity  {
+public class RequestToVounteer extends AppCompatActivity  implements View.OnClickListener{
 
     private TextView textViewEventName , textViewOrgName, textViewDiscreption , textViewLoc , textViewDate , textViewVolunteerNum;
 
@@ -35,7 +34,7 @@ public class RequestToVounteer extends AppCompatActivity  {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Events");
 
-
+        findViewById(R.id.backbtn).setOnClickListener(this);
        // findViewById(R.id.Request).setOnClickListener(this);
 
         textViewEventName = findViewById(R.id.EvName);
@@ -59,7 +58,6 @@ public class RequestToVounteer extends AppCompatActivity  {
             location =(String) bundle.get("location");
             des= (String) bundle.get("description");
 
-
             textViewEventName.setText(eventName);
             textViewDiscreption.setText(des);
             textViewLoc.setText(location);
@@ -67,6 +65,17 @@ public class RequestToVounteer extends AppCompatActivity  {
             textViewVolunteerNum.setText(String.valueOf(nov));
 
         }
+    }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.backbtn:
+                finish();
+                startActivity(new Intent(this, eventRetrievd.class));
+                break;
+
+        }
+
     }
 
 }
