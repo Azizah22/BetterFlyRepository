@@ -1,31 +1,29 @@
 package com.example.betterfly;
 
-import android.location.Location;
-
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 
 
-
-    public class event implements Serializable {
+public class event implements Serializable {
         protected String org, name, descreption, location;
         protected Date date;
         protected int cHours;
-        public List<String> emails;
+        protected ArrayList<String> emails;
 
 
         int nov;
 
-        public int counter = 0;
+        int counter = 0;
 
         public event() {
 
 
         }
 
-        public event(String id, String n, String des, Date d ,int ch, String l, int num ,LinkedList<String> email) {
+
+
+        public event(String id, String n, String des, Date d , int ch, String l, int num) {
             org = id;
             name = n;
             descreption = des;
@@ -33,9 +31,15 @@ import java.util.List;
             date = d;
             location = l;
             nov = num;
-           // emails= new LinkedList<>();
-            emails = email;
+            emails = new ArrayList <String>();
 
+        }
+        public int getNov() {
+            return nov;
+        }
+
+        public void setNov(int nov) {
+            this.nov = nov;
         }
 
         public String getName() {
@@ -44,6 +48,18 @@ import java.util.List;
 
         public String getDescreption() {
             return descreption;
+        }
+
+        public String getOrg() {
+            return org;
+        }
+
+        public void setOrg(String org) {
+            this.org = org;
+        }
+
+        public ArrayList<String> getEmails() {
+            return emails;
         }
 
         public Date getDate() {
@@ -57,7 +73,6 @@ import java.util.List;
         public String getLocation() {
             return location;
         }
-        public String getOrg(){return org;}
 
 
         public void setName(String name) {
@@ -80,13 +95,7 @@ import java.util.List;
             this.location = location;
         }
 
-        public void setEmails(List<String> emails) {
-            this.emails = emails;
-        }
-
         public int addEmail(String email) {
-            if(emails==null)
-                return 2;
             if (counter < nov) {
                 emails.add(email);
                 counter++;
@@ -94,11 +103,6 @@ import java.util.List;
             }
             return -1;
 
-        }
-
-        public void removeEmail(String email){
-            emails.remove(email);
-            counter--;
         }
 
 

@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     for (int i =0 ; i< organizationList.size() ; i++) {
                         if (email.equals(organizationList.get(i).email)) {
-                            if (!organizationList.get(i).status.equals("PROCESSING")) {
+                            if (!organizationList.get(i).status.name().equals("PROCESSING")) {
                                 finish();
                                 Intent intent = new Intent(MainActivity.this, OrgProcessActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -198,10 +198,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.buttonLogin:
                 userLogin();
-                break;
-            case R.id.button2:
-                finish();
-                startActivity(new Intent(this, EditProfile.class));
                 break;
 
         }
