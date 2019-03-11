@@ -44,7 +44,7 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.home:
-                    startActivity(new Intent(vHome.this, vHome.class));
+                    startActivity(new Intent(vHome.this,eventRetrievd.class));
                     finish();
 
                     return true;

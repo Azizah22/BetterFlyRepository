@@ -16,15 +16,8 @@
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
 
 
-
-        <activity android:name=".orgLogin" />
-        <activity android:name=".vLogin" />
-        <activity android:name=".adminLogin" />
         <activity android:name=".postEvent" />
         <activity android:name=".ApproveOrg" />
         <activity android:name=".forgetPass" />

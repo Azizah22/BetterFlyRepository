@@ -11,7 +11,6 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_below="@+id/logo"
         android:layout_marginTop="2dp"
         android:background="@color/bluesh">
 
@@ -27,7 +26,9 @@
         app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        />
+        >
+
+    </com.miguelcatalan.materialsearchview.MaterialSearchView>
 
 
     <ListView
@@ -43,22 +44,18 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp" />
 
-    <TextView
-        android:id="@+id/signOut"
-        android:layout_width="wrap_content"
-        android:layout_height="39dp"
-        android:layout_alignBottom="@+id/list_view"
-        android:layout_marginStart="304dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="28dp"
-        android:fontFamily="casual"
-        android:text="sign out"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="0dp"
+        android:background="@color/colorPrimary"
+        app:menu="@menu/menu_vnavigation" />
 
 
 
 </RelativeLayout>
+
