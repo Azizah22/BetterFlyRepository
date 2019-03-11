@@ -13,19 +13,19 @@ import java.util.List;
         protected String org, name, descreption, location;
         protected Date date;
         protected int cHours;
-        protected List<String> emails;
+        public List<String> emails;
 
 
         int nov;
 
-        int counter = 0;
+        public int counter = 0;
 
         public event() {
 
 
         }
 
-        public event(String id, String n, String des, Date d ,int ch, String l, int num) {
+        public event(String id, String n, String des, Date d ,int ch, String l, int num ,LinkedList<String> email) {
             org = id;
             name = n;
             descreption = des;
@@ -33,7 +33,8 @@ import java.util.List;
             date = d;
             location = l;
             nov = num;
-            emails = new LinkedList<String>();
+           // emails= new LinkedList<>();
+            emails = email;
 
         }
 
@@ -56,6 +57,7 @@ import java.util.List;
         public String getLocation() {
             return location;
         }
+        public String getOrg(){return org;}
 
 
         public void setName(String name) {
@@ -78,7 +80,13 @@ import java.util.List;
             this.location = location;
         }
 
+        public void setEmails(List<String> emails) {
+            this.emails = emails;
+        }
+
         public int addEmail(String email) {
+            if(emails==null)
+                return 2;
             if (counter < nov) {
                 emails.add(email);
                 counter++;
@@ -86,6 +94,11 @@ import java.util.List;
             }
             return -1;
 
+        }
+
+        public void removeEmail(String email){
+            emails.remove(email);
+            counter--;
         }
 
 

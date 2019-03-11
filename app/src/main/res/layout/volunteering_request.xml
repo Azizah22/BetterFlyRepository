@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ApproveOrg">
+    tools:context=".ApproveOrg"
+    android:id="@+id/RV">
 
     <TextView
         android:id="@+id/VolNum"
@@ -117,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <Button
-        android:id="@+id/Request"
+        android:id="@+id/vReq"
         android:layout_width="265dp"
         android:layout_height="55dp"
 
@@ -131,6 +132,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/VolNum" />
+
+    <Button
+        android:id="@+id/withdraw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        />
 
 
     <TextView
@@ -209,5 +216,16 @@
         app:layout_constraintStart_toEndOf="@+id/eventLoc"
         app:layout_constraintTop_toBottomOf="@+id/date"
         tools:ignore="MissingConstraints" />
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="36dp"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
 
 </android.support.constraint.ConstraintLayout>

@@ -45,7 +45,7 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
 
         databaseReference= FirebaseDatabase.getInstance().getReference("Organization");
 
-
+        findViewById(R.id.backbtn).setOnClickListener(this);
         findViewById(R.id.Request).setOnClickListener(this);
         findViewById(R.id.reject).setOnClickListener(this);
          textViewName = findViewById(R.id.EvName);
@@ -120,6 +120,10 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
 
                         finish();
                         startActivity(new Intent(this, dataRetrieved.class));
+                    case R.id.backbtn:
+                        finish();
+                        startActivity(new Intent(this, dataRetrieved.class));
+                        break;
                 }
 
 

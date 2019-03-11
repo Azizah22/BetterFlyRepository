@@ -21,6 +21,10 @@
             android:value="true" />
 
 
+
+        <activity android:name=".orgLogin" />
+        <activity android:name=".vLogin" />
+        <activity android:name=".adminLogin" />
         <activity android:name=".postEvent" />
         <activity android:name=".ApproveOrg" />
         <activity android:name=".forgetPass" />

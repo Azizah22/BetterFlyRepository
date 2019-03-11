@@ -44,6 +44,8 @@ public class eventinfoAdaptorv extends ArrayAdapter<event>{
                 intent .putExtra("Credit Hours", event1.getcHours());
                 intent .putExtra("Number of Volunteers", event1.nov);
                 intent .putExtra( "event",  event1);
+                intent .putExtra( "id",  event1.org);
+
 
                 context.startActivity(intent);
 
