@@ -55,6 +55,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_event);
 
+
         editTextName = findViewById(R.id.name);
         editTextLoc = findViewById(R.id.loc);
         editTextDisc = findViewById(R.id.desc);
@@ -116,17 +117,30 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
        final String name = editTextName.getText().toString().trim();
         String loc = editTextLoc.getText().toString().trim();
         String disc = editTextDisc.getText().toString().trim();
-        int nov = 0;
         String ch = EditTextch.getText().toString().trim();
         String snov = editTextnov.getText().toString().trim();
-        if (!snov.isEmpty())
-            nov = Integer.parseInt(snov);
+        int nov=0,h=0;
+
+
 
         if (date != null) {
             DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
             DoE = format.parse(date);
+            if(System.currentTimeMillis()>DoE.getTime()){
+                editTextDoB.setError("Please Don't enter a passed date");
+                editTextDoB .requestFocus();}
         }
-        if (name.isEmpty() || loc.isEmpty() || disc.isEmpty() || DoE == null || snov == null || ch.isEmpty()) {
+        if (snov.isEmpty()){}
+        else{
+            nov = Integer.parseInt(snov);
+        }
+
+        if (ch.isEmpty()){}
+        else{
+            h = Integer.parseInt(ch);
+        }
+
+        if (name.isEmpty() || loc.isEmpty() || disc.isEmpty() || DoE == null || snov.isEmpty() || ch.isEmpty()|| h<1 || h >8 ) {
 
             if (name.isEmpty()) {
                 editTextName.setError("Name is required");
@@ -134,7 +148,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
             }
             if (ch.isEmpty()) {
-                EditTextch.setError("Hours should be between 1 and 6");
+                EditTextch.setError("Number of hours is required");
                 EditTextch.requestFocus();
 
             }
@@ -145,7 +159,6 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
             }
 
-
             if (disc.isEmpty()) {
                 editTextDisc.setError("Description is required");
                 editTextDisc.requestFocus();
@@ -153,27 +166,29 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             }
 
             if (snov.isEmpty()) {
-                editTextnov.setError("Numbeer of volunteers is required");
+                editTextnov.setError("Number of volunteers is required");
                 editTextnov.requestFocus();
-
             }
-
 
             if (DoE == null) {
                 editTextDoB.setError("Please enter The Date of event");
                 editTextDoB.requestFocus();
 
             }
+            if (h<1 || h >8) {
+                EditTextch.setError("Number of volunteers should be between 1-8");
+                EditTextch.requestFocus();
+            }
+
 
             return;
         }
+
+
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(loc) && !TextUtils.isEmpty(disc) && !TextUtils.isEmpty(snov)) {
-            // FirebaseUser user = mAuth.getCurrentUser();
           final   String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            int h = Integer.parseInt(ch);
           final   LinkedList<String> emails = new LinkedList<>();
             event e = new event(id, name, disc, DoE, h, loc, nov , emails);
-
 
             databaseEvents.child(id + name)
                     .setValue(e).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -188,15 +203,8 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
                     } else {
                         Toast.makeText(postEvent.this, "Fill all feild", Toast.LENGTH_LONG).show();
                     }
-
-
                 }
             });
-
-
-            //   databaseEvents.push().setValue(e);
-
-
         }
     }
 }

@@ -50,15 +50,7 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
                     return true;
 
                 case R.id.profile:
-
                     startActivity(new Intent(vHome.this, vHome.class));
-                    finish();
-
-                    return true;
-
-                case R.id.myevents:
-
-                    //startActivity(new Intent(vHome.this, vHome.class)); (raghad)
                     finish();
 
                     return true;
