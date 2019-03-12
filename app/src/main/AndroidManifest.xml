@@ -17,7 +17,6 @@
                app to run.
         -->
 
-
         <activity android:name=".postEvent" />
         <activity android:name=".ApproveOrg" />
         <activity android:name=".forgetPass" />

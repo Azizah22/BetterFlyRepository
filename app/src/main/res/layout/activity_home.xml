@@ -96,7 +96,7 @@
             android:tint="@color/colorPrimaryDark"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewch2"
-            app:srcCompat="@drawable/Level1" />
+            app:srcCompat="@drawable/level1" />
 
         <ImageView
             android:id="@+id/level5"

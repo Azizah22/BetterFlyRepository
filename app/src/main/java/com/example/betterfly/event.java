@@ -3,6 +3,7 @@ package com.example.betterfly;
 import android.location.Location;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class event implements Serializable {
     protected String org, name, descreption, location;
     protected Date date;
     protected int cHours;
-    public List<String> emails;
+    public ArrayList<String> emails;
 
 
     int nov;
@@ -25,7 +26,7 @@ public class event implements Serializable {
 
     }
 
-    public event(String id, String n, String des, Date d ,int ch, String l, int num ,LinkedList<String> email) {
+    public event(String id, String n, String des, Date d ,int ch, String l, int num ,ArrayList<String> email) {
         org = id;
         name = n;
         descreption = des;
@@ -33,7 +34,6 @@ public class event implements Serializable {
         date = d;
         location = l;
         nov = num;
-        // emails= new LinkedList<>();
         emails = email;
 
     }
@@ -80,7 +80,7 @@ public class event implements Serializable {
         this.location = location;
     }
 
-    public void setEmails(List<String> emails) {
+    public void setEmails(ArrayList<String> emails) {
         this.emails = emails;
     }
 
@@ -101,5 +101,27 @@ public class event implements Serializable {
         counter--;
     }
 
+    public ArrayList<String> getEmails() {
+        return emails;
+    }
 
+    public int getNov() {
+        return nov;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    public void setNov(int nov) {
+        this.nov = nov;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
 }

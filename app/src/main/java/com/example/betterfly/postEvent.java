@@ -33,6 +33,7 @@ import java.text.Annotation;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
@@ -187,7 +188,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(loc) && !TextUtils.isEmpty(disc) && !TextUtils.isEmpty(snov)) {
           final   String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-          final   LinkedList<String> emails = new LinkedList<>();
+          final ArrayList<String> emails = new ArrayList<>();
             event e = new event(id, name, disc, DoE, h, loc, nov , emails);
 
             databaseEvents.child(id + name)
