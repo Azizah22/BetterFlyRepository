@@ -113,7 +113,7 @@ public class eventPage extends AppCompatActivity implements View.OnClickListener
 
             case R.id.view:
                 finish();
-                startActivity(new Intent(this, EditEvent.class).putExtra("name" ,eventName )
+                startActivity(new Intent(this, viewVolunteers.class).putExtra("name" ,eventName )
                         .putExtra("description" , event1.getDescreption())
                         .putExtra("location", event1.getLocation())
                         .putExtra("date", event1.getDate())

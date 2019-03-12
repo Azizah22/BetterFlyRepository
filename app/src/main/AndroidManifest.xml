@@ -44,6 +44,8 @@
         <activity android:name=".RequestToVounteer" />
         <activity android:name=".eventPage" />
         <activity android:name=".eventRetrievd" />
+        <activity android:name=".EditEvent"/>
+        <activity android:name=".viewVolunteers"/>
     </application>
 
 </manifest>

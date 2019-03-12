@@ -1,13 +1,9 @@
 package com.example.betterfly;
 
 import android.app.DatePickerDialog;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -25,6 +21,8 @@ import android.widget.EditText;
 
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -35,19 +33,21 @@ import java.text.Annotation;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import android.app.DatePickerDialog;
 
 public class postEvent extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "postEvent";
-    EditText editTextName, editTextLoc, editTextDisc, editTextnov, editTextDoB,EditTextch;
+    EditText editTextName, editTextLoc, editTextDisc, editTextnov, editTextDoB, EditTextch;
     DatePickerDialog.OnDateSetListener datePickerDoB;
     String date;
     Date DoE;
-    NotificationCompat.Builder notification;
-    private static final int ID=8899;
+
     FirebaseAuth mAuth;
     DatabaseReference databaseEvents;
 
@@ -60,14 +60,14 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
         editTextLoc = findViewById(R.id.loc);
         editTextDisc = findViewById(R.id.desc);
         editTextnov = findViewById(R.id.NoV);
-        editTextDoB= findViewById(R.id.DoB);
-        EditTextch= findViewById(R.id.ch);
+        editTextDoB = findViewById(R.id.DoB);
+        EditTextch = findViewById(R.id.ch);
 
 
         databaseEvents = FirebaseDatabase.getInstance().getReference("Events");
 
         findViewById(R.id.post).setOnClickListener(this);
-        editTextDoB.setOnClickListener(new View.OnClickListener(){
+        editTextDoB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
@@ -84,13 +84,13 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
             }
         });
-        datePickerDoB= new DatePickerDialog.OnDateSetListener() {
+        datePickerDoB = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month=month+1;
-                Log.d(TAG,"onDateSet: dd/mm/yyyy:"+ dayOfMonth+"/"+month+"/"+year);
+                month = month + 1;
+                Log.d(TAG, "onDateSet: dd/mm/yyyy:" + dayOfMonth + "/" + month + "/" + year);
 
-                date=dayOfMonth+"/"+month+"/"+year;
+                date = dayOfMonth + "/" + month + "/" + year;
                 editTextDoB.setText(date);
 
             }
@@ -98,18 +98,14 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
         findViewById(R.id.post).setOnClickListener(this);
 
-        notification=new NotificationCompat.Builder(this)
-                .setAutoCancel(true);
-
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.post:
                 try {
                     newPost();
-
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -118,20 +114,20 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
     }
 
     private void newPost() throws ParseException {
-        String name = editTextName.getText().toString().trim();
+        final String name = editTextName.getText().toString().trim();
         String loc = editTextLoc.getText().toString().trim();
         String disc = editTextDisc.getText().toString().trim();
-        int nov=0;
-        String ch= EditTextch.getText().toString().trim();
-        String snov =editTextnov.getText().toString().trim();
-        if(!snov.isEmpty())
+        int nov = 0;
+        String ch = EditTextch.getText().toString().trim();
+        String snov = editTextnov.getText().toString().trim();
+        if (!snov.isEmpty())
             nov = Integer.parseInt(snov);
 
-        if(date!=null) {
+        if (date != null) {
             DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
             DoE = format.parse(date);
         }
-        if(name.isEmpty()||loc.isEmpty()|| disc.isEmpty() ||DoE==null||snov==null||ch.isEmpty()) {
+        if (name.isEmpty() || loc.isEmpty() || disc.isEmpty() || DoE == null || snov == null || ch.isEmpty()) {
 
             if (name.isEmpty()) {
                 editTextName.setError("Name is required");
@@ -164,8 +160,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             }
 
 
-
-            if (DoE==null) {
+            if (DoE == null) {
                 editTextDoB.setError("Please enter The Date of event");
                 editTextDoB.requestFocus();
 
@@ -173,37 +168,36 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
             return;
         }
-        if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(loc)&&!TextUtils.isEmpty(disc)&&!TextUtils.isEmpty(snov)) {
-           // FirebaseUser user = mAuth.getCurrentUser();
-            String id =FirebaseAuth.getInstance().getCurrentUser().getUid();
-            int h=Integer.parseInt(ch);
-            event e=new event (id,name,disc,DoE,h,loc,nov);
-
-            databaseEvents.push().setValue(e);
-
-            notification.setSmallIcon(R.drawable.logo)
-                    .setTicker("New!!")
-                    .setWhen(System.currentTimeMillis())
-                    .setContentTitle("New event has been added")
-                    .setContentText("Your event posted successfully");
+        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(loc) && !TextUtils.isEmpty(disc) && !TextUtils.isEmpty(snov)) {
+            // FirebaseUser user = mAuth.getCurrentUser();
+            final   String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            int h = Integer.parseInt(ch);
+            final ArrayList<String> emails = new ArrayList<>();
+            event e = new event(id, name, disc, DoE, h, loc, nov , emails);
 
 
-            Toast.makeText(this, "Event posted", Toast.LENGTH_LONG).show();
+            databaseEvents.child(id + name)
+                    .setValue(e).addOnCompleteListener(new OnCompleteListener<Void>() {
 
-            Intent intent=new Intent(this, OrgProcessActivity.class);
-            PendingIntent pi= PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-            notification.setContentIntent(pi);
-            NotificationManager nm= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            nm.notify(ID,notification.build());
-            finish();
-            startActivity(intent);
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    databaseEvents.child(id + name).child("emails").setValue(emails);
+                    if (task.isSuccessful()) {
+                        Toast.makeText(postEvent.this, "Event posted", Toast.LENGTH_LONG).show();
+                        finish();
+                        startActivity(new Intent(postEvent.this, OrgProcessActivity.class));
+                    } else {
+                        Toast.makeText(postEvent.this, "Fill all feild", Toast.LENGTH_LONG).show();
+                    }
+
+
+                }
+            });
+
+
+            //   databaseEvents.push().setValue(e);
+
 
         }
-        else{
-            Toast.makeText(this, "Fill all feild", Toast.LENGTH_LONG).show();
-        }
-
     }
-
-
 }

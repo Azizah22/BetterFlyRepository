@@ -86,7 +86,7 @@ public class EditEvent extends AppCompatActivity implements View.OnClickListener
             textDes.setText(des);
 
         }
-        textDate.setOnClickListener(new View.OnClickListener(){
+        textDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
@@ -102,14 +102,14 @@ public class EditEvent extends AppCompatActivity implements View.OnClickListener
                 dialog.show();
             }
         });
-        datePickerDoB= new DatePickerDialog.OnDateSetListener() {
+        datePickerDoB = new DatePickerDialog.OnDateSetListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month=month+1;
-                Log.d(TAG,"onDateSet: dd/mm/yyyy:"+ dayOfMonth+"/"+month+"/"+year);
+                month = month + 1;
+                Log.d(TAG, "onDateSet: dd/mm/yyyy:" + dayOfMonth + "/" + month + "/" + year);
 
-                date=dayOfMonth+"/"+month+"/"+year;
+                date = dayOfMonth + "/" + month + "/" + year;
                 textDate.setText(date);
                 DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
                 try {
@@ -122,31 +122,32 @@ public class EditEvent extends AppCompatActivity implements View.OnClickListener
             }
         };
 
-           eventName=textName.getText().toString().trim();
-           event1.setName(eventName);
-           textName.setText(eventName);
-           databaseReference.child(eventID).child("name").setValue(eventName);
+    }
+    public void update () {
+        eventName = textName.getText().toString().trim();
+        event1.setName(eventName);
+        textName.setText(eventName);
+        databaseReference.child(eventID).child("name").setValue(eventName);
 
-           numOfVol=textNOV.getText().toString().trim();
-           nov=Integer.parseInt(numOfVol);
-           event1.setNov(nov);
-           textNOV.setText(numOfVol);
+        numOfVol = textNOV.getText().toString().trim();
+        nov = Integer.parseInt(numOfVol);
+        event1.setNov(nov);
+        textNOV.setText(numOfVol);
         databaseReference.child(eventID).child("nov").setValue(nov);
 
-           loc=textLocation.getText().toString().trim();
-           event1.setLocation(loc);
-           textLocation.setText(loc);
+        loc = textLocation.getText().toString().trim();
+        event1.setLocation(loc);
+        textLocation.setText(loc);
         databaseReference.child(eventID).child("location").setValue(loc);
 
-           des=textDes.getText().toString().trim();
-           event1.setDescreption(des);
-           textDes.setText(des);
+        des = textDes.getText().toString().trim();
+        event1.setDescreption(des);
+        textDes.setText(des);
         databaseReference.child(eventID).child("desception").setValue(des);
 
-        String id =FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         event1.setOrg(id);
     }
-
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.backbtn:
@@ -160,7 +161,7 @@ public class EditEvent extends AppCompatActivity implements View.OnClickListener
                         .putExtra("event",  event1));
                 break;
             case R.id.save:
-
+                update();
                 Toast.makeText(this, "Event Edited", Toast.LENGTH_LONG).show();
                 finish();
                 startActivity(new Intent(this, OrgProcessActivity.class));

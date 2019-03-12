@@ -34,7 +34,7 @@ public class volunteerInfoAdaptor extends ArrayAdapter<Volunteer> {
 
         final TextView vName= listView.findViewById(R.id.RName);
         final TextView vdate= listView.findViewById(R.id.RDate);
-        final TextView vphone= listView.findViewById(R.id.rphone);
+        final TextView vemail= listView.findViewById(R.id.remail);
 
         final Volunteer volunteer1= volunteersList.get(position);
         DateFormat format = new SimpleDateFormat("d/MM/yyyy");
@@ -42,7 +42,7 @@ public class volunteerInfoAdaptor extends ArrayAdapter<Volunteer> {
         String DoB=format.format(date);
         vName.setText(volunteer1.getName());
         vdate.setText(DoB);
-        vphone.setText(volunteer1.getPhone());
+        vemail.setText(volunteer1.getEmail());
 
 
         return listView;

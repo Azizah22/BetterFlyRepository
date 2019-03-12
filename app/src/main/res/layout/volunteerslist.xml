@@ -49,19 +49,19 @@
             android:textStyle="italic" />
 
         <TextView
-            android:id="@+id/phone"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone:"
+            android:text="Email:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/rphone"
+            android:id="@+id/remail"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:text="phone"
+            android:text="email"
             android:textSize="18sp"
             android:textStyle="italic" />
     </LinearLayout>
