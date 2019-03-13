@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditEvent">
+
     <TextView
         android:id="@+id/eventname"
         android:layout_width="137dp"
@@ -14,6 +15,7 @@
         android:text="Event's Name:"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="56dp"
         android:text="Number of Volunteers:"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
@@ -42,23 +44,35 @@
         app:layout_constraintTop_toBottomOf="@+id/eventdate" />
 
     <TextView
-        android:id="@+id/location"
+        android:id="@+id/credith"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="44dp"
-        android:text="Location:"
+        android:text="Credit Hours:"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numOfV" />
 
     <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="44dp"
+        android:text="Location:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/credith" />
+
+    <TextView
         android:id="@+id/description"
         android:layout_width="111dp"
         android:layout_height="38dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="72dp"
         android:text="Description:"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
@@ -77,30 +91,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="199dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:text="name"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toEndOf="@+id/eventname"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
     <EditText
         android:id="@+id/date"
         android:layout_width="221dp"
         android:layout_height="44dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="date"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@+id/eventdate"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/ename" />
 
     <EditText
         android:id="@+id/num"
@@ -115,23 +117,35 @@
         app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <EditText
+        android:id="@+id/hours"
+        android:layout_width="194dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:text="credit hours"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/credith"
+        app:layout_constraintTop_toBottomOf="@+id/num" />
+
+    <EditText
         android:id="@+id/loc"
         android:layout_width="231dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
         android:text="location"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintStart_toEndOf="@+id/location"
-        app:layout_constraintTop_toBottomOf="@+id/numOfV" />
+        app:layout_constraintTop_toBottomOf="@+id/hours" />
 
     <EditText
         android:id="@+id/des"
         android:layout_width="219dp"
         android:layout_height="81dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:text="Description"
         android:textSize="18sp"
         android:textStyle="italic"
@@ -142,11 +156,24 @@
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="508dp"
+        android:layout_marginEnd="32dp"
         android:background="@color/bluesh"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ename"
+        android:layout_width="174dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:text="name"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toEndOf="@+id/eventname"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

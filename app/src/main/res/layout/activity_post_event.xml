@@ -17,13 +17,13 @@
         android:layout_width="282dp"
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="18dp"
         android:background="@drawable/dob"
         android:ems="10"
         android:hint="Event name"
-        android:paddingLeft="20dp"
         android:inputType="textPersonName"
+        android:paddingLeft="20dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -74,16 +74,16 @@
         android:layout_width="283dp"
         android:layout_height="37dp"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="18dp"
         android:background="@drawable/dob"
         android:ems="10"
         android:hint="Number of volunteer"
-        android:paddingLeft="20dp"
         android:inputType="numberDecimal"
+        android:paddingLeft="20dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ch"
         tools:ignore="MissingConstraints" />
@@ -118,7 +118,7 @@
         android:tint="@color/bluesh1"
         app:layout_constraintEnd_toStartOf="@+id/DoB"
         app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/note"
         app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
     <EditText
@@ -131,12 +131,12 @@
         android:background="@drawable/dob"
         android:ems="10"
         android:hint="Event start date"
-        android:paddingLeft="20dp"
         android:inputType="date"
+        android:paddingLeft="20dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cale"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/note"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -166,6 +166,16 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="3dp" />
+
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="354dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:text="Note: You can't change event's name so please write it carefully."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
 
 </android.support.constraint.ConstraintLayout>
