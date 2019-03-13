@@ -9,8 +9,8 @@ public class Color_Background_colors {
     private String[] mColors = {
             "#FFF0F5",//LavenderBlush
             "#FFFFFF",//white
-            "#FFA07A",//LightSalmon
-            "#FFA07A",//LightSalmon
+            "#FFA07A"//LightSalmon
+
     };
 
     public int getColor(){

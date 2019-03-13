@@ -27,9 +27,21 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         //ID for dynamic color
-        mnext = (Button) findViewById(R.id.coloring);
-        mlayout = (RelativeLayout)findViewById(R.id.HomeLayout);
 
+        mnext = (Button) findViewById(R.id.coloring);
+        mlayout = (RelativeLayout) findViewById(R.id.HomeLayout);
+
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            public void onClick(View view) {
+                int color = mColor.getColor();
+
+
+                mlayout.setBackgroundColor(color);
+                mnext.setTextColor(color);
+            }
+        };
+        mnext.setOnClickListener(listener);
         //firebase
         myAuth =  FirebaseAuth.getInstance();
 
@@ -47,10 +59,7 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
                 startActivity(new Intent(this, MainActivity.class));
                 break;
 
-            //button action coloring
-            case R.id.coloring:
-                mlayout.setBackgroundColor(color);
-                break;
+
         }
     }
 
