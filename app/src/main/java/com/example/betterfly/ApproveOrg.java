@@ -166,7 +166,7 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
         Intent intent = new Intent(this, dataRetrieved.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
+        createNotificationChannel();
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "121212")
                 .setContentTitle("Nice")
                 .setContentText("Your email has been sent")
