@@ -3,8 +3,10 @@ package com.example.betterfly;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -20,14 +22,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrgProcessActivity extends AppCompatActivity implements View.OnClickListener {
+public class OrgProcessActivity extends AppCompatActivity {
     private static final String TAG = "ViewDatabase";
     private ListView listView;
     DatabaseReference databaseReference;
    private FirebaseAuth.AuthStateListener mAuthListener;
     List<event> eventsList;
     private FirebaseAuth mAuth;
-    private Button add;
     FirebaseUser user;
     private  String userID;
 
@@ -36,18 +37,14 @@ public class OrgProcessActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_org_process);
         listView=(ListView) findViewById(R.id.list_view1);
-        findViewById(R.id.signOut).setOnClickListener(this);
         mAuth=FirebaseAuth.getInstance();
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Events");
         user=mAuth.getCurrentUser();
         userID = user.getUid();
         eventsList=new ArrayList<>();
 
-
-
-        add=findViewById(R.id.buttonAdd);
-        findViewById(R.id.buttonAdd).setOnClickListener(this);
-
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
         }
@@ -83,22 +80,33 @@ public class OrgProcessActivity extends AppCompatActivity implements View.OnClic
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
 
-            case R.id.buttonAdd:
-                finish();
-                startActivity(new Intent(this, postEvent.class));
-                break;
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-            case R.id.signOut:
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                startActivity(new Intent(this, MainActivity.class));
-                break;
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.home:
+                    startActivity(new Intent(OrgProcessActivity.this,OrgProcessActivity.class));
+                    finish();
+
+                    return true;
+
+                case R.id.post:
+                    startActivity(new Intent(OrgProcessActivity.this, postEvent.class));
+                    finish();
+
+                    return true;
+
+                case R.id.logout:
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(OrgProcessActivity.this, MainActivity.class));
+                    finish();
+                    return true;
+            }
+            return false;
         }
-
-    }
+    };
 }
 
