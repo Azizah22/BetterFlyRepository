@@ -18,8 +18,7 @@
         -->
 
         <activity android:name=".postEvent" />
-        <activity android:name=".ApproveOrg">
-        </activity>
+        <activity android:name=".ApproveOrg" />
         <activity android:name=".forgetPass" />
         <activity android:name=".vHome" />
         <activity android:name=".MainActivity">
@@ -37,6 +36,8 @@
         <activity android:name=".RequestToVounteer" />
         <activity android:name=".eventPage" />
         <activity android:name=".eventRetrievd" />
+        <activity android:name=".viewVolunteers"/>
+        <activity android:name=".EditEvent"/>
 
         <service
             android:name=".FirebaseMessagingService">
