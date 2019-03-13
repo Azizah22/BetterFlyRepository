@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,25 +17,39 @@ import com.google.firebase.auth.FirebaseAuth;
 public class vHome extends AppCompatActivity implements View.OnClickListener {
 
     FirebaseAuth myAuth;
+    //dynamic color change attribute
+    private Color_Background_colors mColor =  new Color_Background_colors();
+    private Button mnext;
+    private RelativeLayout mlayout;
 
-
-        @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-         myAuth =  FirebaseAuth.getInstance();
+        //ID for dynamic color
+        mnext = (Button) findViewById(R.id.coloring);
+        mlayout = (RelativeLayout)findViewById(R.id.HomeLayout);
 
-            BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-            navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        //firebase
+        myAuth =  FirebaseAuth.getInstance();
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
     @Override
     public void onClick(View v) {
+        int color = mColor.getColor();
         switch (v.getId()) {
             case R.id.signOut:
                 FirebaseAuth.getInstance().signOut();
                 finish();
                 startActivity(new Intent(this, MainActivity.class));
+                break;
+
+            //button action coloring
+            case R.id.coloring:
+                mlayout.setBackgroundColor(color);
                 break;
         }
     }
