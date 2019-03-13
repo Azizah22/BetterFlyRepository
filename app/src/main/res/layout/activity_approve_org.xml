@@ -10,12 +10,14 @@
         android:id="@+id/name"
         android:layout_width="60dp"
         android:layout_height="37dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:text="Name:"
         android:textColor="#444444"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/EvName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -25,27 +27,29 @@
         android:layout_height="34dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:text="name"
         android:textColor="#666666"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/OrgName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.391"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="64dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
         android:text="E-mail:"
         android:textColor="#444444"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/OrgName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
@@ -53,27 +57,30 @@
         android:id="@+id/OrgName"
         android:layout_width="169dp"
         android:layout_height="27dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
         android:text="email"
         android:textColor="#666666"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.243"
         app:layout_constraintStart_toEndOf="@+id/email"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="247dp" />
+        app:layout_constraintTop_toBottomOf="@+id/EvName"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/approvalID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
         android:text="Approval ID:"
         android:textColor="#444444"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/aprove"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -81,11 +88,14 @@
         android:id="@+id/aprove"
         android:layout_width="166dp"
         android:layout_height="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
         android:text="appID"
         android:textColor="#666666"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toEndOf="@+id/approvalID"
         app:layout_constraintTop_toBottomOf="@+id/OrgName"
         tools:ignore="MissingConstraints" />
@@ -95,7 +105,7 @@
         android:layout_width="265dp"
         android:layout_height="55dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
 
         android:layout_marginEnd="78dp"
         android:background="@color/bluesh"
@@ -106,7 +116,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aprove" />
+        app:layout_constraintTop_toBottomOf="@+id/approvalID" />
 
     <Button
         android:id="@+id/reject"
@@ -114,18 +124,20 @@
         android:layout_height="55dp"
 
         android:layout_marginStart="68dp"
+        android:layout_marginTop="38dp"
         android:layout_marginEnd="78dp"
-        android:layout_marginBottom="192dp"
 
+        android:layout_marginBottom="192dp"
         android:background="@color/bluesh"
         android:text="Reject"
         android:textColor="@color/important"
-        android:textSize="22sp"
 
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Request" />
 
 
     <ImageView

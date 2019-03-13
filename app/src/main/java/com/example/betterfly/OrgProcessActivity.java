@@ -49,13 +49,6 @@ public class OrgProcessActivity extends AppCompatActivity implements View.OnClic
         findViewById(R.id.buttonAdd).setOnClickListener(this);
 
 
-
-        }
-
-    @Override
-
-    protected void onStart() {
-        super.onStart();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -81,7 +74,9 @@ public class OrgProcessActivity extends AppCompatActivity implements View.OnClic
         });
 
 
+
     }
+
 
     @Override
     public void onClick(View v) {

@@ -18,7 +18,8 @@
         -->
 
         <activity android:name=".postEvent" />
-        <activity android:name=".ApproveOrg" />
+        <activity android:name=".ApproveOrg">
+        </activity>
         <activity android:name=".forgetPass" />
         <activity android:name=".vHome" />
         <activity android:name=".MainActivity">
@@ -36,6 +37,17 @@
         <activity android:name=".RequestToVounteer" />
         <activity android:name=".eventPage" />
         <activity android:name=".eventRetrievd" />
+
+        <service
+            android:name=".FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
     </application>
 
 </manifest>

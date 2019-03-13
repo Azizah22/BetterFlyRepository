@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     for (int i =0 ; i< organizationList.size() ; i++) {
                         if (email.equals(organizationList.get(i).email)) {
-                            if (!organizationList.get(i).status.equals("PROCESSING")) {
+                            if (organizationList.get(i).status.name().equals("APPROVED")) {
                                 finish();
                                 Intent intent = new Intent(MainActivity.this, OrgProcessActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -168,12 +168,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
 
-                    if(volunteer==false && org==false){
+                    if(email.equals("raghoosh3@gmail.com")) {
                         finish();
                         Intent intent = new Intent(MainActivity.this, dataRetrieved.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }
+
 
                 } else {
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();

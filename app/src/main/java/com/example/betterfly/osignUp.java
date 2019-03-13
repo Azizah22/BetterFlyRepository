@@ -152,7 +152,7 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
                             if (task.isSuccessful()) {
                                 Toast.makeText(osignUp.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
                                 finish();
-                                Intent intent = new Intent(osignUp.this, OrgProcessActivity.class);
+                                Intent intent = new Intent(osignUp.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
 

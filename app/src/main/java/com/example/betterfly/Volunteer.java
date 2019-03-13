@@ -5,6 +5,7 @@ import java.util.Date;
 public class Volunteer {
     public String name , email, phone;
     public Date dob;
+    int totalHours;
 
     public  String getPhone() {
         return phone;
@@ -42,10 +43,15 @@ public class Volunteer {
         this.name = name;
         this.email = email;
         this.dob = dob;
+        totalHours=0;
     }
 
 
     public String getName() {
         return name;
+    }
+
+    public void setTotalHours(int hours){
+        totalHours=hours;
     }
 }

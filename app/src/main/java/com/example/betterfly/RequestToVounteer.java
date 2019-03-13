@@ -32,13 +32,14 @@ import java.util.Locale;
 
 public class RequestToVounteer extends AppCompatActivity  implements View.OnClickListener{
 
-    private TextView textViewEventName , textViewOrgName, textViewDiscreption , textViewLoc , textViewDate , textViewVolunteerNum;
+    private TextView textViewEventName , textViewOrgName, textViewDiscreption , textViewLoc , textViewDate , textViewVolunteerNum , textViewCH;
 
     event event;
     public String orgName , location ,des , id;
     public String eventName;
     public String date;
     public int nov;
+    public int ch;
     FirebaseAuth auth;
     String userEmail;
     FirebaseUser user;
@@ -71,6 +72,7 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
         textViewLoc = findViewById(R.id.loc);
         textViewDate = findViewById(R.id.date);
         textViewVolunteerNum = findViewById(R.id.VolNum);
+        textViewCH = findViewById(R.id.chNum);
         ReqButton= findViewById(R.id.vReq);
         ReqButton.setOnClickListener(this);
 
@@ -89,6 +91,8 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
             location =(String) bundle.get("location");
             des= (String) bundle.get("description");
             id= (String) bundle.get("id");
+            ch = (int) bundle.get("Credit Hours");
+
 
             textViewEventName.setText(eventName);
             textViewDiscreption.setText(des);
