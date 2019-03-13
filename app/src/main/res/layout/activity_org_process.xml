@@ -41,15 +41,16 @@
     <TextView
         android:id="@+id/textView6"
         android:layout_width="173dp"
-        android:layout_height="27dp"
+        android:layout_height="41dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="222dp"
         android:fontFamily="serif"
         android:text="My Events"
         android:textAlignment="textStart"
-        android:textSize="18sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -71,7 +72,7 @@
         android:layout_width="395dp"
         android:layout_height="558dp"
         android:layout_alignParentTop="true"
-        android:background="@color/bluesh"
+        android:layout_marginTop="24dp"
         android:fastScrollAlwaysVisible="true"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         tools:ignore="MissingConstraints"

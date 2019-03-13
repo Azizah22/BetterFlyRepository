@@ -33,12 +33,13 @@ import java.util.Locale;
 
 public class EditEvent extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "eventPage";
-    private EditText textName, textDate, textNOV, textLocation, textDes;
+    private EditText textDate, textNOV, textLocation, textDes, textHours;
+    private TextView viewname;
     event event1;
     public String eventName;
     public String date, loc, des;
-    int nov;
-    String numOfVol;
+    int nov, hours;
+    String numOfVol, cHours;
     DatePickerDialog.OnDateSetListener datePickerDoB;
     public Date DoE;
     DatabaseReference databaseReference;
@@ -57,11 +58,13 @@ public class EditEvent extends AppCompatActivity implements View.OnClickListener
 
         findViewById(R.id.save).setOnClickListener(this);
 
-        textName = findViewById(R.id.name);
+        viewname = findViewById(R.id.ename);
         textDate = findViewById(R.id.date);
         textNOV = findViewById(R.id.num);
         textLocation = findViewById(R.id.loc);
         textDes = findViewById(R.id.des);
+        textHours=findViewById(R.id.hours);
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
@@ -75,59 +78,59 @@ public class EditEvent extends AppCompatActivity implements View.OnClickListener
             date = format.format(bundle.get("date"));
             // DoE=format.parse(date);
             nov = (int) bundle.get("Number of Volunteers");
+            hours=(int) bundle.get("Credit Hours");
             loc = (String) bundle.get("location");
             des = (String) bundle.get("description");
 
             numOfVol = String.valueOf(nov);
-            textName.setText(eventName);
+            cHours=String.valueOf(hours);
+            viewname.setText(eventName);
             textDate.setText(date);
             textNOV.setText(numOfVol);
             textLocation.setText(loc);
             textDes.setText(des);
+            textHours.setText(cHours);
+
+            textDate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Calendar cal = Calendar.getInstance();
+                    int year = cal.get(Calendar.YEAR);
+                    int month = cal.get(Calendar.MONTH);
+                    int day = cal.get(Calendar.DAY_OF_MONTH);
+                    DatePickerDialog dialog = new DatePickerDialog(
+                            EditEvent.this,
+                            android.R.style.Theme_Holo_Dialog_MinWidth,
+                            datePickerDoB,
+                            year, month, day);
+                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    dialog.show();
+                }
+            });
+            datePickerDoB = new DatePickerDialog.OnDateSetListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    month = month + 1;
+                    Log.d(TAG, "onDateSet: dd/mm/yyyy:" + dayOfMonth + "/" + month + "/" + year);
+
+                    date = dayOfMonth + "/" + month + "/" + year;
+                    textDate.setText(date);
+
+
+                }
+            };
 
         }
-        textDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog dialog = new DatePickerDialog(
-                        EditEvent.this,
-                        android.R.style.Theme_Holo_Dialog_MinWidth,
-                        datePickerDoB,
-                        year, month, day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-            }
-        });
-        datePickerDoB = new DatePickerDialog.OnDateSetListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month = month + 1;
-                Log.d(TAG, "onDateSet: dd/mm/yyyy:" + dayOfMonth + "/" + month + "/" + year);
 
-                date = dayOfMonth + "/" + month + "/" + year;
-                textDate.setText(date);
-                DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
-                try {
-                    DoE = format.parse(date);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                databaseReference.child(eventID).child("date").setValue(DoE);
-
-            }
-        };
 
     }
     public void update () {
-        eventName = textName.getText().toString().trim();
-        event1.setName(eventName);
-        textName.setText(eventName);
-        databaseReference.child(eventID).child("name").setValue(eventName);
+        cHours = textHours.getText().toString().trim();
+        hours=Integer.parseInt(cHours);
+        event1.setcHours(hours);
+        textHours.setText(cHours);
+        databaseReference.child(eventID).child("cHours").setValue(hours);
 
         numOfVol = textNOV.getText().toString().trim();
         nov = Integer.parseInt(numOfVol);
@@ -143,10 +146,19 @@ public class EditEvent extends AppCompatActivity implements View.OnClickListener
         des = textDes.getText().toString().trim();
         event1.setDescreption(des);
         textDes.setText(des);
-        databaseReference.child(eventID).child("desception").setValue(des);
+        databaseReference.child(eventID).child("descreption").setValue(des);
 
-        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        event1.setOrg(id);
+        DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
+        try {
+            DoE = format.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        databaseReference.child(eventID).child("date").setValue(DoE);
+
+
+
     }
     public void onClick(View view) {
         switch (view.getId()) {

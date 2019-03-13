@@ -35,11 +35,11 @@ import java.util.Locale;
 public class eventPage extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "eventPage";
-    private TextView textViewName, textViewDate, textViewNOV, textViewLocation, textViewDes;
+    private TextView textViewName, textViewDate, textViewNOV, textViewLocation, textViewDes , textViewHours;
     event event1;
     public String eventName;
     public String date, loc, des;
-    int nov;
+    int nov , hour;
     DatePickerDialog.OnDateSetListener datePickerDoB;
     public Date DoE;
     DatabaseReference databaseReference;
@@ -63,6 +63,7 @@ public class eventPage extends AppCompatActivity implements View.OnClickListener
         textViewNOV = findViewById(R.id.num);
         textViewLocation = findViewById(R.id.loc);
         textViewDes = findViewById(R.id.des);
+        textViewHours=findViewById(R.id.hours);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -76,14 +77,17 @@ public class eventPage extends AppCompatActivity implements View.OnClickListener
             nov = (int) bundle.get("Number of Volunteers");
             loc = (String) bundle.get("location");
             des = (String) bundle.get("description");
+            hour=(int) bundle.get("Credit Hours");
             eventID = FirebaseAuth.getInstance().getCurrentUser().getUid();
             eventID = eventID + eventName;
             String numOfVol = String.valueOf(nov);
+            String cHours=String.valueOf(hour);
             textViewName.setText(eventName);
             textViewDate.setText(date);
             textViewNOV.setText(numOfVol);
             textViewLocation.setText(loc);
             textViewDes.setText(des);
+            textViewHours.setText(cHours);
 
         }
 

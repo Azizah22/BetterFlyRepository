@@ -43,11 +43,23 @@
         app:layout_constraintTop_toBottomOf="@+id/eventdate" />
 
     <TextView
+        android:id="@+id/credith"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:text="Credit hours:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numOfV" />
+
+    <TextView
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="92dp"
         android:text="Location:"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
@@ -58,8 +70,8 @@
         android:id="@+id/description"
         android:layout_width="111dp"
         android:layout_height="38dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="36dp"
         android:text="Description:"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
@@ -116,11 +128,23 @@
         app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <TextView
+        android:id="@+id/hours"
+        android:layout_width="117dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="40dp"
+        android:text="credit hours"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/credith"
+        app:layout_constraintTop_toBottomOf="@+id/num" />
+
+    <TextView
         android:id="@+id/loc"
         android:layout_width="194dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="92dp"
         android:text="location"
         android:textSize="18sp"
         android:textStyle="italic"
@@ -131,7 +155,7 @@
         android:id="@+id/des"
         android:layout_width="164dp"
         android:layout_height="81dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="36dp"
         android:text="descriptin"
         android:textSize="18sp"
@@ -143,7 +167,7 @@
         android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="404dp"
+        android:layout_marginTop="452dp"
         android:layout_marginEnd="76dp"
         android:background="@color/bluesh"
         android:text="Edit Event"
@@ -154,7 +178,7 @@
         android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="404dp"
+        android:layout_marginTop="452dp"
         android:layout_marginEnd="224dp"
         android:background="@color/bluesh"
         android:text="View Volunteers"
