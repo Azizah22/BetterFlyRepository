@@ -47,8 +47,7 @@ public class OrgProcessActivity extends AppCompatActivity implements View.OnClic
 
         add=findViewById(R.id.buttonAdd);
         findViewById(R.id.buttonAdd).setOnClickListener(this);
-      //  findViewById(R.id.buttonHome).setOnClickListener(this);
-        findViewById(R.id.signOut).setOnClickListener(this);
+
 
 
         }
@@ -98,13 +97,6 @@ public class OrgProcessActivity extends AppCompatActivity implements View.OnClic
                 finish();
                 startActivity(new Intent(this, MainActivity.class));
                 break;
-
-         /*   case R.id.buttonHome:
-                finish();
-                startActivity(new Intent(this, OrgProcessActivity.class));
-                break;
-        */
-
         }
 
     }

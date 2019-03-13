@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class eventRetrievd extends AppCompatActivity implements View.OnClickListener {
+public class eventRetrievd extends AppCompatActivity {
 
     private ListView listView;
     DatabaseReference databaseReference;
@@ -40,13 +41,40 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
     public List<String>eventsName;
     MaterialSearchView searchView ;
 
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.home:
+                    startActivity(new Intent(eventRetrievd.this,eventRetrievd.class));
+                    finish();
+
+                    return true;
+
+                case R.id.profile:
+
+                    startActivity(new Intent(eventRetrievd.this, vHome.class));
+                    finish();
+
+                    return true;
+
+                case R.id.logout:
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(eventRetrievd.this, MainActivity.class));
+                    finish();
+                    return true;
+            }
+            return false;
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browse);
-
-        findViewById(R.id.signOut).setOnClickListener(this);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -54,10 +82,7 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
         toolbar.setTitleTextColor(Color.parseColor("#708090"));
 
         searchView = (MaterialSearchView)findViewById(R.id.search_view);
-
-
         listView=findViewById(R.id.list_view);
-
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Events");
 
         eventList=new ArrayList<event>();
@@ -97,10 +122,6 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
 
                 eventinfoAdaptorv eventinfoAdaptor = new eventinfoAdaptorv(eventRetrievd.this, eventList);
                 listView.setAdapter(eventinfoAdaptor);
-
-
-
-
             }
 
             @Override
@@ -108,7 +129,6 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
 
                 eventinfoAdaptorv eventinfoAdaptor = new eventinfoAdaptorv(eventRetrievd.this, eventList);
                 listView.setAdapter(eventinfoAdaptor);
-
 
             }
         });
@@ -145,8 +165,6 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
 
         });
 
-
-
     }
 
     @Override
@@ -155,17 +173,6 @@ public class eventRetrievd extends AppCompatActivity implements View.OnClickList
         MenuItem item = menu.findItem(R.id.action_search);
         searchView.setMenuItem(item);
         return true;
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.signOut:
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                startActivity(new Intent(this, MainActivity.class));
-                break;
-        }
     }
 
 

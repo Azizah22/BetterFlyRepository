@@ -23,6 +23,7 @@ import com.google.firebase.database.core.Constants;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -41,7 +42,7 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
     FirebaseAuth auth;
     String userEmail;
     FirebaseUser user;
-    List<String> Emails;
+    ArrayList<String> Emails;
     Button ReqButton , Withdraw , WButton;
 
 
@@ -132,7 +133,7 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
                 if (userEmail != null) {
                     check = event.addEmail(userEmail);
                     if(check == 2) {
-                        Emails = new LinkedList<>();
+                        Emails = new ArrayList<>();
                         event.setEmails(Emails);
                         databaseReference.child(id + eventName).child("emails").setValue(Emails);
                        // Toast.makeText(RequestToVounteer.this, "You are now added to this event as a volunteer", Toast.LENGTH_SHORT).show();

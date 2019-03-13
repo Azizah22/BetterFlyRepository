@@ -22,6 +22,7 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
          myAuth =  FirebaseAuth.getInstance();
+
             BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
             navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
@@ -44,21 +45,13 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.home:
-                    startActivity(new Intent(vHome.this, vHome.class));
+                    startActivity(new Intent(vHome.this,eventRetrievd.class));
                     finish();
 
                     return true;
 
                 case R.id.profile:
-
                     startActivity(new Intent(vHome.this, vHome.class));
-                    finish();
-
-                    return true;
-
-                case R.id.myevents:
-
-                    //startActivity(new Intent(vHome.this, vHome.class)); (raghad)
                     finish();
 
                     return true;

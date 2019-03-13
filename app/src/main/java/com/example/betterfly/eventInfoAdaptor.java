@@ -42,7 +42,7 @@ public class eventInfoAdaptor extends ArrayAdapter<event> {
                 intent.putExtra("location", event1.getLocation());
                 intent .putExtra("date", event1.getDate());
                 intent .putExtra("Credit Hours", event1.getcHours());
-                intent .putExtra("Number of Volunteers", event1.nov);
+                intent .putExtra("Number of Volunteers", event1.getNov());
                 intent .putExtra( "event",  event1);
 
                 context.startActivity(intent);

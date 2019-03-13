@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.betterfly">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-feature android:name="android.hardware.type.watch" />
 
     <application
         android:allowBackup="true"
@@ -14,21 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
-        <uses-library
-            android:name="com.google.android.wearable"
-            android:required="false" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="false" />
 
-        <activity android:name=".orgLogin" />
-        <activity android:name=".vLogin" />
-        <activity android:name=".adminLogin" />
         <activity android:name=".postEvent" />
         <activity android:name=".ApproveOrg" />
         <activity android:name=".forgetPass" />

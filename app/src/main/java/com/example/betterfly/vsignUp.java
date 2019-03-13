@@ -4,7 +4,9 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +31,8 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import java.time.LocalDate;
+
 
 public class vsignUp extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "vsignUp";
@@ -37,7 +41,7 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
     DatePickerDialog.OnDateSetListener datePickerDoB;
     String date;
     Date DoB;
-
+    boolean ageres;
     private FirebaseAuth mAuth;
 
     @Override
@@ -75,6 +79,7 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
             }
         });
         datePickerDoB= new DatePickerDialog.OnDateSetListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month=month+1;
@@ -82,6 +87,14 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
 
                  date=dayOfMonth+"/"+month+"/"+year;
                 editTextDoB.setText(date);
+
+                LocalDate currentDate = LocalDate.now();
+                int y = currentDate.getYear();
+                int age = y - year;
+                if( age >= 16 ){
+                    ageres = true;
+                }
+                else{ ageres = false;}
             }
         };
 
@@ -99,9 +112,12 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
         if(date!=null) {
             DateFormat format = new SimpleDateFormat("d/MM/yyyy", Locale.ENGLISH);
             DoB = format.parse(date);
+
+
+
         }
 
-        if(email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(email).matches()||password.isEmpty()|| password.length()<6||repaetPassword.isEmpty()|| !password.equals(repaetPassword)||name.isEmpty() ||DoB==null) {
+        if(email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(email).matches()||password.isEmpty()|| password.length()<6||repaetPassword.isEmpty()|| !password.equals(repaetPassword)||name.isEmpty() ||DoB==null||!ageres) {
 
             if (email.isEmpty()) {
                 editTextEmail.setError("Email is required");
@@ -154,6 +170,11 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
                 editTextDoB.requestFocus();
                 //return;
             }
+            if(!ageres){
+                editTextDoB.setError("You have to be 16 years or old");
+                editTextDoB.requestFocus();
+            }
+
 
             return;
         }
@@ -180,7 +201,7 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
                             if (task.isSuccessful()) {
                                 Toast.makeText(vsignUp.this, getString(R.string.registration_success), Toast.LENGTH_LONG).show();
                                 finish();
-                                Intent intent = new Intent(vsignUp.this, vHome.class);
+                                Intent intent = new Intent(vsignUp.this, eventRetrievd.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
 
