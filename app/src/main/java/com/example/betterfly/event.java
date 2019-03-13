@@ -23,7 +23,7 @@ public class event implements Serializable {
 
 
 
-        public event(String id, String n, String des, Date d , int ch, String l, int num) {
+        public event(String id, String n, String des, Date d , int ch, String l, int num, ArrayList<String> emails) {
             org = id;
             name = n;
             descreption = des;
@@ -32,6 +32,7 @@ public class event implements Serializable {
             location = l;
             nov = num;
             emails = new ArrayList <String>();
+            this.emails=emails;
 
         }
         public int getNov() {
@@ -96,6 +97,8 @@ public class event implements Serializable {
         }
 
         public int addEmail(String email) {
+            if(emails==null)
+                return 2;
             if (counter < nov) {
                 emails.add(email);
                 counter++;
@@ -103,6 +106,13 @@ public class event implements Serializable {
             }
             return -1;
 
+        }
+        public void setEmails(ArrayList<String> emails){
+            this.emails=emails;
+        }
+        public void removeEmail(String email){
+            emails.remove(email);
+            counter--;
         }
 
 
