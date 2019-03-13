@@ -9,7 +9,11 @@ public class Color_Background_colors {
     private String[] mColors = {
             "#FFF0F5",//LavenderBlush
             "#FFFFFF",//white
-            "#FFA07A"//LightSalmon
+            "#FFA07A",//LightSalmon
+            "#FF0000",//red
+            "#B22222",//firebrick
+            "#DC143C",//crimson
+            "CD5C5C"//indianred
 
     };
 
