@@ -8,6 +8,20 @@
     android:background="@drawable/wallpaper"
     tools:context=".vHome">
 
+    <ImageView
+        android:id="@+id/wall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        app:srcCompat="@drawable/wallpaper" />
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,7 +34,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="95dp"
             android:layout_marginTop="48dp"
-            android:text="Welcom "
+            android:text="Welcome "
             android:textAlignment="center"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,19 +46,21 @@
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="152dp"
             android:text="Name "
             android:textAlignment="center"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView11"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewch"
-            android:layout_width="101dp"
+            android:id="@+id/textViewHours"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="42dp"
             android:text="Cridit Hours"
             android:textSize="18sp"
@@ -55,12 +71,12 @@
             android:id="@+id/textViewch2"
             android:layout_width="101dp"
             android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="84dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="65dp"
             android:text="My Badges"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewch" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewHours" />
 
         <Button
             android:id="@+id/coloring"
@@ -68,43 +84,29 @@
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="42dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="32dp"
             android:background="@drawable/coloring"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.968"
-            app:layout_constraintStart_toEndOf="@+id/textViewch"
+            app:layout_constraintStart_toEndOf="@+id/textViewHours"
             app:layout_constraintTop_toBottomOf="@+id/textViewName" />
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="395dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewch" />
 
         <ImageView
             android:id="@+id/level1"
             android:layout_width="85dp"
             android:layout_height="84dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="80dp"
-            android:tint="@color/colorPrimaryDark"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="120dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewch2"
+            app:layout_constraintTop_toTopOf="@+id/textViewch2"
             app:srcCompat="@drawable/level1" />
 
         <ImageView
             android:id="@+id/level5"
-            android:tint="@color/colorPrimaryDark"
             android:layout_width="85dp"
             android:layout_height="84dp"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="45dp"
             app:layout_constraintStart_toEndOf="@+id/level4"
             app:layout_constraintTop_toBottomOf="@+id/level2"
@@ -112,10 +114,9 @@
 
         <ImageView
             android:id="@+id/level4"
-            android:tint="@color/colorPrimaryDark"
             android:layout_width="85dp"
             android:layout_height="84dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="45dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/level1"
@@ -125,9 +126,8 @@
             android:id="@+id/level6"
             android:layout_width="85dp"
             android:layout_height="84dp"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="44dp"
-            android:tint="@color/colorPrimaryDark"
             app:layout_constraintStart_toEndOf="@+id/level5"
             app:layout_constraintTop_toBottomOf="@+id/level3"
             app:srcCompat="@drawable/level9" />
@@ -136,8 +136,7 @@
             android:id="@+id/level2"
             android:layout_width="85dp"
             android:layout_height="83dp"
-            android:layout_marginStart="60dp"
-            android:tint="@color/colorPrimaryDark"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="80dp"
             app:layout_constraintStart_toEndOf="@+id/level1"
             app:layout_constraintTop_toBottomOf="@+id/textViewch2"
@@ -145,11 +144,9 @@
 
         <ImageView
             android:id="@+id/level3"
-            android:tint="@color/colorPrimaryDark"
-
             android:layout_width="85dp"
             android:layout_height="84dp"
-            android:layout_marginStart="59dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="80dp"
             app:layout_constraintStart_toEndOf="@+id/level2"
             app:layout_constraintTop_toBottomOf="@+id/textViewch2"
@@ -158,6 +155,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/wallpaper"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

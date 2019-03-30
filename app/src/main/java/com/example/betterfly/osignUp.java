@@ -139,8 +139,7 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
                             null
 
                     );
-
-
+                    
 
                     FirebaseDatabase.getInstance().getReference("Organization")
                             .child(approvalId)
