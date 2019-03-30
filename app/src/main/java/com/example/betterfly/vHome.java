@@ -40,6 +40,7 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
             setContentView(R.layout.activity_home);
 
             FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+            assert user != null;
             String userid=user.getUid();
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Volunteer");
             TextViewName = findViewById(R.id.textViewName);

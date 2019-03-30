@@ -80,6 +80,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
                         android.R.style.Theme_Holo_Dialog_MinWidth,
                         datePickerDoB,
                         year, month, day);
+                dialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
 

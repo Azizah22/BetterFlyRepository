@@ -13,7 +13,7 @@
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="289dp"
+        android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="72dp"
@@ -32,16 +32,16 @@
 
     <EditText
         android:id="@+id/chours"
-        android:layout_width="289dp"
+        android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:paddingLeft="48dp"
         android:background="@drawable/email"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:paddingLeft="48dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -50,19 +50,18 @@
         tools:ignore="MissingConstraints" />
 
 
-
     <EditText
         android:id="@+id/DoB"
-        android:layout_width="289dp"
+        android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:paddingLeft="48dp"
         android:background="@drawable/dob"
         android:ems="10"
         android:hint="Date Of Birth"
         android:inputType="date"
+        android:paddingLeft="48dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -72,16 +71,16 @@
 
     <EditText
         android:id="@+id/password_signup"
-        android:layout_width="289dp"
+        android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:paddingLeft="48dp"
         android:background="@drawable/password"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:paddingLeft="48dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -90,16 +89,16 @@
 
     <EditText
         android:id="@+id/repassword_signup"
-        android:layout_width="289dp"
+        android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
-        android:paddingLeft="48dp"
         android:background="@drawable/password"
         android:ems="10"
         android:hint="Repeat password"
         android:inputType="textPassword"
+        android:paddingLeft="48dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -108,15 +107,17 @@
 
     <Button
         android:id="@+id/sign_up"
-        android:layout_width="297dp"
-        android:layout_height="70dp"
+        android:layout_width="222dp"
+        android:layout_height="49dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/sign_up1"
+        android:background="@drawable/dob"
+        android:backgroundTint="@color/green"
+        android:text="Sign up"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DoB" />
 
@@ -138,7 +139,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="false"
-        android:tint="@color/colorPrimary"
+        android:tint="@color/filling"
         app:layout_constraintBottom_toBottomOf="@+id/DoB"
         app:layout_constraintStart_toStartOf="@+id/DoB"
         app:layout_constraintTop_toTopOf="@+id/DoB"

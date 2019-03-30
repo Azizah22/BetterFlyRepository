@@ -3,25 +3,24 @@
 
     <color name="colorPrimary">#F5F5F8</color>
     <color name="colorPrimaryDark">#E8151515</color>
-    <color name="colorAccent">#F0E9E9</color>
+    <color name="colorAccent">#D8FF7F5F</color>
     <color name="wall">#61DEE1F3</color>
     <color name="trans">#00FFFFFF</color>
-    <color name="bluesh">#B9E5E8F1</color>
+    <color name="bluesh">#EBC6D9EF</color>
     <color name="bluesh1">#3C5C7197</color>
-    <color name="important">#DEBF5E61</color>
-    <color name="green">#CB6BAA6D</color>
+    <color name="important">#7CE5FE</color>
+    <color name="green">#BE6BAA6D</color>
     <color name="heding">#E87C7424</color>
     <color name="slategray">#708090</color>
-    <color name="lightsteelblue">#B0C4DE</color>
-    <color name="lightslategray">#778899</color>
+    <color name="lightsteelblue">#CCB0C4DE</color>
+    <color name="lightslategray">#4381BF</color>
     <color name="LavenderBlush">#FFF0F5</color>
     <color name="white">#FFFFFF</color>
     <color name="LightSalmon">#FFA07A</color>
-
-
+    <color name="filling">#AFBAD2</color>
     <color name="red">#FF0000</color>
     <color name="firebrick">#B22222</color>
-    <color name="crimson">#DC143C</color>
+    <color name="crimson">#F2CBD0</color>
     <color name="indianred">#CD5C5C</color>
 
 </resources>
