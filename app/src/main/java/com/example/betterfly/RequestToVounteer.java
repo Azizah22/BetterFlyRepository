@@ -48,10 +48,10 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
     public int ch;
     FirebaseAuth auth;
     String userEmail;
-    FirebaseUser user;
+    FirebaseUser user , userV;
     ArrayList<String> Emails;
     Button ReqButton , Withdraw , WButton;
-    int h;//cridit hours
+    int th;//total hours
 
 
 
@@ -106,6 +106,7 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
             textViewLoc.setText(location);
             textViewDate.setText(date);
             textViewVolunteerNum.setText(String.valueOf(nov));
+            textViewCH.setText(String.valueOf(ch));
 
         }
 
@@ -126,6 +127,24 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
         }
         Withdraw = findViewById(R.id.withdraw);
         Withdraw.setOnClickListener(this);
+         userV=FirebaseAuth.getInstance().getCurrentUser();
+        String userid=userV.getUid();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Volunteer");
+        reference.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String ch= dataSnapshot.child("hours").getValue().toString();
+               th=Integer.parseInt(ch);
+                }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+
+        });
 
 
     }
@@ -169,6 +188,10 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
                 startActivity(new Intent(this, eventRetrievd.class));
                 buclick();
 
+                userV=FirebaseAuth.getInstance().getCurrentUser();
+                final String userid=userV.getUid();
+                final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Volunteer");
+                reference.child(userid).child("hours").setValue(th+ch);
                 break;
 
             case  R.id.withdraw:
@@ -179,6 +202,13 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
                             finish();
                 startActivity(new Intent(this, eventRetrievd.class));
                 buclickkk();
+                userV=FirebaseAuth.getInstance().getCurrentUser();
+                final String useridd=userV.getUid();
+                final DatabaseReference referencee = FirebaseDatabase.getInstance().getReference("Volunteer");
+                if(th-ch<0)
+                    referencee.child(useridd).child("hours").setValue(0);
+                else
+                referencee.child(useridd).child("hours").setValue(th-ch);
             break;
 
         }

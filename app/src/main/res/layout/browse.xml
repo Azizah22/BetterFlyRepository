@@ -12,23 +12,27 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="2dp"
-        android:background="@color/bluesh">
+        android:background="@color/bluesh"
+        >
 
     </android.support.v7.widget.Toolbar>
 
-    <com.miguelcatalan.materialsearchview.MaterialSearchView
+    <android.widget.SearchView
         android:id="@+id/search_view"
-        android:layout_width="match_parent"
+        android:layout_width="298dp"
         android:layout_height="wrap_content"
-        app:searchBackground="@color/lightslategray"
-        app:searchSuggestionBackground="@color/bluesh"
-        app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="113dp"
+        android:textColor="#708090"
+        android:textColorHint="#708090"
         app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        >
+        app:searchBackground="@color/bluesh"
+        app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
+        app:searchSuggestionBackground="@color/white"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
-    </com.miguelcatalan.materialsearchview.MaterialSearchView>
+
+    </android.widget.SearchView>
 
 
     <ListView
