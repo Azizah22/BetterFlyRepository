@@ -91,10 +91,6 @@ public class eventPage extends AppCompatActivity implements View.OnClickListener
 
         }
 
-
-
-
-
     }
 
     @Override

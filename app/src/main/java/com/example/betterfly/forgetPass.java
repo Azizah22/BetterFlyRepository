@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +22,7 @@ public class forgetPass extends AppCompatActivity implements View.OnClickListene
     private EditText inputEmail;
 
     private Button btnReset;
+    private ImageView back;
 
     private FirebaseAuth auth;
 
@@ -35,17 +37,21 @@ public class forgetPass extends AppCompatActivity implements View.OnClickListene
 
         btnReset = findViewById(R.id.buttonSet);
 
-
+        back = findViewById(R.id.backbtn);
 
         auth = FirebaseAuth.getInstance();
 
 
         btnReset.setOnClickListener(this);
+        back.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+        case R.id.backbtn:
+        finish();
+        startActivity(new Intent(this,MainActivity.class));}
         String email = inputEmail.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {

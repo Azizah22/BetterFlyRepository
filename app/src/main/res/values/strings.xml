@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BetterFly</string>
+    <string name="app_name">Betterfly</string>
     <string name="email">email</string>
     <string name="password">password</string>
     <string name="register">Register</string>
@@ -10,15 +10,6 @@
     <string name="registration_success">Registered Successfully</string>
     <string name="registration_fail">Registration Failed</string>
     <string name="input_error_email_invalid">enter a valid email</string>
-    <array name="cHour">
-        <item>-- Event credit hours --</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </array>
     <string name="title_activity_org_nave">orgNave</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -8,12 +8,66 @@
     android:id="@+id/listE"
     android:clickable="true">
 
-    <TextView
-        android:id="@+id/eventName"
-        android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:text="Name"
-        android:textSize="30sp"
-        android:textStyle="bold|italic" />
+    <android.support.constraint.ConstraintLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="140sp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="400sp"
+            android:layout_height="90sp"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/round_layout"
+            android:backgroundTint="@color/important"
+            android:fadingEdge="horizontal|vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/level3" />
+
+            <TextView
+                android:id="@+id/eventName"
+                android:layout_width="148sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Name"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="8dp"
+                android:text=">"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="45sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/eventName"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>

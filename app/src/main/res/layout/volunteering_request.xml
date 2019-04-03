@@ -8,123 +8,83 @@
     android:id="@+id/RV">
 
     <TextView
-        android:id="@+id/ch"
-        android:layout_width="118dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:text="Credit Hours:"
-        android:textColor="#444444"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventLoc2" />
-
-    <TextView
-        android:id="@+id/descreption"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="11dp"
-        android:text="Description:"
+        android:layout_height="37dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:text="Event Name:"
         android:textColor="#444444"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ch" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <TextView
-        android:id="@+id/description"
-        android:layout_width="216dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="73dp"
-        android:text="description"
+        android:id="@+id/EvName"
+        android:layout_width="208dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="8dp"
+        android:text="name"
         android:textColor="#666666"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/orgName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/descreption"
-        app:layout_constraintTop_toBottomOf="@+id/chNum"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toEndOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <TextView
         android:id="@+id/VolNum"
         android:layout_width="92dp"
         android:layout_height="26dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="43dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="num"
         android:textColor="#666666"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/eventLoc2"
         app:layout_constraintTop_toBottomOf="@+id/loc"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/chNum"
-        android:layout_width="92dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="160dp"
-        android:text="num"
-        android:textColor="#666666"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/ch"
-        app:layout_constraintTop_toBottomOf="@+id/VolNum"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="133dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="6dp"
-        android:text="Event Name:"
+        android:id="@+id/descreption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Description:"
         android:textColor="#444444"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/OrgName"
-        app:layout_constraintEnd_toStartOf="@+id/EvName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/OrgName" />
 
     <TextView
         android:id="@+id/eventDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:text="Date:"
         android:textColor="#444444"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OrgName" />
+        app:layout_constraintTop_toBottomOf="@+id/descreption" />
 
     <TextView
         android:id="@+id/eventLoc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="19dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:text="Location: "
         android:textColor="#444444"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/loc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDate" />
 
@@ -132,14 +92,12 @@
         android:id="@+id/eventLoc2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:text="Number of needed volunteers:"
         android:textColor="#444444"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/VolNum"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loc" />
 
@@ -147,15 +105,12 @@
         android:id="@+id/OrgName"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="38dp"
         android:text="Organization Name:"
         android:textColor="#444444"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/orgName"
-        app:layout_constraintHorizontal_bias="0.163"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
@@ -165,66 +120,58 @@
         android:layout_height="55dp"
 
         android:layout_marginStart="73dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="73dp"
         android:background="@drawable/round_button"
         android:text="Request to Volunteer"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        app:layout_constraintTop_toBottomOf="@+id/VolNum" />
 
     <Button
         android:id="@+id/withdraw"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        />
+        tools:ignore="MissingConstraints" />
 
 
     <TextView
-        android:id="@+id/EvName"
-        android:layout_width="208dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="8dp"
-        android:text="name"
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="description"
         android:textColor="#666666"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/orgName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/name"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/descreption"
+        app:layout_constraintTop_toBottomOf="@+id/OrgName"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="166dp"
         android:layout_height="26dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="154dp"
+        android:layout_marginTop="16dp"
         android:text="date"
         android:textColor="#666666"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/eventDate"
-        app:layout_constraintTop_toBottomOf="@+id/orgName"
+        app:layout_constraintTop_toBottomOf="@+id/description"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/orgName"
-        android:layout_width="166dp"
-        android:layout_height="26dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:text="org"
         android:textColor="#666666"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/OrgName"
         app:layout_constraintTop_toBottomOf="@+id/EvName"
         tools:ignore="MissingConstraints" />
@@ -233,13 +180,11 @@
         android:id="@+id/loc"
         android:layout_width="166dp"
         android:layout_height="26dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="135dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="location"
         android:textColor="#666666"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/eventLoc"
         app:layout_constraintTop_toBottomOf="@+id/date"
         tools:ignore="MissingConstraints" />
@@ -254,5 +199,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 </android.support.constraint.ConstraintLayout>

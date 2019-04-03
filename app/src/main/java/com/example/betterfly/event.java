@@ -12,16 +12,10 @@ public class event implements Serializable {
         protected ArrayList<String> emails;
 
 
-        int nov;
-
-        int counter = 0;
+        int nov, counter = 0,x,y;
 
         public event() {
-
-
         }
-
-
 
         public event(String id, String n, String des, Date d , int ch, String l, int num, ArrayList<String> emails) {
             org = id;
@@ -35,7 +29,16 @@ public class event implements Serializable {
             this.emails=emails;
 
         }
-        public int getNov() {
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getNov() {
             return nov;
         }
 

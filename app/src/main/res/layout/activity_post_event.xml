@@ -14,7 +14,7 @@
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="282dp"
+        android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
@@ -34,16 +34,16 @@
 
     <EditText
         android:id="@+id/loc"
-        android:layout_width="282dp"
+        android:layout_width="wrap_content"
         android:layout_height="42dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="18dp"
         android:background="@drawable/dob"
-        android:paddingLeft="20dp"
         android:ems="10"
         android:hint="Event location"
         android:inputType="textPersonName"
+        android:paddingLeft="20dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
@@ -53,15 +53,15 @@
 
     <EditText
         android:id="@+id/desc"
-        android:layout_width="282dp"
-        android:layout_height="124dp"
+        android:layout_width="wrap_content"
+        android:layout_height="105dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="7dp"
         android:layout_marginEnd="18dp"
         android:ems="10"
         android:hint="Event description"
-        android:paddingLeft="20dp"
         android:inputType="text"
+        android:paddingLeft="20dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -71,7 +71,7 @@
 
     <EditText
         android:id="@+id/NoV"
-        android:layout_width="283dp"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="16dp"
@@ -90,16 +90,16 @@
 
     <EditText
         android:id="@+id/ch"
-        android:layout_width="283dp"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="18dp"
         android:background="@drawable/dob"
         android:ems="10"
-        android:paddingLeft="20dp"
         android:hint="Cridit hours"
         android:inputType="numberDecimal"
+        android:paddingLeft="20dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
@@ -107,37 +107,35 @@
         app:layout_constraintTop_toBottomOf="@+id/DoB"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/cale"
-        android:layout_width="45dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
-        android:adjustViewBounds="false"
-        android:tint="@color/bluesh1"
-        app:layout_constraintEnd_toStartOf="@+id/DoB"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/note"
-        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
-
     <EditText
         android:id="@+id/DoB"
-        android:layout_width="233dp"
+        android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="56dp"
         android:background="@drawable/dob"
         android:ems="10"
         android:hint="Event start date"
         android:inputType="date"
-        android:paddingLeft="20dp"
+        android:paddingLeft="40dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/cale"
         app:layout_constraintTop_toBottomOf="@+id/note"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/cale"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="64dp"
+        android:adjustViewBounds="false"
+        android:tint="@color/bluesh1"
+        app:layout_constraintBottom_toBottomOf="@+id/DoB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/DoB"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
     <Button
         android:id="@+id/post"
@@ -146,7 +144,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/round_button"
+        android:background="@color/green"
         android:text="post"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="22sp"
@@ -169,11 +167,13 @@
 
     <TextView
         android:id="@+id/note"
-        android:layout_width="354dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="221dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:text="Note: You can't change event's name so please write it carefully."
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
