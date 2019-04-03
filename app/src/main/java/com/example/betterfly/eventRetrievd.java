@@ -49,14 +49,12 @@ public class eventRetrievd extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.home:
                     startActivity(new Intent(eventRetrievd.this,eventRetrievd.class));
-                    finish();
 
                     return true;
 
                 case R.id.profile:
 
                     startActivity(new Intent(eventRetrievd.this, vHome.class));
-                    finish();
 
                     return true;
 
@@ -97,7 +95,7 @@ public class eventRetrievd extends AppCompatActivity {
                 for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
 
                     event eventObj = eventSnapshot.getValue(event.class);
-                    if(eventList.contains(eventObj))
+                    if(eventList.contains(eventObj) || eventObj.date.getTime()<System.currentTimeMillis() )
                         continue;
                     else{
                         eventList.add(eventObj);

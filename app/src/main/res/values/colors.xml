@@ -19,8 +19,9 @@
     <color name="LightSalmon">#FFA07A</color>
     <color name="filling">#AFBAD2</color>
     <color name="red">#FF0000</color>
-    <color name="firebrick">#B22222</color>
+    <color name="firebrick">#D95555</color>
     <color name="crimson">#F2CBD0</color>
     <color name="indianred">#CD5C5C</color>
+    <color name="search">#CEFB6E8F</color>
 
 </resources>

@@ -89,13 +89,11 @@ public class OrgProcessActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.home:
                     startActivity(new Intent(OrgProcessActivity.this,OrgProcessActivity.class));
-                    finish();
 
                     return true;
 
                 case R.id.post:
                     startActivity(new Intent(OrgProcessActivity.this, postEvent.class));
-                    finish();
 
                     return true;
 

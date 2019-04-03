@@ -120,13 +120,11 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
             switch (item.getItemId()) {
                 case R.id.home:
                     startActivity(new Intent(vHome.this,eventRetrievd.class));
-                    finish();
 
                     return true;
 
                 case R.id.profile:
                     startActivity(new Intent(vHome.this, vHome.class));
-                    finish();
 
                     return true;
 
@@ -139,17 +137,5 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
             return false;
         }
     };
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            return true;
-        }
-        return false;
-    }
+
 }

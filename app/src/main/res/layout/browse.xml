@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="2dp"
-        android:background="@color/crimson">
+        android:background="@color/search">
 
     </android.support.v7.widget.Toolbar>
 
@@ -25,7 +25,7 @@
         app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
         app:searchBackground="@color/lightslategray"
         app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
-        app:searchSuggestionBackground="@color/bluesh">
+        app:searchSuggestionBackground="@color/white">
 
     </com.miguelcatalan.materialsearchview.MaterialSearchView>
 

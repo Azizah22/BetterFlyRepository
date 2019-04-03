@@ -139,7 +139,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="false"
-        android:tint="@color/filling"
+        android:tint="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="@+id/DoB"
         app:layout_constraintStart_toStartOf="@+id/DoB"
         app:layout_constraintTop_toTopOf="@+id/DoB"

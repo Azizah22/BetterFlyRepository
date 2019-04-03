@@ -10,16 +10,15 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="93dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/logo"
         android:fontFamily="cursive"
-        android:text="Organization Home Page"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,10 +29,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="222dp"
-        android:fontFamily="serif"
+        android:fontFamily="@font/acme"
         android:text="My Events"
         android:textAlignment="textStart"
-        android:textSize="18sp"
+        android:textColor="@color/search"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -43,7 +43,7 @@
         android:layout_width="395dp"
         android:layout_height="558dp"
         android:layout_alignParentTop="true"
-        android:background="@color/colorPrimary"
+        android:background="@color/white"
         android:fastScrollAlwaysVisible="true"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         tools:ignore="MissingConstraints"
@@ -59,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="69dp"
             android:layout_gravity="bottom"
+            app:itemBackground="@color/colorPrimary"
             app:menu="@menu/menu_mnavigation" />
 
 

@@ -45,12 +45,11 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
 
         databaseReference= FirebaseDatabase.getInstance().getReference("Organization");
 
-        findViewById(R.id.backbtn).setOnClickListener(this);
         findViewById(R.id.Request).setOnClickListener(this);
         findViewById(R.id.reject).setOnClickListener(this);
          textViewName = findViewById(R.id.EvName);
-         textViewEmail = findViewById(R.id.aprove);
-         textViewApprovalID = findViewById(R.id.OrgName);
+         textViewEmail = findViewById(R.id.OrgName);
+         textViewApprovalID = findViewById(R.id.aprove);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
