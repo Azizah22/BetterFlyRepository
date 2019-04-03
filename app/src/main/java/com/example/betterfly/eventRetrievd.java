@@ -7,14 +7,15 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -50,14 +51,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class eventRetrievd extends AppCompatActivity {
+public class eventRetrievd extends AppCompatActivity  implements View.OnClickListener{
 
-    private ListView listView;
+     ListView listView;
     DatabaseReference databaseReference;
     public  List<event>eventList;
     public List<String>eventsName;
     MaterialSearchView searchView ;
     int h,pre;
+    SearchView searchView;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -92,18 +94,21 @@ public class eventRetrievd extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Search for events");
-        toolbar.setTitleTextColor(Color.parseColor("#708090"));
 
-        searchView = (MaterialSearchView)findViewById(R.id.search_view);
-        listView=findViewById(R.id.list_view);
-        databaseReference= FirebaseDatabase.getInstance().getReference().child("Events");
+            getSupportActionBar().setTitle("Search");
+            toolbar.setTitleTextColor(Color.parseColor("#708090"));
 
-        eventList=new ArrayList<event>();
-        eventsName= new ArrayList<String>();
+        searchView = findViewById(R.id.search_view);
+        listView = findViewById(R.id.list_view);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Events");
+        searchView.setQueryHint("Search..");
+        eventList = new ArrayList<event>();
+        eventsName = new ArrayList<String>();
 
+       // toolbar.setOnClickListener(this);
+        searchView.onActionViewCollapsed();
 
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
@@ -118,7 +123,7 @@ public class eventRetrievd extends AppCompatActivity {
                     event eventObj = eventSnapshot.getValue(event.class);
                     if(eventList.contains(eventObj) || eventObj.date.getTime()<System.currentTimeMillis() )
                         continue;
-                    else{
+                    else {
                         eventList.add(eventObj);
                         eventsName.add(eventObj.name);
                     }
@@ -128,6 +133,7 @@ public class eventRetrievd extends AppCompatActivity {
                 listView.setAdapter(eventinfoAdaptor);
 
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -157,33 +163,34 @@ public class eventRetrievd extends AppCompatActivity {
 
 
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
-            public void onSearchViewShown() {
-
-                eventinfoAdaptorv eventinfoAdaptor = new eventinfoAdaptorv(eventRetrievd.this, eventList);
-                listView.setAdapter(eventinfoAdaptor);
-            }
-
-            @Override
-            public void onSearchViewClosed() {
-
-                eventinfoAdaptorv eventinfoAdaptor = new eventinfoAdaptorv(eventRetrievd.this, eventList);
-                listView.setAdapter(eventinfoAdaptor);
-
-            }
-        });
-
-        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-            @Override
             public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
+                List<event> list;
+                if (query != null && !query.isEmpty()) {
+                    list = new ArrayList<event>();
+                    for (int i = 0; i < eventList.size(); i++) {
+
+                        if (eventList.get(i).name.contains(query))
+                            list.add(eventList.get(i));
+                    }
+
+                    eventinfoAdaptorv eventinfoAdaptor = new eventinfoAdaptorv(eventRetrievd.this, list);
+                    listView.setAdapter(eventinfoAdaptor);
+                }
+
+                return true;
+                }
 
             @Override
             public boolean onQueryTextChange(String newText) {
+              //  getSupportActionBar().setTitle("");
+                List<event> list;
                 if (newText != null && !newText.isEmpty()) {
-                    List<event> list = new ArrayList<event>();
+                 list  = new ArrayList<event>();
                     for (int i =0 ; i <eventList.size() ; i++) {
 
                         if (eventList.get(i).name.contains(newText))
@@ -195,9 +202,12 @@ public class eventRetrievd extends AppCompatActivity {
 
 
 
+
+
+
                 }
                 else{
-                    ArrayAdapter adapter = new ArrayAdapter(eventRetrievd.this, android.R.layout.simple_list_item_1,eventsName );
+                    eventinfoAdaptorv adapter = new eventinfoAdaptorv(eventRetrievd.this, eventList);
                     listView.setAdapter(adapter);
                 }
 
@@ -206,7 +216,10 @@ public class eventRetrievd extends AppCompatActivity {
 
         });
 
+
     }
+
+
 
     public void buclick(){
 
@@ -247,11 +260,10 @@ public class eventRetrievd extends AppCompatActivity {
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_item,menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        searchView.setMenuItem(item);
-        return true;
+    public void onClick(View view) {
+        switch (view.getId()) {
+
+        }
     }
 
 

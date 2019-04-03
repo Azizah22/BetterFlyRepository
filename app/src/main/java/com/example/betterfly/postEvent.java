@@ -1,10 +1,16 @@
 package com.example.betterfly;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -230,6 +236,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
                     databaseEvents.child(id + name).child("emails").setValue(emails);
                     if (task.isSuccessful()) {
                         Toast.makeText(postEvent.this, "Event posted", Toast.LENGTH_LONG).show();
+
                         finish();
                         startActivity(new Intent(postEvent.this, OrgProcessActivity.class));
                     } else {
