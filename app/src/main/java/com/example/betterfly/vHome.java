@@ -32,7 +32,7 @@ import java.util.Locale;
 
 public class vHome extends AppCompatActivity implements View.OnClickListener {
 
-    int h=9;
+    int h=0,pre=0;
     TextView TextViewName,TextViewHours;
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,11 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     String name=dataSnapshot.child("name").getValue().toString();
                     String ch= dataSnapshot.child("hours").getValue().toString();
+                    String pch= dataSnapshot.child("preHours").getValue().toString();
+
                     h=Integer.parseInt(ch);
+                    pre=Integer.parseInt(pch);
+
                     TextViewName.setText(name);
                     TextViewHours.setText("Your Total Volunteering Hours is "+h);
                     changeLevel();}
@@ -60,7 +64,6 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-
 
             });
 

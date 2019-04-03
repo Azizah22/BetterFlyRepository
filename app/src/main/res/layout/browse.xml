@@ -32,14 +32,14 @@
 
     <ListView
         android:id="@+id/list_view"
-        android:layout_width="match_parent"
-        android:layout_height="750dp"
-        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="0dp"
         android:fastScrollAlwaysVisible="true"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/search_view"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp">
 
@@ -61,6 +61,19 @@
         android:layout_marginBottom="-1dp"
         android:background="@color/colorPrimary"
         app:menu="@menu/menu_vnavigation" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/acme"
+        android:text="Events:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp" />
 
 </RelativeLayout>
 
