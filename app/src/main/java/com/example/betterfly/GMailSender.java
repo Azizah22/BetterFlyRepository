@@ -1,38 +1,34 @@
 package com.example.betterfly;
+import android.util.Log;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.security.Security;
-import java.util.List;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import android.app.AlertDialog.Builder;
-import android.util.Log;
 
-public class GMail extends javax.mail.Authenticator {
+public class GMailSender extends javax.mail.Authenticator {
     private String mailhost = "smtp.gmail.com";
     private String user;
     private String password;
     private Session session;
 
     static {
-        Security.addProvider(new com.example.betterfly.JSSEProvider());
+        Security.addProvider(new JSSEProvider());
     }
 
-    public GMail(String user, String password) {
+    public GMailSender(String user, String password) {
         this.user = user;
         this.password = password;
 
@@ -67,7 +63,7 @@ public class GMail extends javax.mail.Authenticator {
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
             Transport.send(message);
         }catch(Exception e){
-
+            Log.d("mylog", "Error in sending: " + e.toString());
         }
     }
 

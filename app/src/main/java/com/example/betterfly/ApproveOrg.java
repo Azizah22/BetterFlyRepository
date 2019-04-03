@@ -3,14 +3,10 @@ package com.example.betterfly;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.ActivityNotFoundException;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,22 +15,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.EmailAuthProvider;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.List;
-
-import static java.net.Proxy.Type.HTTP;
 
 
 public class ApproveOrg extends AppCompatActivity implements View.OnClickListener {
@@ -104,10 +87,10 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
 
 
                         FirebaseDatabase.getInstance().getReference("Organization").child(orgID).setValue(organization);
-                     sendEmail("Congratulations your request have been accepted");
+                     sendEmail(organization.name,"Congratulations your request have been accepted",organization.email);
 
                        Toast.makeText(ApproveOrg.this, "The organization has been accepted successfully", Toast.LENGTH_SHORT).show();
-                        //finish();
+                        startActivity(new Intent(this, dataRetrieved.class));
                         buclick();
 
                         break;
@@ -116,7 +99,7 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
                         DatabaseReference orgRef = FirebaseDatabase.getInstance().getReference("Organization").child(orgID);
                         orgRef.removeValue();
 
-                        sendEmail("Sorry to inform you that your request has been rejected. If you have any complains please contact us with this email");
+                        sendEmail(organization.name,"Sorry to inform you that your request has been rejected. If you have any complains please contact us with this email",organization.email);
 
                         Toast.makeText(ApproveOrg.this, "The organization has been deleted successfully", Toast.LENGTH_SHORT).show();
 
@@ -136,9 +119,20 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
         }
 
 
-    protected void sendEmail(String msg) {
+   /* protected void sendEmail(String msg) {
+        try {
+            GMail sender = new GMail("raghoosh3@gmail.com", "raghad1997");
+            sender.sendMail("About your registration request",
+                    msg,
+                    "raghoosh3@gmail.com",
+                    organization.email);
+        } catch (Exception e) {
+            Log.e("SendMail", e.getMessage(), e);
+        }
 
-     Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+    }
+
+    /* Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
 
         String[] recipients = new String[]{organization.email, "",};
 
@@ -154,11 +148,40 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
 
 
 
-       Toast.makeText(ApproveOrg.this, "Waiting ....", Toast.LENGTH_SHORT).show();
+       Toast.makeText(ApproveOrg.this, "Waiting ....", Toast.LENGTH_SHORT).show();*/
 
+
+
+    public void sendEmail(String name, String msg, final String email)
+    {
+        final String text = "Hello, "
+                + name+"\n"+msg;
+
+
+        final ProgressDialog dialog2 = new ProgressDialog(ApproveOrg.this);
+        dialog2.setTitle("Sending Email");
+        dialog2.setMessage("Please wait");
+        dialog2.show();
+        Thread sender = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    GMailSender sender = new GMailSender("betterflyplatform@gmail.com", "betterfly2019");
+                    sender.sendMail("About your registration request",
+                            text,
+                            "betterflyplatform@gmail.com",
+                            email); //Uploader of the book recieves the email
+                    dialog2.dismiss();
+                } catch (Exception e) {
+                    Log.e("mylog", "Error: " + e.getMessage());
+                }
+            }
+        });
+        sender.start();
+        dialog2.dismiss();
+
+        Toast.makeText(ApproveOrg.this,"Email successfully sent to student",Toast.LENGTH_LONG).show();
     }
-
-
 
 
     public void buclick(){
@@ -184,31 +207,6 @@ public class ApproveOrg extends AppCompatActivity implements View.OnClickListene
 
 
 
-
-    protected void sendEmailaccept() {
-
-        Toast.makeText(ApproveOrg.this, "Waiting ....", Toast.LENGTH_SHORT).show();
-
-        try {
-            Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-
-            String[] recipients = new String[]{organization.email, "",};
-
-            emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, recipients);
-
-            emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "About your registration request");
-
-            emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Congratulations your request have been accepted ");
-
-            emailIntent.setType("text/plain");
-
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-        }
-        catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(ApproveOrg.this,
-                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
-        }
-    }
 
 
     private void createNotificationChannel() {

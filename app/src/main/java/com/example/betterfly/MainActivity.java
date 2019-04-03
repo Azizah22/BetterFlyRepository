@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
 
-                    if(email.equals("raghoosh3@gmail.com")) {
+                    if(email.equals("betterflyplatform@gmail.com")) {
                         finish();
                         Intent intent = new Intent(MainActivity.this, dataRetrieved.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

@@ -79,7 +79,7 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
         textViewLoc = findViewById(R.id.loc);
         textViewDate = findViewById(R.id.date);
         textViewVolunteerNum = findViewById(R.id.VolNum);
-        textViewCH = findViewById(R.id.chNum);
+       // textViewCH = findViewById(R.id.chNum);
         ReqButton= findViewById(R.id.vReq);
         ReqButton.setOnClickListener(this);
 
@@ -98,7 +98,7 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
             location =(String) bundle.get("location");
             des= (String) bundle.get("description");
             id= (String) bundle.get("id");
-            ch = (int) bundle.get("Credit Hours");
+          //  ch = (int) bundle.get("Credit Hours");
 
 
             textViewEventName.setText(eventName);
@@ -106,7 +106,7 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
             textViewLoc.setText(location);
             textViewDate.setText(date);
             textViewVolunteerNum.setText(String.valueOf(nov));
-            textViewCH.setText(String.valueOf(ch));
+          //  textViewCH.setText(String.valueOf(ch));
 
         }
 
