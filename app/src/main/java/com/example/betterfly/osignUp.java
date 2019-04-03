@@ -64,7 +64,7 @@ public class osignUp extends AppCompatActivity implements View.OnClickListener {
         final String name = editTextName.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
         String repaetPassword = editTextRepeatPassword.getText().toString().trim();
-        final String approvalId = editTextIdApproval.getText().toString().trim();
+         final String approvalId = editTextIdApproval.getText().toString().trim();
 
 
 

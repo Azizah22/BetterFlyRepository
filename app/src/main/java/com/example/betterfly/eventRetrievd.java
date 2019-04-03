@@ -2,11 +2,17 @@ package com.example.betterfly;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,24 +26,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -57,9 +47,8 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
     DatabaseReference databaseReference;
     public  List<event>eventList;
     public List<String>eventsName;
-    MaterialSearchView searchView ;
-    int h,pre;
     SearchView searchView;
+    int h,pre;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -69,12 +58,14 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
             switch (item.getItemId()) {
                 case R.id.home:
                     startActivity(new Intent(eventRetrievd.this,eventRetrievd.class));
+                    finish();
 
                     return true;
 
                 case R.id.profile:
 
                     startActivity(new Intent(eventRetrievd.this, vHome.class));
+                    finish();
 
                     return true;
 
@@ -121,7 +112,7 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
                 for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
 
                     event eventObj = eventSnapshot.getValue(event.class);
-                    if(eventList.contains(eventObj) || eventObj.date.getTime()<System.currentTimeMillis() )
+                    if (eventList.contains(eventObj)||eventObj.date.getTime()<System.currentTimeMillis())
                         continue;
                     else {
                         eventList.add(eventObj);
@@ -138,11 +129,13 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
         });
+
+
         reference.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String name=dataSnapshot.child("name").getValue().toString();
                 String ch= dataSnapshot.child("hours").getValue().toString();
                 String pch= dataSnapshot.child("preHours").getValue().toString();
                 h=Integer.parseInt(ch);
@@ -152,7 +145,7 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
                     buclick();
                 }
 
-               }
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -163,10 +156,8 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
 
 
 
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-
-        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 List<event> list;
@@ -219,8 +210,6 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
 
     }
 
-
-
     public void buclick(){
 
         Intent intent = new Intent(this, eventRetrievd.class);
@@ -257,7 +246,6 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
             notificationManager.createNotificationChannel(channel);
         }
     }
-
 
     @Override
     public void onClick(View view) {
