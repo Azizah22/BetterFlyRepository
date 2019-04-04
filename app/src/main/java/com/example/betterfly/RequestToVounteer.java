@@ -128,9 +128,9 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
         Withdraw = findViewById(R.id.withdraw);
         Withdraw.setOnClickListener(this);
          userV=FirebaseAuth.getInstance().getCurrentUser();
-        String userid=userV.getUid();
+        String userEmail=user.getEmail().substring(0,user.getEmail().indexOf('@'));
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Volunteer");
-        reference.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.child(userEmail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

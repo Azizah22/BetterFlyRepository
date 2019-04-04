@@ -41,12 +41,12 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
 
             FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
             assert user != null;
-            String userid=user.getUid();
+            String userEmail=user.getEmail().substring(0,user.getEmail().indexOf('@'));
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Volunteer");
             TextViewName = findViewById(R.id.textViewName);
             TextViewHours = findViewById(R.id.textViewHours);
             findViewById(R.id.coloring).setOnClickListener(this);
-            reference.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+            reference.child(userEmail).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     String name=dataSnapshot.child("name").getValue().toString();

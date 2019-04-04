@@ -103,7 +103,7 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
 
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
-        String userid=user.getUid();
+        String userEmail=user.getEmail().substring(0,user.getEmail().indexOf('@'));
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Volunteer");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -133,13 +133,12 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
         });
 
 
-        reference.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.child(userEmail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String ch= dataSnapshot.child("hours").getValue().toString();
-                String pch= dataSnapshot.child("preHours").getValue().toString();
-                h=Integer.parseInt(ch);
-                pre=Integer.parseInt(pch);
+                Volunteer v=  dataSnapshot.getValue(Volunteer.class);
+                h=v.hours;
+                pre=v.preHours;
 
                 if(pre < h){
                     buclick();
@@ -153,8 +152,6 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
             }
 
         });
-
-
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

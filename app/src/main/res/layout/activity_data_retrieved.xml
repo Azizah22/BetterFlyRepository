@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".dataRetrieved">
 
-    <TextView
+    <Button
         android:id="@+id/signOut"
         android:layout_width="45dp"
         android:layout_height="46dp"
