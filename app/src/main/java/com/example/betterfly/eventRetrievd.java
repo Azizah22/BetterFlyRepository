@@ -43,7 +43,7 @@ import java.util.List;
 
 public class eventRetrievd extends AppCompatActivity  implements View.OnClickListener{
 
-     ListView listView;
+    ListView listView;
     DatabaseReference databaseReference;
     public  List<event>eventList;
     public List<String>eventsName;
@@ -85,11 +85,11 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-            getSupportActionBar().setTitle("Search");
-            toolbar.setTitleTextColor(Color.parseColor("#708090"));
+        getSupportActionBar().setTitle("Search");
+        toolbar.setTitleTextColor(Color.parseColor("#708090"));
 
         searchView = findViewById(R.id.search_view);
         listView = findViewById(R.id.list_view);
@@ -98,7 +98,7 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
         eventList = new ArrayList<event>();
         eventsName = new ArrayList<String>();
 
-       // toolbar.setOnClickListener(this);
+        // toolbar.setOnClickListener(this);
         searchView.onActionViewCollapsed();
 
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
@@ -174,14 +174,14 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
                 }
 
                 return true;
-                }
+            }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-              //  getSupportActionBar().setTitle("");
+                //  getSupportActionBar().setTitle("");
                 List<event> list;
                 if (newText != null && !newText.isEmpty()) {
-                 list  = new ArrayList<event>();
+                    list  = new ArrayList<event>();
                     for (int i =0 ; i <eventList.size() ; i++) {
 
                         if (eventList.get(i).name.contains(newText))
@@ -190,10 +190,6 @@ public class eventRetrievd extends AppCompatActivity  implements View.OnClickLis
 
                     eventinfoAdaptorv eventinfoAdaptor = new eventinfoAdaptorv(eventRetrievd.this, list);
                     listView.setAdapter(eventinfoAdaptor);
-
-
-
-
 
 
                 }

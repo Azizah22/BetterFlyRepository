@@ -12,22 +12,6 @@
     tools:context=".postEvent">
 
 
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/navigation"
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:layout_gravity="bottom"
-            app:itemBackground="@color/colorPrimary"
-            app:menu="@menu/menu_mnavigation" />
-
-
-    </android.support.design.widget.CoordinatorLayout>
-
     <EditText
         android:id="@+id/name"
         android:layout_width="wrap_content"
@@ -127,8 +111,8 @@
         android:id="@+id/DoB"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
         android:background="@drawable/dob"
         android:ems="10"
         android:hint="Event start date"
@@ -136,8 +120,7 @@
         android:paddingLeft="40dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/cale"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/note"
         tools:ignore="MissingConstraints" />
 
@@ -145,11 +128,11 @@
         android:id="@+id/cale"
         android:layout_width="45dp"
         android:layout_height="42dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="8dp"
         android:adjustViewBounds="false"
         android:tint="@color/bluesh1"
         app:layout_constraintBottom_toBottomOf="@+id/DoB"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/DoB"
         app:layout_constraintTop_toTopOf="@+id/DoB"
         app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 

@@ -1,26 +1,16 @@
 package com.example.betterfly;
 
 import android.app.DatePickerDialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.Patterns;
-import android.view.KeyEvent;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -59,31 +49,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
     FirebaseAuth mAuth;
     DatabaseReference databaseEvents;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.home:
-                    startActivity(new Intent(postEvent.this,OrgProcessActivity.class));
-
-                    return true;
-
-                case R.id.post:
-                    startActivity(new Intent(postEvent.this, postEvent.class));
-
-                    return true;
-
-                case R.id.logout:
-                    FirebaseAuth.getInstance().signOut();
-                    startActivity(new Intent(postEvent.this, MainActivity.class));
-                    finish();
-                    return true;
-            }
-            return false;
-        }
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,8 +66,6 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
         databaseEvents = FirebaseDatabase.getInstance().getReference("Events");
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         findViewById(R.id.post).setOnClickListener(this);
         editTextDoB.setOnClickListener(new View.OnClickListener() {
@@ -214,7 +178,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
             }
             if (h<1 || h >8) {
-                EditTextch.setError("Number of volunteers should be between 1-8");
+                EditTextch.setError("Number of hours should be between 1-8");
                 EditTextch.requestFocus();
             }
 
@@ -246,4 +210,5 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             });
         }
     }
+
 }

@@ -12,7 +12,7 @@ public class event implements Serializable {
         protected ArrayList<String> emails;
 
 
-        int nov, counter = 0,x,y;
+        int nov, counter = 0;
 
         public event() {
         }
@@ -30,13 +30,7 @@ public class event implements Serializable {
 
         }
 
-    public void setX(int x) {
-        this.x = x;
-    }
 
-    public void setY(int y) {
-        this.y = y;
-    }
 
     public int getNov() {
             return nov;
