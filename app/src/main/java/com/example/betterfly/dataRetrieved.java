@@ -21,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.betterfly.R.id.signOut;
+
 public class dataRetrieved extends AppCompatActivity implements View.OnClickListener {
 
     private ListView listView;
@@ -42,7 +44,7 @@ public class dataRetrieved extends AppCompatActivity implements View.OnClickList
 
         organizationList=new ArrayList<Organization>();
 
-        findViewById(R.id.signOut).setOnClickListener(this);
+        findViewById(signOut).setOnClickListener(this);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -75,7 +77,7 @@ public class dataRetrieved extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.signOut:
+            case signOut:
                 FirebaseAuth.getInstance().signOut();
                 finish();
                 startActivity(new Intent(this, MainActivity.class));

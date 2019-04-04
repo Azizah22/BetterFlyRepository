@@ -70,7 +70,7 @@ public class RequestToVounteer extends AppCompatActivity  implements View.OnClic
 
 
 
-        findViewById(R.id.backbtn).setOnClickListener(this);
+        //findViewById(R.id.backbtn).setOnClickListener(this);
        // findViewById(R.id.Request).setOnClickListener(this);
 
         textViewEventName = findViewById(R.id.EvName);

@@ -16,18 +16,23 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <com.miguelcatalan.materialsearchview.MaterialSearchView
+    <android.widget.SearchView
         android:id="@+id/search_view"
-        android:layout_width="match_parent"
+        android:layout_width="298dp"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="113dp"
+        android:textColor="#708090"
+        android:textColorHint="#708090"
         app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
-        app:searchBackground="@color/lightslategray"
+        app:searchBackground="@color/bluesh"
         app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
-        app:searchSuggestionBackground="@color/white">
+        app:searchSuggestionBackground="@color/white"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
-    </com.miguelcatalan.materialsearchview.MaterialSearchView>
+    </android.widget.SearchView>
+
+
 
 
     <ListView
