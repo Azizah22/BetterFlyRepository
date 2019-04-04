@@ -20,8 +20,8 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="94dp"
-                android:layout_height="73dp"
+                android:layout_width="111dp"
+                android:layout_height="64dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -30,25 +30,27 @@
 
             <TextView
                 android:id="@+id/orgName"
-                android:layout_width="298dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="32dp"
                 android:fontFamily="@font/acme"
-                android:text="Name"
                 android:paddingLeft="8dp"
-                android:textSize="32sp"
+                android:text="Name"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/orgStatus"
-                android:layout_width="300dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
                 android:fontFamily="@font/acme"
-                android:text="Status"
                 android:paddingLeft="8dp"
-                android:textSize="28sp"
+                android:text="Status"
+                android:textSize="18sp"
                 android:textStyle="italic"
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
                 app:layout_constraintTop_toBottomOf="@+id/orgName" />

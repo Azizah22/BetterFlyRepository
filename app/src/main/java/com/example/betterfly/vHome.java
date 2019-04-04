@@ -32,7 +32,7 @@ import java.util.Locale;
 
 public class vHome extends AppCompatActivity implements View.OnClickListener {
 
-    int h=9;
+    int h=0,pre=0;
     TextView TextViewName,TextViewHours;
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,11 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     String name=dataSnapshot.child("name").getValue().toString();
                     String ch= dataSnapshot.child("hours").getValue().toString();
+                    String pch= dataSnapshot.child("preHours").getValue().toString();
+
                     h=Integer.parseInt(ch);
+                    pre=Integer.parseInt(pch);
+
                     TextViewName.setText(name);
                     TextViewHours.setText("Your Total Volunteering Hours is "+h);
                     changeLevel();}
@@ -60,7 +64,6 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-
 
             });
 
@@ -120,13 +123,11 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
             switch (item.getItemId()) {
                 case R.id.home:
                     startActivity(new Intent(vHome.this,eventRetrievd.class));
-                    finish();
 
                     return true;
 
                 case R.id.profile:
                     startActivity(new Intent(vHome.this, vHome.class));
-                    finish();
 
                     return true;
 
@@ -139,17 +140,5 @@ public class vHome extends AppCompatActivity implements View.OnClickListener {
             return false;
         }
     };
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            return true;
-        }
-        return false;
-    }
+
 }

@@ -4,16 +4,14 @@ import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.Patterns;
-import android.view.KeyEvent;
+
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -51,6 +49,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
     FirebaseAuth mAuth;
     DatabaseReference databaseEvents;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +66,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
         databaseEvents = FirebaseDatabase.getInstance().getReference("Events");
 
+
         findViewById(R.id.post).setOnClickListener(this);
         editTextDoB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +80,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
                         android.R.style.Theme_Holo_Dialog_MinWidth,
                         datePickerDoB,
                         year, month, day);
-                dialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+                dialog.getDatePicker().setMinDate(System.currentTimeMillis() + 1000);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
 
@@ -178,7 +178,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
 
             }
             if (h<1 || h >8) {
-                EditTextch.setError("Number of volunteers should be between 1-8");
+                EditTextch.setError("Number of hours should be between 1-8");
                 EditTextch.requestFocus();
             }
 
@@ -200,6 +200,7 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
                     databaseEvents.child(id + name).child("emails").setValue(emails);
                     if (task.isSuccessful()) {
                         Toast.makeText(postEvent.this, "Event posted", Toast.LENGTH_LONG).show();
+
                         finish();
                         startActivity(new Intent(postEvent.this, OrgProcessActivity.class));
                     } else {
@@ -209,4 +210,5 @@ public class postEvent extends AppCompatActivity implements View.OnClickListener
             });
         }
     }
+
 }

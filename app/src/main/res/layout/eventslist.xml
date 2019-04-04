@@ -11,19 +11,19 @@
     <android.support.constraint.ConstraintLayout
 
         android:layout_width="wrap_content"
-        android:layout_height="140sp">
+        android:layout_height="wrap_content">
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="400sp"
-            android:layout_height="90sp"
-            android:layout_marginLeft="88dp"
+            android:layout_width="366dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/round_layout"
             android:backgroundTint="@color/important"
             android:fadingEdge="horizontal|vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -43,8 +43,8 @@
                 android:id="@+id/eventName"
                 android:layout_width="148sp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
                 android:text="Name"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="20sp"
@@ -59,12 +59,13 @@
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:text=">"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="45sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toEndOf="@+id/eventName"
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
