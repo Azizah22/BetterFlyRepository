@@ -191,8 +191,9 @@ public class vsignUp extends AppCompatActivity implements View.OnClickListener {
 
                     );
 
+
                     FirebaseDatabase.getInstance().getReference("Volunteer")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .child(email.substring(0,email.indexOf('@')))
                             .setValue(volUser).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                         @Override

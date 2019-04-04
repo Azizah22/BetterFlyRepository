@@ -69,18 +69,18 @@ public class viewVolunteers extends AppCompatActivity implements View.OnClickLis
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot volunteerSnapshot : dataSnapshot.getChildren()) {
-                        String email = volunteerSnapshot.child("email").getValue().toString();
-                        if (emails.contains(email)) {
-                            Volunteer volunteer = volunteerSnapshot.getValue(Volunteer.class);
-                            if (VolunteerList.contains(volunteer))
-                                continue;
+                            String email = volunteerSnapshot.child("email").getValue().toString();
+                            if (emails.contains(email)) {
+                                Volunteer volunteer = volunteerSnapshot.getValue(Volunteer.class);
+                                if (VolunteerList.contains(volunteer))
+                                    continue;
 
-                            else
-                                VolunteerList.add(volunteer);
+                                else
+                                    VolunteerList.add(volunteer);
 
-                        }
+                            }
                     }
-                    volunteerInfoAdaptor volunteerinfoAdaptor = new volunteerInfoAdaptor(viewVolunteers.this, VolunteerList);
+                    volunteerInfoAdaptor volunteerinfoAdaptor = new volunteerInfoAdaptor(viewVolunteers.this, VolunteerList ,event1);
                     listView.setAdapter(volunteerinfoAdaptor);
 
                 }
